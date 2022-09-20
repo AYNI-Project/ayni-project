@@ -5,6 +5,12 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+<<<<<<< HEAD
+=======
+    "@fontsource/montez": "^4.5.9",
+    "@fontsource/poppins": "^4.5.9",
+    "@mui/icons-material": "^5.10.3",
+>>>>>>> e4c8d39f9b7698ac87a184ce18dab81d8d7d2d22
     "@mui/material": "^5.10.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
