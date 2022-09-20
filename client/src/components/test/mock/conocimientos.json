@@ -1,0 +1,91 @@
+[{
+    "id_usuario_conocimiento":1,
+    "titulo":"Clase de fotografia",
+    "usuario_id":1,
+    "estado_conocimiento":"",
+    "descripcion":"blablabla",
+    "foto":"",
+    "categoria_id":6
+},
+{
+    "id_usuario_conocimiento":2,
+    "titulo":"",
+    "usuario_id":1,
+    "estado_conocimiento":"",
+    "descripcion":"blablabla",
+    "foto":"",
+    "categoria_id":5
+},
+{
+    "id_usuario_conocimiento":3,
+    "titulo":"",
+    "usuario_id":1,
+    "estado_conocimiento":"",
+    "descripcion":"blablabla",
+    "foto":"",
+    "categoria_id":4
+},
+{
+    "id_usuario_conocimiento":4,
+    "titulo":"",
+    "usuario_id":1,
+    "estado_conocimiento":"",
+    "descripcion":"blablabla",
+    "foto":"",
+    "categoria_id":3
+},
+{
+    "id_usuario_conocimiento":5,
+    "titulo":"",
+    "usuario_id":1,
+    "estado_conocimiento":"",
+    "descripcion":"blablabla",
+    "foto":"",
+    "categoria_id":1
+},
+{
+    "id_usuario_conocimiento":6,
+    "titulo":"",
+    "usuario_id":1,
+    "estado_conocimiento":"",
+    "descripcion":"blablabla",
+    "foto":"",
+    "categoria_id":2
+},
+{
+    "id_usuario_conocimiento":7,
+    "titulo":"",
+    "usuario_id":1,
+    "estado_conocimiento":"",
+    "descripcion":"blablabla",
+    "foto":"",
+    "categoria_id":2
+},
+{
+    "id_usuario_conocimiento":8,
+    "titulo":"",
+    "usuario_id":1,
+    "estado_conocimiento":"",
+    "descripcion":"blablabla",
+    "foto":"",
+    "categoria_id":2
+},
+{
+    "id_usuario_conocimiento":9,
+    "titulo":"",
+    "usuario_id":6,
+    "estado_conocimiento":"",
+    "descripcion":"blablabla",
+    "foto":"",
+    "categoria_id":2
+},
+{
+    "id_usuario_conocimiento":10,
+    "titulo":"",
+    "usuario_id":10,
+    "estado_conocimiento":"",
+    "descripcion":"blablabla",
+    "foto":"",
+    "categoria_id":2
+}
+]

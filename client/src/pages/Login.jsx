@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
 import { Alert } from "../components/reusables/Alert";
+import { Box } from '@mui/system';
 
 export function Login() {
   const [user, setUser] = useState({
@@ -25,7 +26,7 @@ export function Login() {
     } catch (error) {
       console.log(error.code);
       if (error.code === "auth/internal-error") {
-        setError("Correo invalido");
+        setError("Correo inválido");
       }
       setError(error.message);
     }
@@ -41,7 +42,7 @@ export function Login() {
   };
 
   const handleResetPassword = async () => {
-    if (!user.email) return setError("Introduce tu correo electróninco.");
+    if (!user.email) return setError("Introduce tu correo electrónico.");
     try {
       await resetPassword(user.email);
       setError("Te hemos enviado un correo con un enlace para reestablecer tu contraseña.");
@@ -51,8 +52,9 @@ export function Login() {
   };
 
   return (
-    <div>
+    <Box>
       {error && <Alert message={error} />}
+      <h1>Inicia Sesión:</h1>
       <form
         onSubmit={handleSubmit}>
         <div>
@@ -96,13 +98,13 @@ export function Login() {
       </form>
 
       <p>
-        No tienes ninguna cuenta todavia? <Link to="/">Contacta tu admin</Link>
+        No tienes ninguna cuenta todavia? <Link to="/">Contacta con Factoria F5</Link>
       </p>
 
       <button
         onClick={handleGoogleSignIn}>
         Inicia sesión con Google
       </button>
-    </div>
+    </Box>
   );
 }
