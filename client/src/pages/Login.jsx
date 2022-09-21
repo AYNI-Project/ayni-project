@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
-import { Alert } from "../components/reusables/Alert";
+import Alert from "../components/reusables/Alert";
 import { Box } from '@mui/system';
 
 export default function Login() {
@@ -10,7 +10,7 @@ export default function Login() {
     password: "",
   });
 
-  const { login, loginWithGoogle, resetPassword } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState();
 
@@ -29,35 +29,19 @@ export default function Login() {
         setError("Correo inválido");
         if (error.code === "auth/wrong-password") {
           setError("Contraseña incorrecta");
+        }
+        if (error.code === "auth/user-not-found") {
+          setError("Este usuario no existe. Prueba con otro correo electrónico.");
+        }
       }
-      setError(error.message);
-    }
-  };
-}
-
-  const handleGoogleSignIn = async () => {
-    try {
-      await loginWithGoogle();
-      navigate("/");
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-
-  const handleResetPassword = async () => {
-    if (!user.email) return setError("Introduce tu correo electrónico.");
-    try {
-      await resetPassword(user.email);
-      setError("Te hemos enviado un correo con un enlace para reestablecer tu contraseña.");
-    } catch (error) {
-      setError(error.message);
-    }
-  };
+    };
+  }
 
   return (
     <Box>
+      <h1>¡Te damos la bienvenida a AYNI!</h1>
+      <h3>Inicia Sesión</h3>
       {error && <Alert message={error} />}
-      <h1>Inicia Sesión</h1>
       <form
         onSubmit={handleSubmit}>
         <div>
@@ -70,7 +54,7 @@ export default function Login() {
             name="email"
             placeholder="tuemail@empresa.ltd"
             onChange={handleChange}>
-            </input>
+          </input>
         </div>
 
         <div>
@@ -91,23 +75,15 @@ export default function Login() {
           <button>
             Inicia Sesión
           </button>
-          <a
-            href="#!"
-            onClick={handleResetPassword}
-          >
-            Has olvidado tu contraseña?
-          </a>
+
+          <Link to="/passwordreset">Has olvidado tu contraseña?</Link>
+
         </div>
       </form>
 
       <p>
         No tienes ninguna cuenta todavia? <Link to="/">Contacta con Factoria F5</Link>
       </p>
-
-      <button
-        onClick={handleGoogleSignIn}>
-        Inicia sesión con Google
-      </button>
     </Box>
   );
 }
