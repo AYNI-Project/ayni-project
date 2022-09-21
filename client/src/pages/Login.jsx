@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { Alert } from "../components/reusables/Alert";
 import { Box } from '@mui/system';
 
-export function Login() {
+export default function Login() {
   const [user, setUser] = useState({
     email: "",
     password: "",

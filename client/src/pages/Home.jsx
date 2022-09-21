@@ -6,7 +6,7 @@ import Promotions from "../components/promotions";
 import Products from "../components/products";
 import { Container, Typography, Box } from "@mui/material";
 
-export function Home() {
+export default function Home() {
 
   const { user, logout, loading } = useAuth();
 
