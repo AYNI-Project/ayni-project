@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { Alert } from "../components/reusables/Alert";
 import { Box } from '@mui/system';
 
-export function Login() {
+export default function Login() {
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -57,7 +57,8 @@ export function Login() {
   return (
     <Box>
       {error && <Alert message={error} />}
-      <h1>Inicia Sesión</h1>
+      <h3>Inicia Sesión</h3>
+      <h1>¡Te damos la bienvenida a AYNI!</h1>
       <form
         onSubmit={handleSubmit}>
         <div>
@@ -101,13 +102,7 @@ export function Login() {
       </form>
 
       <p>
-        No tienes ninguna cuenta todavia? <Link to="/">Contacta con Factoria F5</Link>
-      </p>
-
-      <button
-        onClick={handleGoogleSignIn}>
-        Inicia sesión con Google
-      </button>
+        No tienes ninguna cuenta todavia? <Link to="/">Contacta con Factori
     </Box>
   );
 }

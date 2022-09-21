@@ -10,7 +10,6 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <AuthProvider>
         <AppRoutes>
-
         </AppRoutes>
       </AuthProvider>
     </ThemeProvider>

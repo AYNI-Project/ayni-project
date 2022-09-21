@@ -3,7 +3,7 @@ import { useAuth } from "../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
 import { Alert } from "../components/reusables/Alert";
 
-export function Register() {
+export default function Register() {
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -106,9 +106,6 @@ export function Register() {
           Registrar
         </button>
       </form>
-      <p>
-        Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link>
-      </p>
     </div>
   );
 }
