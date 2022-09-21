@@ -27,10 +27,13 @@ export function Login() {
       console.log(error.code);
       if (error.code === "auth/internal-error") {
         setError("Correo inválido");
+        if (error.code === "auth/wrong-password") {
+          setError("Contraseña incorrecta");
       }
       setError(error.message);
     }
   };
+}
 
   const handleGoogleSignIn = async () => {
     try {
@@ -54,7 +57,7 @@ export function Login() {
   return (
     <Box>
       {error && <Alert message={error} />}
-      <h1>Inicia Sesión:</h1>
+      <h1>Inicia Sesión</h1>
       <form
         onSubmit={handleSubmit}>
         <div>

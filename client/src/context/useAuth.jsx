@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import {
-  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
   GoogleAuthProvider,
@@ -22,7 +22,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   const login = async (email, password) =>
-    await createUserWithEmailAndPassword(auth, email, password);
+    await signInWithEmailAndPassword(auth, email, password);
 
   const logout = () => signOut(auth);
 
