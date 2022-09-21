@@ -1,0 +1,17 @@
+[{ "id_categoria":1,
+"nombre": "programación"},
+{ "id_categoria":2,
+"nombre": "tecnologia"},
+{ "id_categoria":3,
+"nombre": "musica"},
+{ "id_categoria":4,
+"nombre": "idiomas"},
+{ "id_categoria":5,
+"nombre": "deporte"},
+{ "id_categoria":6,
+"nombre": "arte"},
+{ "id_categoria":7,
+"nombre": "cocina"},
+{ "id_categoria":8,
+"nombre": "más"}
+]
