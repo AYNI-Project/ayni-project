@@ -12,13 +12,11 @@ export default function Banner() {
     <BannerContainer sx={{ height: "600px"}} >
        
       <BannerContent >
-        
-        <Typography variant="h6"  > Unete a la comunidad</Typography>
-        <BannerTitle variant="h2" >Lorem ipsum</BannerTitle>
-        <BannerDescription variant="subtitle">Sabemos que lo que estas buscando, la comunidad lo tiene. Compartamos!        </BannerDescription>
-      
+        <Typography variant="h6"  > Te damos la bienvenida a </Typography>
+        <BannerTitle variant="h2" >AYNI</BannerTitle>
+        <BannerDescription variant="subtitle">Significa 'Reciprocidad'. <br></br> Compartamos conocimientos entre compañeros.<br></br>“Hoy por mí, mañana por ti.”</BannerDescription>
       </BannerContent>
-      <BannerImage src="./images/banner/exchange2.jpg" alt="fire hands"/>
+      <BannerImage src="./images/banner/post-sign.png" alt="poste con flechas apuntando hacia distintas direcciones"/>
      
       
     </BannerContainer>

@@ -8,8 +8,8 @@ import { useEffect, useState, useRef } from "react";
 
 const messages = [
     "Busca lo que necesitas",
-    "Conecta con tu truequeador",
-    "Comienza a truequear"
+    "Aprende sobre AYNI",
+    "Intercambia conocimientos"
 ];
 
 export default function Promotions() {
