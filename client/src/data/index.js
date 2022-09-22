@@ -37,6 +37,6 @@ export const products = [
     {
         id: 8,
         name: "Más",
-        image: "/images/products/nota-musical.png"
+        image: "/images/products/fast-forward.png"
     }
 ]

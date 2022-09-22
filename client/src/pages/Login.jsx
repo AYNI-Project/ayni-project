@@ -3,6 +3,7 @@ import { useAuth } from "../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
 import Alert from "../components/reusables/Alert";
 import { Box } from '@mui/system';
+// import {logo} from "../../public/images/banner/2.png";
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -40,6 +41,7 @@ export default function Login() {
   return (
     <Box>
       <h1>¡Te damos la bienvenida a AYNI!</h1>
+      {/* <img src={logo} alt="logo-ayni"></img> */}
       <h3>Inicia Sesión</h3>
       {error && <Alert message={error} />}
       <form
