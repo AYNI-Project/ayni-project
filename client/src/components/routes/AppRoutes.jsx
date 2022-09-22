@@ -29,7 +29,7 @@ export default function AppRoutes() {
                     <Register />
                 </ProtectedRouteAdmin>}
             />
-            <ProtectedRoute>
+            <Route path='/' element= {<ProtectedRoute>
                 <Route path="/" element= {<Home />}/>
                 <Route path="/favorites" element= {<Favorites />}/>
                 <Route path="/products" element= {<Product />}/>
@@ -37,9 +37,7 @@ export default function AppRoutes() {
                 <Route path="/detail" element= {<DetailProduct />}/>
                 <Route path="/chat" element= {<Chat />}/>
                 <Route path="/uploadProduct" element= {<UploadProduct />}/>
-
-
-            </ProtectedRoute>
+            </ProtectedRoute>}/>
         </Routes>
     )
 }
