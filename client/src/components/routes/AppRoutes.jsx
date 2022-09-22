@@ -38,7 +38,6 @@ export default function AppRoutes() {
                 <Route path="/chat" element= {<Chat />}/>
                 <Route path="/uploadProduct" element= {<UploadProduct />}/>
 
-
             </ProtectedRoute>
         </Routes>
     )
