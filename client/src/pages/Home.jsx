@@ -39,7 +39,7 @@ export default function Home() {
         </div>
         <Banner />
         <Promotions />
-        <Box display="flex" justifyContent={"center"} sx={{ p: 4 }}><Typography variant="h4"> ¿Qué quieres truequear? </Typography></Box>
+        <Box display="flex" justifyContent={"center"} sx={{ p: 4 }}><Typography variant="h4"> ¿Qué quieres intercambiar? </Typography></Box>
         <Products />
       </Container>
     </div>

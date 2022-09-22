@@ -2,7 +2,7 @@ export const products = [
     {
         id: 1,
         name: "Programación",
-        image: "/images/products/tecnologia.png"
+        image: "/images/products/laptop.png"
     },
     {
         id: 2,

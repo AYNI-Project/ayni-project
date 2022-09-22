@@ -34,7 +34,7 @@ export default function SingleProductDesktop ({product, matches}) {
             <ProductFavButton isfav={0}>
                 <FavoriteIcon />
             </ProductFavButton>
-                {showOption && <ProductAddToCart show={showOption} variant = "contained" >Chat</ProductAddToCart>}
+                {showOption && <ProductAddToCart show={showOption} variant = "contained" >Me interesa</ProductAddToCart>}
             
             <ProductActionsWrapper show={showOption}>
                 <Stack direction= "column">

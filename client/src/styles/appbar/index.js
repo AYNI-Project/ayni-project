@@ -29,8 +29,8 @@ export const LogoImage = styled("img")(({ src, theme }) => ({
     width: "350px",
   },
   [theme.breakpoints.down("sm")]: {
-    width: "320px",
-    height: "300px",
+    width: "200px",
+    height: "200px",
   },
 }));
 export const AppbarHeader = styled(Typography)(() => ({
@@ -40,7 +40,6 @@ export const AppbarHeader = styled(Typography)(() => ({
     color: Colors.secondary,
     fontFamily: '"Poppins"',
     fontWeight: 700,
-    
     }
   ));
 
@@ -48,13 +47,8 @@ export const AppbarHeader = styled(Typography)(() => ({
   export const MyList = styled(List)(({ type }) => ({
     display: type === "row" ? "flex" : "block",
     flexGrow: 3,
-   
-   
     alignItems: "center",
-   
-  
-  
-   
+    paddingLeft:"15rem",
 }));
 
 export const ActionIconsContainerDesktop = styled(Box)(() => ({
