@@ -14,15 +14,25 @@ export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState();
+  const [agree, setAgree] = useState(false);
 
   const handleChange = ({ target: { name, value } }) =>
     setUser({ ...user, [name]: value });
+
+    const checkboxHandler = () => {
+      setAgree(!agree);
+  };
+
+  const btnHandler = () => {
+    alert('Has aceptado los términos y condiciones. Te damos la bienvenida a AYNI.');
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
       await login(user.email, user.password);
+      setAgree(!agree);
       navigate("/");
     } catch (error) {
       console.log(error.code);
@@ -38,54 +48,63 @@ export default function Login() {
     };
   }
 
+
   return (
     <Box>
-      <h1>¡Te damos la bienvenida a AYNI!</h1>
-      {/* <img src={logo} alt="logo-ayni"></img> */}
-      <h3>Inicia Sesión</h3>
-      {error && <Alert message={error} />}
-      <form
-        onSubmit={handleSubmit}>
-        <div>
-          <label
-            htmlFor="email">
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            placeholder="tuemail@empresa.ltd"
-            onChange={handleChange}>
-          </input>
-        </div>
+      <Box>
+        <h1>AYNI</h1>
+        {/* <img src={logo} alt="logo-ayni"></img> */}
+        <h4>Entra y comienza a intercambiar con la comunidad de Factoria F5.</h4>
+      </Box>
+      <Box>
+        <h3>Inicia Sesión</h3>
+        {error && <Alert message={error} />}
+        <form
+          onSubmit={handleSubmit}>
+          <div>
+            <label
+              htmlFor="email">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="tuemail@empresa.ltd"
+              onChange={handleChange}>
+            </input>
+          </div>
 
-        <div>
-          <label
-            htmlFor="password">
-            Contraseña
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={handleChange}
-            placeholder="******"
-          ></input>
-        </div>
+          <div>
+            <label
+              htmlFor="password">
+              Contraseña
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onChange={handleChange}
+              placeholder="******"
+            ></input>
+            <Link to="/passwordreset">Has olvidado tu contraseña?</Link>
+          </div>
 
-        <div>
-          <button>
-            Inicia Sesión
-          </button>
+          <div className="terms-conditions">
+          <input type="checkbox" id="agree" onChange={checkboxHandler} />
+          <label htmlFor="agree"> Acepto los términos y condiciones.</label>
+          </div>
 
-          <Link to="/passwordreset">Has olvidado tu contraseña?</Link>
+          <div>
+            <button disabled={!agree} className="btn" onClick={btnHandler}>
+              Inicia Sesión
+            </button>
+          </div>
+        </form>
 
-        </div>
-      </form>
-
-      <p>
-        No tienes ninguna cuenta todavia? <Link to="/">Contacta con Factoria F5</Link>
-      </p>
+        <p>
+          No tienes cuenta todavía? <Link to="/">Contacta con Factoria F5</Link>
+        </p>
+      </Box>
     </Box>
   );
 }
