@@ -36,7 +36,7 @@ export const products = [
     },
     {
         id: 6,
-        name: "Más",
+        name: "Mas",
         price: 689.99,
         description: "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
         image: "/images/products/bag_06.png"
