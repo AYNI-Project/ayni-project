@@ -3,7 +3,6 @@ import { useAuth } from "../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
 import Alert from "../components/reusables/Alert";
 import { Box } from '@mui/system';
-// import {logo} from "../../public/images/banner/2.png";
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -23,9 +22,7 @@ export default function Login() {
       setAgree(!agree);
   };
 
-  const btnHandler = () => {
-    alert('Has aceptado los términos y condiciones. Te damos la bienvenida a AYNI.');
-  };
+  const btnHandler = () => {};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,8 +49,7 @@ export default function Login() {
   return (
     <Box>
       <Box>
-        <h1>AYNI</h1>
-        {/* <img src={logo} alt="logo-ayni"></img> */}
+      {/* <LogoImage src="./images/banner/2.png" alt="logo-Ayni" /> */}
         <h4>Entra y comienza a intercambiar con la comunidad de Factoria F5.</h4>
       </Box>
       <Box>
