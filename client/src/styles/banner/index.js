@@ -24,14 +24,13 @@ export const BannerContent = styled(Box)(() => ({
     maxWidth: 420,
     padding: "30px",
   }));
-
   
 export const BannerImage = styled("img")(({ src, theme }) => ({
     src: `url(${src})`,
     // backgroundImage: `url(${src})`,
     // backgroundRepeat: "no-repeat",
     // backgroundPosition: "center",
-    width: "500px",
+    height: "80%",
     [theme.breakpoints.down("md")]: {
       width: "350px",
     },

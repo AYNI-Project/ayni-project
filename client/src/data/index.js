@@ -2,43 +2,41 @@ export const products = [
     {
         id: 1,
         name: "Programación",
-        price: 129.99,
-        description: "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
-        image: "/images/products/bag_01.png"
+        image: "/images/products/tecnologia.png"
     },
     {
         id: 2,
-        name: "Arte",
-        price: 199.99,
-        description: "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
-        image: "/images/products/bag_02.png"
+        name: "Tecnologia",
+        image: "/images/products/tecnologia.png"
     },
     {
         id: 3,
-        name: "Deporte",
-        price: 189.99,
-        description: "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
-        image: "/images/products/bag_03.png"
+        name: "Música",
+        image: "/images/products/musica.png"
     },
     {
         id: 4,
-        name: "Teconologia",
-        price: 129.99,
-        description: "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
-        image: "/images/products/bag_04.png"
+        name: "Idiomas",
+        image: "/images/products/idiomas.png"
     },
     {
         id: 5,
-        name: "Cocina",
-        price: 399.99,
-        description: "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
-        image: "/images/products/bag_05.png"
+        name: "Deporte",
+        image: "/images/products/deporte.png"
     },
     {
         id: 6,
+        name: "Arte",
+        image: "/images/products/arte.png"
+    },
+    {
+        id: 7,
+        name: "Cocina",
+        image: "/images/products/cocina.png"
+    },
+    {
+        id: 8,
         name: "Más",
-        price: 689.99,
-        description: "Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo tempor incididunt ut labore et dolore magna",
-        image: "/images/products/bag_06.png"
+        image: "/images/products/nota-musical.png"
     }
 ]
