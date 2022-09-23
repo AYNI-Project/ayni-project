@@ -30,6 +30,9 @@ export default function Actions({ matches }) {
     const navigateToProfile = () => {
           navigate('/profile');
     };
+    const navigateToFavorite = () => {
+      navigate('/favorites');
+}
     
   return (
     <Component>
@@ -61,7 +64,7 @@ export default function Actions({ matches }) {
               color: matches && Colors.secondary,
             }}
           >
-            <FavoriteIcon />
+            <FavoriteIcon onClick={navigateToFavorite}/>
           </ListItemIcon>
         </ListItemButton>
 
