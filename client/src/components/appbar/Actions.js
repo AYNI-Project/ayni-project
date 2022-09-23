@@ -9,15 +9,28 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
 import "@fontsource/poppins";
-
 import { Colors } from "../../styles/theme";
+import { useAuth } from "../../context/useAuth";
+import {useNavigate } from 'react-router-dom';
 
 export default function Actions({ matches }) {
   const Component = matches
     ? ActionIconsContainerMobile
     : ActionIconsContainerDesktop;
-
+    
+    const navigate = useNavigate();
     const [open, setOpen] = useState (false)
+    const {user, logout} = useAuth()
+
+    const handleLogout = async () => {
+      try {
+        await logout();
+      } catch (error) {}
+    }
+    const navigateToProfile = () => {
+          navigate('/profile');
+    };
+    
   return (
     <Component>
       <MyList type="row">
@@ -79,9 +92,9 @@ export default function Actions({ matches }) {
           horizontal: 'right',
         }}
       >
-        <MenuItem >Profile</MenuItem>
-        <MenuItem >My account</MenuItem>
-        <MenuItem >Logout</MenuItem>
+        <MenuItem >Hola, {user.displayName || user.email}{" "}</MenuItem>
+        <MenuItem onClick={navigateToProfile}>Profile</MenuItem>
+        <MenuItem onClick={handleLogout} >Logout</MenuItem>
       </Menu>
           </ListItemIcon>
         </ListItemButton>
