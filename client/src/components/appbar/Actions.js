@@ -1,4 +1,4 @@
-import { ListItemButton, ListItemIcon,Menu, MenuItem } from "@mui/material";
+import { ListItemButton, ListItemIcon,Menu, MenuItem, Typography } from "@mui/material";
 import {
   ActionIconsContainerMobile,
   ActionIconsContainerDesktop,
@@ -95,7 +95,7 @@ export default function Actions({ matches }) {
           horizontal: 'right',
         }}
       >
-        <MenuItem >Hola, {user.displayName || user.email}{" "}</MenuItem>
+        <Typography variant="h6" >Hola, {user.displayName || user.email}{" "}</Typography>
         <MenuItem onClick={navigateToProfile}>Profile</MenuItem>
         <MenuItem onClick={handleLogout} >Logout</MenuItem>
       </Menu>
