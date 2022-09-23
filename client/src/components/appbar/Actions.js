@@ -1,9 +1,10 @@
-import { ListItemButton, ListItemIcon } from "@mui/material";
+import { ListItemButton, ListItemIcon,Menu, MenuItem } from "@mui/material";
 import {
   ActionIconsContainerMobile,
   ActionIconsContainerDesktop,
   MyList,
 } from "../../styles/appbar";
+import { useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
@@ -16,6 +17,7 @@ export default function Actions({ matches }) {
     ? ActionIconsContainerMobile
     : ActionIconsContainerDesktop;
 
+    const [open, setOpen] = useState (false)
   return (
     <Component>
       <MyList type="row">
@@ -62,7 +64,25 @@ export default function Actions({ matches }) {
               color: matches && Colors.secondary,
             }}
           >
-            <PersonIcon />
+            <PersonIcon onClick={e=>setOpen(true)} />
+            <Menu
+        id="demo-positioned-menu"
+        aria-labelledby="demo-positioned-button"
+        open={open}
+        onClose={e=>setOpen(false)}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+      >
+        <MenuItem >Profile</MenuItem>
+        <MenuItem >My account</MenuItem>
+        <MenuItem >Logout</MenuItem>
+      </Menu>
           </ListItemIcon>
         </ListItemButton>
       </MyList>
