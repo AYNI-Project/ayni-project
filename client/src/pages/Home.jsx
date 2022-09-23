@@ -25,6 +25,7 @@ export default function Home() {
   if (loading) return <h1>Cargando...</h1>;
 
   return (
+
     <div>
       <Container maxWidth="xl" sx={{ background: '#fff' }}>
         <Appbar />

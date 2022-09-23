@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useAuth } from "../context/useAuth";
+import { useAuth } from "../../context/useAuth";
 import { Link } from "react-router-dom";
-import Alert from "../components/reusables/Alert";
+import Alert from "../../components/reusables/Alert";
 import { Box } from '@mui/system';
 
 export default function ForgotPassword() {

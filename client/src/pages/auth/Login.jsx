@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { useAuth } from "../context/useAuth";
+import { useAuth } from "../../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
-import Alert from "../components/reusables/Alert";
+import Alert from "../../components/reusables/Alert";
 import { Box } from '@mui/system';
+import {LogoImage} from "../../styles/appbar/index";
+
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -49,7 +51,7 @@ export default function Login() {
   return (
     <Box>
       <Box>
-      {/* <LogoImage src="./images/banner/2.png" alt="logo-Ayni" /> */}
+      <LogoImage src="./images/banner/2.png" alt="logo-Ayni" />
         <h4>Entra y comienza a intercambiar con la comunidad de Factoria F5.</h4>
       </Box>
       <Box>

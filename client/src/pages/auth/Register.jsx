@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { useAuth } from "../context/useAuth";
-import { useNavigate} from "react-router-dom";
-import Alert from "../components/reusables/Alert";
+import { useAuth } from "../../context/useAuth";
+import { useNavigate } from "react-router-dom";
+import Alert from "../../components/reusables/Alert";
 
 export default function Register() {
   const [user, setUser] = useState({
     email: "",
     password: "",
+    name: "",
+    surname: "",
+    role: "",
   });
 
   const { signup } = useAuth();
@@ -20,12 +23,16 @@ export default function Register() {
     e.preventDefault();
     setError("");
     try {
-      await signup(user.email, user.password);
-      navigate("/");
-    } catch (error) {
+      await signup(user.email, user.password, user.name, user.surname, user.role);
+      // verifyEmail(user.email);
+      navigate('/');
+      // setTimeActive(true);
+      // navigate('/verify-email');
+    }
+    catch (error) {
       console.log(error.code);
       if (error.code === "auth/internal-error") {
-        setError("Correo invalido");
+        setError("Correo inválido");
         // }
         // if (error.code === "auth/email-already-in-use") {
         //   setError("Correo en uso. Prueba otro.");
@@ -100,6 +107,18 @@ export default function Register() {
             id="surname"
             placeholder="Apellidos"
           ></input>
+        </div>
+
+        <div>
+          <label
+            htmlFor="role"
+          >
+            Rol
+          </label>
+          <select id="role" name="role" onChange={handleChange}>
+            <option value="admin">Administrador</option>
+            <option value="user">Usuario</option>
+          </select>
         </div>
 
         <button>
