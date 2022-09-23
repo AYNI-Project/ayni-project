@@ -12,9 +12,7 @@ export const AppbarContainer = styled(Box)(() => ({
     marginTop: 4,
     justifyContent: 'center',
     alignItems: 'center',
-  
-    
-   
+
 }))
 
 // header
