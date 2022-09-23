@@ -17,8 +17,7 @@ export default function Banner() {
         <BannerDescription variant="subtitle">Significa 'Reciprocidad'. <br></br> Compartamos conocimientos entre compañeros.<br></br>“Hoy por mí, mañana por ti.”</BannerDescription>
       </BannerContent>
       <BannerImage src="./images/banner/post-sign.png" alt="poste con flechas apuntando hacia distintas direcciones"/>
-     
-      
+    
     </BannerContainer>
     
   )

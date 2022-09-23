@@ -1,6 +1,5 @@
 import { styled } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
-import { Colors } from "../theme";
 
 export const BannerContainer = styled(Box) (({theme}) => ({
     display: "flex",
@@ -13,8 +12,6 @@ export const BannerContainer = styled(Box) (({theme}) => ({
     flexDirection: "column",
     alignItems: "center",
   },
-
- 
 }));
 
 export const BannerContent = styled(Box)(() => ({

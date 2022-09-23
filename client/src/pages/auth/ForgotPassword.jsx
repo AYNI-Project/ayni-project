@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../context/useAuth";
 import { Link } from "react-router-dom";
 import Alert from "../../components/reusables/Alert";
-import { Box } from '@mui/system';
+import { View, LeftContent, RightContent, Subtitle, LogoAyni, LoginImage, ActiveButton, LoginForm, InputForm, FormDiv} from "../../styles/auth/index";
 
 export default function ForgotPassword() {
 
@@ -31,33 +31,33 @@ export default function ForgotPassword() {
   };
 
   return (
-    <>
-      <Box>
-        <h1>¿HAS OLVIDADO TU CONTRASEÑA?</h1>
+    <View>
+      <LeftContent>
+        <LogoAyni src="./images/banner/2.png" alt="logo-Ayni" />
+        <LoginImage src="./images/banner/post-sign.png" alt="poste con flechas apuntando hacia distintas direcciones" />
+      </LeftContent>
+      <RightContent>
+        <Subtitle>¿HAS OLVIDADO TU CONTRASEÑA?</Subtitle>
         {error && <Alert message={error} />}
-        <form>
-          <div>
-            <label
+        <LoginForm>
+        <FormDiv>
+            <label id="outlined-basic" label="Outlined" variant="outlined"
               htmlFor="email">
-              Email
+              Introduce tu correo electrónico:
             </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="tuemail@empresa.ltd"
-              onChange={handleChange}>
-            </input>
-          </div>
+            <InputForm id="email" type="email"
+              name="email" label="Email" variant="outlined" onChange={handleChange} />
+          </FormDiv>
 
           <div>
-            <button onClick={handleResetPassword}> Modificar contraseña </button>
+            <ActiveButton onClick={handleResetPassword}> Modificar contraseña </ActiveButton>
           </div>
-        </form>
+        </LoginForm>
 
-        <button><Link to="/login">
+        <ActiveButton><Link to="/login">
           Volver a la página de inicio de sesión </Link>
-        </button>
-      </Box >
-    </>
+        </ActiveButton>
+      </RightContent>
+    </View>
   );
 }

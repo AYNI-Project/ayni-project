@@ -1,7 +1,9 @@
+import { AlertBox } from "../../styles/alerts/index.js";
+
 export default function Alert({ message }) {
   return (
-    <div>
+    <AlertBox>
       <span>{message}</span>
-    </div>
+    </AlertBox>
   );
 }

@@ -2,9 +2,8 @@ import { useState } from "react";
 import { useAuth } from "../../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
 import Alert from "../../components/reusables/Alert";
-import { Box } from '@mui/system';
-import {LogoImage} from "../../styles/appbar/index";
-
+import { View, ActiveButton, LogoAyni, LeftContent, RightContent, LoginImage, LoginText, LoginForm, InputForm, FormDiv, Subtitle, SmallText } from "../../styles/auth";
+import { Box } from "@mui/system";
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -20,11 +19,11 @@ export default function Login() {
   const handleChange = ({ target: { name, value } }) =>
     setUser({ ...user, [name]: value });
 
-    const checkboxHandler = () => {
-      setAgree(!agree);
+  const checkboxHandler = () => {
+    setAgree(!agree);
   };
 
-  const btnHandler = () => {};
+  const btnHandler = () => { };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,62 +46,48 @@ export default function Login() {
     };
   }
 
-
   return (
-    <Box>
-      <Box>
-      <LogoImage src="./images/banner/2.png" alt="logo-Ayni" />
-        <h4>Entra y comienza a intercambiar con la comunidad de Factoria F5.</h4>
-      </Box>
-      <Box>
-        <h3>Inicia Sesión</h3>
+    <View>
+      <LeftContent>
+        <LogoAyni src="./images/banner/2.png" alt="logo-Ayni" />
+        <LoginText>Entra y comienza a intercambiar con nuestra comunidad.</LoginText>
+        <LoginImage src="./images/banner/post-sign.png" alt="poste direcciones" />
+      </LeftContent>
+      <RightContent>
         {error && <Alert message={error} />}
-        <form
+        <Subtitle>Inicia Sesión</Subtitle>
+        <LoginForm component="form"
+          noValidate
+          autoComplete="off"
           onSubmit={handleSubmit}>
-          <div>
-            <label
-              htmlFor="email">
-              Email
+          <FormDiv>
+            <label id="outlined-basic" label="email" variant="outlined"
+              htmlFor="email" sx={{ padding: "1em", backgroundColor: "pink" }}>
+              Introduce tu correo electrónico:
             </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="tuemail@empresa.ltd"
-              onChange={handleChange}>
-            </input>
-          </div>
-
-          <div>
+            <InputForm id="email" type="email"
+              name="email" label="Email" variant="outlined" onChange={handleChange} />
             <label
               htmlFor="password">
-              Contraseña
+              Introduce tu contraseña:
             </label>
-            <input
-              type="password"
+            <InputForm type="password"
               name="password"
-              id="password"
-              onChange={handleChange}
-              placeholder="******"
-            ></input>
-            <Link to="/passwordreset">Has olvidado tu contraseña?</Link>
-          </div>
-
-          <div className="terms-conditions">
-          <input type="checkbox" id="agree" onChange={checkboxHandler} />
-          <label htmlFor="agree"> Acepto los términos y condiciones.</label>
-          </div>
-
-          <div>
-            <button disabled={!agree} className="btn" onClick={btnHandler}>
-              Inicia Sesión
-            </button>
-          </div>
-        </form>
-
-        <p>
+              id="password" variant="outlined" label="Contraseña" onChange={handleChange} />
+            <SmallText><Link to="/password-reset" >Has olvidado tu contraseña?</Link></SmallText>
+          </FormDiv>
+          <Box className="terms-conditions" sx={{ padding: "20px 0px", fontSize: "14px" }}>
+            <input type="checkbox" id="agree" onChange={checkboxHandler} sx={{ width: "400px" }} />
+            <label htmlFor="agree"> Acepto los términos y condiciones.</label>
+          </Box>
+          <ActiveButton disabled={!agree} className="btn" onClick={btnHandler}>
+            Inicia Sesión
+          </ActiveButton>
+        </LoginForm>
+        <SmallText>
           No tienes cuenta todavía? <Link to="/">Contacta con Factoria F5</Link>
-        </p>
-      </Box>
-    </Box>
+        </SmallText>
+      </RightContent>
+    </View>
   );
 }
