@@ -7,7 +7,7 @@ import Products from "../components/products";
 import { Container, Typography, Box } from "@mui/material";
 
 export default function Home() {
-
+//
   const { user, logout, loading } = useAuth();
 
   console.log(user);
@@ -18,6 +18,7 @@ export default function Home() {
       console.log(error);
     }
   };
+  //
 
   useEffect(() => {
     document.title = "Ayni-Home"
