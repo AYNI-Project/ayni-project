@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useAuth } from "../../context/useAuth";
 import { Link } from "react-router-dom";
 import Alert from "../../components/reusables/Alert";
-import { View, LeftContent, RightContent, Subtitle, LogoAyni, LoginImage, ActiveButton, LoginForm, InputForm, FormDiv} from "../../styles/auth/index";
+import { View, LeftContent, RightContent, Subtitle, LogoAyni, LoginImage, LoginForm, InputForm, FormDiv } from "../../styles/auth/index";
+import { Button } from "@mui/material";
 
 export default function ForgotPassword() {
 
@@ -36,11 +37,11 @@ export default function ForgotPassword() {
         <LogoAyni src="./images/banner/2.png" alt="logo-Ayni" />
         <LoginImage src="./images/banner/post-sign.png" alt="poste con flechas apuntando hacia distintas direcciones" />
       </LeftContent>
-      <RightContent>
+      <RightContent sx={{ alignItems: "center" }}>
         <Subtitle>¿HAS OLVIDADO TU CONTRASEÑA?</Subtitle>
         {error && <Alert message={error} />}
         <LoginForm>
-        <FormDiv>
+          <FormDiv sx={{ height: "100px" }}>
             <label id="outlined-basic" label="Outlined" variant="outlined"
               htmlFor="email">
               Introduce tu correo electrónico:
@@ -49,14 +50,12 @@ export default function ForgotPassword() {
               name="email" label="Email" variant="outlined" onChange={handleChange} />
           </FormDiv>
 
-          <div>
-            <ActiveButton onClick={handleResetPassword}> Modificar contraseña </ActiveButton>
-          </div>
+          <button className="btn" onClick={handleResetPassword}> Modificar contraseña </button>
         </LoginForm>
 
-        <ActiveButton><Link to="/login">
+        <Button sx={{ fontSize: "14px" }}><Link to="/login">
           Volver a la página de inicio de sesión </Link>
-        </ActiveButton>
+        </Button>
       </RightContent>
     </View>
   );

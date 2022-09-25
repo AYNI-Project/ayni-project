@@ -10,6 +10,7 @@ export default function Home() {
 
   const { user, logout, loading } = useAuth();
 
+  console.log(user);
   const handleLogout = async () => {
     try {
       await logout();
@@ -26,23 +27,23 @@ export default function Home() {
 
   return (
 
-    <div>
-      <Container maxWidth="xl" sx={{ background: '#fff' }}>
-        <Appbar />
-        <div>
-          <h1>
-            Hola, {user.displayName || user.email}{" "}
-          </h1>
-          <button
-            onClick={handleLogout}>
-            Cerrar Sesión
-          </button>
-        </div>
-        <Banner />
-        <Promotions />
-        <Box display="flex" justifyContent={"center"} sx={{ p: 4 }}><Typography variant="h4"> ¿Qué quieres intercambiar? </Typography></Box>
-        <Products />
-      </Container>
-    </div>
+    <Container maxWidth="xl" sx={{ background: '#fff' }}>
+      <Appbar />
+      <div>
+        <h1>
+          Hola, {
+            user.displayName ||
+            user.email}{" "}
+        </h1>
+        <button
+          onClick={handleLogout}>
+          Cerrar Sesión
+        </button>
+      </div>
+      <Banner />
+      <Promotions />
+      <Box display="flex" justifyContent={"center"} sx={{ p: 4 }}><Typography variant="h4"> ¿Qué quieres intercambiar? </Typography></Box>
+      <Products />
+    </Container>
   );
 }

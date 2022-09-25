@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
-import { Box, Typography, TextField, Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Button, Link, Typography, TextField} from "@mui/material";
+// import { Link } from "react-router-dom";
 
 export const View = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -21,8 +21,9 @@ export const LeftContent = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  textAlign:"center",
+  textAlign: "center",
   maxWidth: "50%",
+  fontFamily: "Poppins",
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
     alignItems: "center",
@@ -34,6 +35,7 @@ export const RightContent = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
+  alignItems: "center",
   maxWidth: "50%",
   paddingTop: "60px",
   [theme.breakpoints.down("sm")]: {
@@ -72,51 +74,55 @@ export const LoginImage = styled("img")(({ src, theme }) => ({
 export const LoginText = styled(Typography)(({ theme }) => ({
   lineHeight: 1.5,
   fontSize: "16px",
-  fontFamily: "Poppins",
   paddingBottom: "30px",
-  [theme.breakpoints.down("sm")]: { fontSize: "14px" },
+  fontFamily: "Poppins",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "14px",
+    paddingBottom: "10px",
+  },
 }));
 
 export const LoginForm = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  padding:"20px 0px",
+  padding: "20px 0px",
+  [theme.breakpoints.down("sm")]: {
+    padding: "0px",
+  },
 }));
 
 export const FormDiv = styled(Box)(({ theme }) => ({
   width: "300px",
   height: "200px",
-  padding:"20px 0px",
+  padding: "20px 0px",
   justifyContent: "center",
-
 }));
 
 export const InputForm = styled(TextField)(({ theme }) => ({
-  // backgroundColor:"yellow",
   color: "#FFA37F",
   width: "350px",
-  margin:"10px 0px",
+  margin: "10px 0px",
 }));
 
 export const Subtitle = styled(Typography)(({ theme }) => ({
   textAlign: "center",
-  fontFamily: "Poppins",
-  marginBottom: "20px",
+  margin: "20px 0px",
   fontWeight: "bold",
   fontSize: "24px",
+  [theme.breakpoints.down("sm")]: {
+    marginBottom: "0px",
+  },
 }));
 
 export const LinkText = styled(Link)(({ theme }) => ({
-  display:"flex",
+  display: "flex",
   flexDirection: "flex-end",
-  // fontFamily: "Poppins",
   fontSize: "14px",
   color: "#FFA37F",
 }));
 
-export const ActiveButton = styled(Button)(({ theme }) => ({
+export const Btn = styled(Button )(({ theme }) => ({
   textAlign: "center",
-  // fontFamily: "Poppins",
   fontSize: "18px",
   color: "#F6F6F6",
   width: "350px",

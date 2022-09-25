@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { useAuth } from "../../context/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Alert from "../../components/reusables/Alert";
+import { Button } from "@mui/material";
 
 export default function Register() {
   const [user, setUser] = useState({
     email: "",
     password: "",
-    name: "",
-    surname: "",
-    role: "",
   });
 
   const { signup } = useAuth();
@@ -23,7 +21,7 @@ export default function Register() {
     e.preventDefault();
     setError("");
     try {
-      await signup(user.email, user.password, user.name, user.surname, user.role);
+      await signup(user.email, user.password);
       // verifyEmail(user.email);
       navigate('/');
       // setTimeActive(true);
@@ -40,7 +38,7 @@ export default function Register() {
         //   setError("Contraseña débil");
         //   }
       }
-      setError(error.message);
+      // setError(error.message);
     }
   };
 
@@ -125,6 +123,9 @@ export default function Register() {
           Registrar
         </button>
       </form>
+      <Button sx={{fontSize:"14px"}}><Link to="/login">
+          Volver a la página de inicio de sesión </Link>
+        </Button>
     </div>
   );
 }

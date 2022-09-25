@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { ProtectedRoute } from "./ProtectedRoute";
+import ProtectedRoute from "./ProtectedRoute";
+import ProtectedRouteAdmin from "./ProtectecRouteAdmin";
 import Login from "../../pages/auth/Login";
 import Register from "../../pages/auth/Register";
 import ForgotPassword from "../../pages/auth/ForgotPassword";
@@ -10,9 +11,6 @@ import Product from "../../pages/Product";
 import DetailProduct from "../../pages/DetailProduct";
 import UploadProduct from "../../pages/UploadProduct";
 import Chat from "../../pages/Chat";
-import ProtectedRouteAdmin from "../../components/routes/ProtectecRouteAdmin";
-import VerifyEmail from "../../pages/auth/VerifyEmail";
-
 
 export default function AppRoutes() {
     return (
@@ -20,7 +18,6 @@ export default function AppRoutes() {
             <Route path="/login" element={<Login />} />
             <Route path="/password-reset" element={<ForgotPassword />} />
             <Route path="/register" element={<ProtectedRouteAdmin><Register /></ProtectedRouteAdmin>} />
-            <Route path="/verify-email" element={<ProtectedRouteAdmin><VerifyEmail /></ProtectedRouteAdmin>} />
             <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
             <Route path="/products" element={<ProtectedRoute><Product /></ProtectedRoute>} />
