@@ -1,13 +1,11 @@
 import React, { useEffect, useReducer } from 'react';
 import {
-    ExtraActionsWrapper,
     Product,
     ProductActionButton,
     ProductActionsWrapper,
     ProductAddToCart,
     ProductFavButton,
     ProductImage,
-    ProductMetaWrapper,
   } from "../../styles/products";
   import ProductMeta from "./ProductMeta";
   import { Stack } from "@mui/material";

@@ -14,6 +14,7 @@ export default function Banner() {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
+    
     <BannerContainer sx={{ height: "600px" }}>
       <BannerContent>
         <Typography variant="h6"> Te damos la bienvenida a </Typography>

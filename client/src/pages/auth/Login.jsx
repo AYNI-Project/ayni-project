@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
 import Alert from "../../components/reusables/Alert";
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { View, LogoAyni, LeftContent, RightContent, LoginImage, LoginText, LoginForm, InputForm, FormDiv, Subtitle, SmallText } from "../../styles/auth";
 
 export default function Login() {

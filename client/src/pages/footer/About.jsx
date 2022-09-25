@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import {Box} from '@mui/material';
 
 export default function About() {
   return (
-    <div>About</div>
+    <Box>Sobre AYNI</Box>
   )
 }

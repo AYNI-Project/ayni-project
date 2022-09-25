@@ -123,9 +123,9 @@ export default function Register() {
           Registrar
         </button>
       </form>
-      <Button sx={{fontSize:"14px"}}><Link to="/login">
-          Volver a la página de inicio de sesión </Link>
-        </Button>
+      <Button sx={{ fontSize: "14px" }}><Link to="/login">
+        Volver a la página de inicio de sesión </Link>
+      </Button>
     </div>
   );
 }
