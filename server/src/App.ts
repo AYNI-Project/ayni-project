@@ -1,15 +1,11 @@
-import express, {Request,Response} from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import "./App.css";
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
 
-dotenv.config()
+const PORT = process.env.PORT || 3001;
+const app = express();
 
-const app = (express.json);
-app.use(cors())
+app.use(cors());
 
-app.get('/',(req:Request,res:Response)=>{
-    res.json('hello world');
-})
 
-export default app;
+app.listen(PORT, ()=> console.log(`listening on ${PORT}`));
