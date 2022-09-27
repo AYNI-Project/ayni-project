@@ -4,6 +4,7 @@ import Banner from "../components/banner/Banner";
 import Promotions from "../components/promotions";
 import Categories from "../components/categories";
 import { Container, Typography, Box } from "@mui/material";
+import Footer from '../components/footer/Footer';
 
 export default function Home() {
 
@@ -17,8 +18,11 @@ export default function Home() {
       <Appbar />
       <Banner />
       <Promotions />
-      <Box display="flex" justifyContent={"center"} sx={{ p: 4 }}><Typography variant="h4"> ¿Qué quieres intercambiar? </Typography></Box>
-      <Categories/>
+      <Box sx={{ display: "flex", textAlign: "center", justifyContent: "center", margin: "30px 0px" }}>
+        <Typography variant="h4"> ¿Qué quieres intercambiar? </Typography>
+      </Box>
+      <Categories />
+      <Footer/>
     </Container>
   );
 }

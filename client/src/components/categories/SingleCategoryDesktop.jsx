@@ -23,7 +23,7 @@ export default function SingleCategoryDesktop({ categories, matches }) {
                 {/* <ProductActionsWrapper show={showOption}>
                 </ProductActionsWrapper> */}
             </Product>
-            <CategoryMeta category={categories} matches={matches} />
+            <CategoryMeta categories={categories} matches={matches} />
         </>
     )
 } 

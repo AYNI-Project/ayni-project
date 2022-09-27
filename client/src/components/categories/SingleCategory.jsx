@@ -10,9 +10,8 @@ export default function SingleCategory({ categories, matches }) {
     <>
       <Product>
         <ProductImage src={categories.image} />
-        <ProductMeta category={categories} matches={matches} />
+        <ProductMeta categories={categories} matches={matches} />
       </Product>
-      {/* <ProductAddToCart variant="contained">Me interesa</ProductAddToCart> */}
     </>
   )
 } 

@@ -10,27 +10,27 @@ import CategoryMenu from "./CategoryMenu";
 
 
 export default function Exchanges() {
-  
-  return (
-  <Box>
-    
-    <Appbar />
-    
-    <Stack direction="row" spacing={2} justifyContent="space-between">
-      <CategoryMenu />   
-      <SingleKnowHow />
-    
-    
-   
-    </Stack>
 
-   </Box>
-  
+  return (
+    <Box>
+
+      <Appbar />
+
+      <Stack direction="row" spacing={2} justifyContent="space-between">
+        <CategoryMenu />
+        <SingleKnowHow />
+
+
+
+      </Stack>
+
+    </Box>
+
   )
 }
 
 
- {/* 
+{/* 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 

@@ -15,17 +15,18 @@ export default function Banner() {
 
   return (
     
-    <BannerContainer sx={{ height: "600px" }}>
-      <BannerContent>
+    <BannerContainer 
+    sx={{ overflow:"hidden", height: "600px", alignItems:"center", alignContent:"center", justifyContent:"center" }}>
+      <BannerContent sx={{ textAlign:"center"}}>
         <Typography variant="h6"> Te damos la bienvenida a </Typography>
         <BannerTitle variant="h2">AYNI</BannerTitle>
         <BannerDescription variant="subtitle">
           Significa 'Reciprocidad'. <br></br> Compartamos conocimientos entre
-          compañeros.<br></br>“Hoy por mí, mañana por ti.”
+          compañeros.<br></br>“Hoy por ti, mañana por mi.”
         </BannerDescription>
       </BannerContent>
       <BannerImage
-        src="./images/banner/post-sign.png"
+        src="./images/banner/mountains.png"
         alt="poste con flechas apuntando hacia distintas direcciones"
       />
     </BannerContainer>

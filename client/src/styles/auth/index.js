@@ -71,7 +71,7 @@ export const LoginImage = styled("img")(({ src, theme }) => ({
   },
 }));
 
-export const LoginText = styled(Typography)(({ theme }) => ({
+export const Text = styled(Typography)(({ theme }) => ({
   lineHeight: 1.5,
   fontSize: "16px",
   paddingBottom: "30px",
@@ -82,7 +82,7 @@ export const LoginText = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export const LoginForm = styled(Box)(({ theme }) => ({
+export const XForm = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   padding: "20px 0px",
@@ -94,7 +94,7 @@ export const LoginForm = styled(Box)(({ theme }) => ({
 export const FormDiv = styled(Box)(({ theme }) => ({
   width: "300px",
   height: "200px",
-  padding: "20px 0px",
+  padding: "10px 0px",
   justifyContent: "center",
 }));
 

@@ -11,6 +11,10 @@ import KnowHow from "../../pages/KnowHow/Index";
 import DetailProduct from "../../pages/DetailProduct";
 import UploadProduct from "../../pages/UploadProduct";
 import Chat from "../../pages/Chat";
+import Product from "../../pages/Product";
+import About from "../../pages/footer/About";
+import Contact from "../../pages/footer/Contact";
+import Faq from "../../pages/footer/Faq";
 
 export default function AppRoutes() {
     return (
@@ -24,7 +28,11 @@ export default function AppRoutes() {
             <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
             <Route path="/detail" element={<ProtectedRoute><DetailProduct /></ProtectedRoute>} />
             <Route path="/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
+            <Route path="/product" element={<ProtectedRoute><Product /></ProtectedRoute>} />
             <Route path="/upload-product" element={<ProtectedRoute><UploadProduct /></ProtectedRoute>} />
+            <Route path="/about-us" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/faq" element={<Faq />} />
         </Routes>
     )
 }
