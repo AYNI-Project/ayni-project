@@ -3,10 +3,10 @@ import {
     ProductAddToCart,
     ProductImage,
 } from "../../styles/products";
-import ProductMeta from "./CategoriesMeta";
+import CategoryMeta from "./CategoriesMeta";
 import { useState } from "react";
 
-export default function SingleCategoryDesktop({ product, matches }) {
+export default function SingleCategoryDesktop({ categories, matches }) {
     const [showOption, setShowOption] = useState(false);
     const handleMouseEnter = () => {
         setShowOption(true);
@@ -18,12 +18,12 @@ export default function SingleCategoryDesktop({ product, matches }) {
     return (
         <>
             <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <ProductImage src={product.image} />
+                <ProductImage src={categories.image} />
                 {showOption && <ProductAddToCart show={showOption} variant="contained" >Me interesa</ProductAddToCart>}
                 {/* <ProductActionsWrapper show={showOption}>
                 </ProductActionsWrapper> */}
             </Product>
-            <ProductMeta product={product} matches={matches} />
+            <CategoryMeta category={categories} matches={matches} />
         </>
     )
 } 

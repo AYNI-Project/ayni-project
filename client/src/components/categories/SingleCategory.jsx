@@ -4,13 +4,13 @@ import {
 } from "../../styles/products";
 import ProductMeta from "./CategoriesMeta";
 
-export default function SingleCategory({ product, matches }) {
+export default function SingleCategory({ categories, matches }) {
 
   return (
     <>
       <Product>
-        <ProductImage src={product.image} />
-        <ProductMeta product={product} matches={matches} />
+        <ProductImage src={categories.image} />
+        <ProductMeta category={categories} matches={matches} />
       </Product>
       {/* <ProductAddToCart variant="contained">Me interesa</ProductAddToCart> */}
     </>

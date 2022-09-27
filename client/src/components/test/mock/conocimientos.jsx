@@ -1,6 +1,6 @@
 
 export const knowledge = [
-        {
+    {
         "id_usuario_conocimiento": 1,
         "titulo": "Clases de fotografia",
         "usuario_id": 1,

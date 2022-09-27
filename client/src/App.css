@@ -4,7 +4,7 @@ body{
   font-family:'Poppins', sans-serif;
 }
 
-#btn{
+.btn{
   text-align: center;
   font-size: 18px;
   color: #F6F6F6;

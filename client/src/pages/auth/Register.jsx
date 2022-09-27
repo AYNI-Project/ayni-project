@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useAuth } from "../../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
 import Alert from "../../components/reusables/Alert";
-import { Button } from "@mui/material";
+import { Button, Box } from "@mui/material";
+import { View, LogoAyni, LeftContent, RightContent, LoginImage, LoginText, LoginForm, InputForm, FormDiv, Subtitle} from "../../styles/auth";
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -43,89 +44,68 @@ export default function Register() {
   };
 
   return (
-    <div>
-      {error && <Alert message={error} />}
-      <h1>Registro - Admin -</h1>
-      <p>Rellena los datos del nuevo usuario:</p>
-      <form
-        onSubmit={handleSubmit}
-      >
-        <div>
-          <label
-            htmlFor="email"
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            placeholder="email"
-            onChange={handleChange}
-          ></input>
-        </div>
+    <View>
+      <LeftContent>
+      <Link to="/"><LogoAyni src="./images/banner/2.png" alt="logo-Ayni" /></Link>
+        <LoginText>Registra y rellena los datos del nuevo usuario.</LoginText>
+        <LoginImage src="./images/banner/post-sign.png" alt="poste direcciones"/>
+      </LeftContent>
+      <RightContent>
+        <Subtitle>Registro de usuarios</Subtitle>
+        {error && <Alert message={error} />}
+        <LoginForm component="form"
+          onSubmit={handleSubmit}
+        >
+          <FormDiv sx={{ height: "450px" }}>
+            <label htmlFor="email"> Email </label>
+            <InputForm
+              type="email"
+              name="email"
+              placeholder="email"
+              onChange={handleChange}>
+            </InputForm>
 
-        <div>
-          <label
-            htmlFor="password"
-          >
-            Contraseña
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={handleChange}
-            placeholder="******"
-          ></input>
-        </div>
+            <label htmlFor="password"> Contraseña </label>
+            <InputForm
+              type="password"
+              name="password"
+              id="password"
+              onChange={handleChange}
+              placeholder="******"
+            ></InputForm>
 
-        <div>
-          <label
-            htmlFor="name"
-          >
-            Nombre
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Nombre"
-          ></input>
-        </div>
+            <label htmlFor="name"> Nombre </label>
+            <InputForm
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Nombre"
+            ></InputForm>
 
-        <div>
-          <label
-            htmlFor="surname"
-          >
-            Apellidos
-          </label>
-          <input
-            type="text"
-            name="surname"
-            id="surname"
-            placeholder="Apellidos"
-          ></input>
-        </div>
+            <label htmlFor="surname"> Apellidos </label>
+            <InputForm
+              type="text"
+              name="surname"
+              id="surname"
+              placeholder="Apellidos"
+            ></InputForm>
 
-        <div>
-          <label
-            htmlFor="role"
-          >
-            Rol
-          </label>
-          <select id="role" name="role" onChange={handleChange}>
-            <option value="admin">Administrador</option>
-            <option value="user">Usuario</option>
-          </select>
-        </div>
-
-        <button>
-          Registrar
-        </button>
-      </form>
-      <Button sx={{ fontSize: "14px" }}><Link to="/login">
-        Volver a la página de inicio de sesión </Link>
-      </Button>
-    </div>
+            <Box>
+              <label htmlFor="role"> Rol </label>
+              <select id="role" name="role" onChange={handleChange} sx={{ color: "#FFA37F", width: "350px", margin: "10px 0px" }}>
+                <option value="admin">Administrador</option>
+                <option value="user">Usuario</option>
+              </select>
+            </Box>
+          </FormDiv>
+          <button>
+            Registrar
+          </button>
+        </LoginForm>
+        <Button sx={{ fontSize: "14px" }}><Link to="/login">
+          Volver a la página de inicio de sesión </Link>
+        </Button>
+      </RightContent>
+    </View>
   );
 }
