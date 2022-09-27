@@ -6,5 +6,6 @@ export default function ProtectedRouteAdmin({ children }) {
 
   if (loading) return <h1>Loading...</h1>;
   if (!user) return <Navigate to="/login"></Navigate>;
+  
   return <>{children}</>;
 }

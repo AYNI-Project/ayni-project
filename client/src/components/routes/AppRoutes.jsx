@@ -1,8 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import { ProtectedRoute } from "./ProtectedRoute";
-import Login from "../../pages/Login";
-import Register from "../../pages/Register";
-import ForgotPassword from "../../pages/ForgotPassword";
+import ProtectedRoute from "./ProtectedRoute";
+import ProtectedRouteAdmin from "./ProtectecRouteAdmin";
+import Login from "../../pages/auth/Login";
+import Register from "../../pages/auth/Register";
+import ForgotPassword from "../../pages/auth/ForgotPassword";
 import Home from "../../pages/Home";
 import Profile from "../../pages/Profile";
 import Favorites from "../../pages/Favorites";
@@ -11,15 +12,11 @@ import DetailProduct from "../../pages/DetailProduct";
 import UploadProduct from "../../pages/UploadProduct";
 import Chat from "../../pages/Chat";
 
-
-import ProtectedRouteAdmin from "../../components/routes/ProtectecRouteAdmin";
-
-
 export default function AppRoutes() {
     return (
         <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/passwordreset" element={<ForgotPassword />} />
+            <Route path="/password-reset" element={<ForgotPassword />} />
             <Route path="/register" element={<ProtectedRouteAdmin><Register /></ProtectedRouteAdmin>} />
             <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
@@ -27,7 +24,7 @@ export default function AppRoutes() {
             <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
             <Route path="/detail" element={<ProtectedRoute><DetailProduct /></ProtectedRoute>} />
             <Route path="/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
-            <Route path="/uploadProduct" element={<ProtectedRoute><UploadProduct /></ProtectedRoute>} />
+            <Route path="/upload-product" element={<ProtectedRoute><UploadProduct /></ProtectedRoute>} />
         </Routes>
     )
 }
