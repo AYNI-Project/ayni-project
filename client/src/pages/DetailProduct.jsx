@@ -1,7 +1,8 @@
+import { Container } from '@mui/material'
 import React from 'react'
 
 export default function DetailProduct() {
   return (
-    <div>DetailProduct</div>
+    <Container>DetailProduct</Container>
   )
 }
