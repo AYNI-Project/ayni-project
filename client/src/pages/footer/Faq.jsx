@@ -6,11 +6,11 @@ export default function Faq() {
   return (
     <View>
       <LeftContent>
-      Preguntas frecuentes
+        Preguntas frecuentes
       </LeftContent>
       <RightContent>
-      <Typography> 1. ¿Cómo me registro?
-      </Typography>
+        <Typography> 1. ¿Cómo me registro?
+        </Typography>
       </RightContent>
     </View>
   )
