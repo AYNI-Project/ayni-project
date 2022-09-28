@@ -10,6 +10,7 @@
     "@fontsource/poppins": "^4.5.9",
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.5",
+    "@pankod/refine-react-hook-form": "^3.33.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

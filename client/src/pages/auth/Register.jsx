@@ -3,7 +3,7 @@ import { useAuth } from "../../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
 import Alert from "../../components/reusables/Alert";
 import { Button, Box } from "@mui/material";
-import { View, LogoAyni, LeftContent, RightContent, LoginImage, Text, XForm, InputForm, FormDiv, Subtitle} from "../../styles/auth";
+import { View, LogoAyni, LeftContent, RightContent, LoginImage, Text, XForm, InputForm, FormDiv, Subtitle } from "../../styles/auth";
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -46,9 +46,9 @@ export default function Register() {
   return (
     <View>
       <LeftContent>
-      <Link to="/"><LogoAyni src="./images/banner/2.png" alt="logo-Ayni" /></Link>
+        <Link to="/"><LogoAyni src="./images/banner/2.png" alt="logo-Ayni" /></Link>
         <Text>Registra y rellena los datos del nuevo usuario.</Text>
-        <LoginImage src="./images/banner/post-sign.png" alt="poste direcciones"/>
+        <LoginImage src="./images/banner/post-sign.png" alt="poste direcciones" />
       </LeftContent>
       <RightContent>
         <Subtitle>Registro de usuarios</Subtitle>

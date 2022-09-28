@@ -5,7 +5,7 @@ import {
   onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
-  // sendEmailVerification,
+  sendEmailVerification,
 } from "firebase/auth";
 import { auth, 
   // app, 
@@ -75,7 +75,7 @@ export function AuthProvider({ children }) {
   //   }
   // });
 
-  // const verifyEmail = (email) => sendEmailVerification(auth, email);
+  const verifyEmail = (email) => sendEmailVerification(auth, email);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -93,7 +93,8 @@ export function AuthProvider({ children }) {
         user,
         logout,
         loading,
-        resetPassword
+        resetPassword,
+        verifyEmail
       }}
     >
       {children}
