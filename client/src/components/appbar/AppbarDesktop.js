@@ -1,8 +1,11 @@
 import {
+  IconButton,
+  Box,
   ListItemText,
   Stack,
   ListItemButton,
   ListItemIcon,
+  Button,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import {
@@ -24,8 +27,11 @@ export default function AppbarDesktop({ matches }) {
     <AppbarContainer>
       <LogoImage src="./images/banner/2.png" alt="logo-Ayni" />
       <MyList sx={{display: "flex", flexDirection: "row", justifyContent: "flex-end"}}>
-        <AddCircleOutlineIcon sx={{ paddingRight: "0.5em" }} onClick={navigateToUploadProduct}/>
-        <ListItemText primary="Agregar trueque" onClick={navigateToUploadProduct} />
+      <Box>
+        <Button startIcon={< AddCircleOutlineIcon sx={{ paddingRight: "0.5em" }}/>} onClick={navigateToUploadProduct}>
+        Agregar trueque
+        </Button>
+      </Box>
         <ListItemButton>
           <ListItemIcon>
             <SearchIcon />
@@ -37,3 +43,9 @@ export default function AppbarDesktop({ matches }) {
     </AppbarContainer>
   );
 }
+/*
+<Button onClick={navigateToUploadProduct}>Agregar trueque</Button>
+<ListItemText primary="Agregar trueque" onClick={navigateToUploadProduct} />
+<AddCircleOutlineIcon sx={{ paddingRight: "0.5em" }} onClick={navigateToUploadProduct}/>
+
+*/
