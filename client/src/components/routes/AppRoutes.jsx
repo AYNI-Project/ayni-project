@@ -8,7 +8,7 @@ import Home from "../../pages/Home";
 import Profile from "../../pages/Profile";
 import Favorites from "../../pages/Favorites";
 import KnowHow from "../../pages/KnowHow/Index";
-import DetailProduct from "../../pages/DetailProduct";
+import DetailProduct from "../../pages/detailProduct.js/DetailCard";
 import UploadProduct from "../../pages/UploadProduct";
 import Chat from "../../pages/Chat";
 

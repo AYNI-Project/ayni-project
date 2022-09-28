@@ -28,6 +28,7 @@ export const ExchangeImage = styled("img")(({ src, theme }) => ({
   [theme.breakpoints.down("md")]: {
     width: "80%", 
     padding: '24px',
+    
   },
 }));
 
