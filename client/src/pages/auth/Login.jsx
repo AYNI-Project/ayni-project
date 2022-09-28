@@ -3,7 +3,7 @@ import { useAuth } from "../../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
 import Alert from "../../components/reusables/Alert";
 import { Box } from '@mui/material';
-import { View, LogoAyni, LeftContent, RightContent, LoginImage, LoginText, LoginForm, InputForm, FormDiv, Subtitle, SmallText } from "../../styles/auth";
+import { View, LogoAyni, LeftContent, RightContent, LoginImage, Text, XForm, InputForm, FormDiv, Subtitle, SmallText } from "../../styles/auth";
 
 export default function Login() {
 
@@ -50,13 +50,13 @@ export default function Login() {
     <View>
       <LeftContent>
         <LogoAyni src="./images/banner/2.png" alt="logo-Ayni" />
-        <LoginText>Entra y comienza a intercambiar con nuestra comunidad.</LoginText>
+        <Text>Entra y comienza a intercambiar con nuestra comunidad.</Text>
         <LoginImage src="./images/banner/post-sign.png" alt="poste direcciones" />
       </LeftContent>
       <RightContent>
         <Subtitle>Inicia Sesión</Subtitle>
         {error && <Alert message={error} />}
-        <LoginForm component="form"
+        <XForm component="form"
           onSubmit={handleSubmit}>
           <FormDiv>
             <label id="outlined-basic" label="email" variant="outlined" htmlFor="email">
@@ -78,7 +78,7 @@ export default function Login() {
           <button disabled={!agree} className="btn" onClick={btnHandler}>
             Inicia Sesión
           </button>
-        </LoginForm>
+        </XForm>
         <SmallText>
           No tienes cuenta todavía? <Link to="/contact">Contacta con Factoria F5</Link>
         </SmallText>

@@ -19,7 +19,7 @@ export default function Categories() {
   ));
   return (
     <Container>
-      <Grid        
+      <Grid
         container
         spacing={{ xs: 2, md: 3 }}
         justifyContent="center"

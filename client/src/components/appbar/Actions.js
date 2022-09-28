@@ -86,7 +86,7 @@ export default function Actions({ matches }) {
               color: matches && Colors.secondary,
             }}
           >
-            <PersonIcon onClick={(e) => setOpen(true)} />
+            <PersonIcon onClick={(e) => setOpen(true)}/>
             <Menu
               id="demo-positioned-menu"
               aria-labelledby="demo-positioned-button"
@@ -101,7 +101,7 @@ export default function Actions({ matches }) {
                 horizontal: "right",
               }}
             >
-              <Typography variant="h6">
+              <Typography>
                 Hola, {user.displayName || user.email}{" "}
               </Typography>
               <MenuItem onClick={navigateToProfile}>Mi Perfil</MenuItem>

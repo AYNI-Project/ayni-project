@@ -1,22 +1,25 @@
 import { styled } from "@mui/material/styles";
-import { Box, Button, Link, Typography, TextField} from "@mui/material";
+import { Box, Button, Link, Typography, TextField } from "@mui/material";
 // import { Link } from "react-router-dom";
 
 export const View = styled(Box)(({ theme }) => ({
-  display: "flex",
-  justifyContent: "space-evenly",
-  maxHeight: "100vh",
-  alignItems: "center",
+  // backgroundColor:"yellow",
   fontFamily: "Poppins",
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-evenly",
+  alignItems: "center",
+  [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
-    alignItems: "center",
     overflow: "scroll-y",
-    padding: "10px",
   },
 }));
 
 export const LeftContent = styled(Box)(({ theme }) => ({
+  // backgroundColor:"green",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -25,8 +28,6 @@ export const LeftContent = styled(Box)(({ theme }) => ({
   maxWidth: "50%",
   fontFamily: "Poppins",
   [theme.breakpoints.down("sm")]: {
-    flexDirection: "column",
-    alignItems: "center",
     padding: "0px",
   },
 }));
@@ -40,7 +41,6 @@ export const RightContent = styled(Box)(({ theme }) => ({
   paddingTop: "60px",
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
-    alignItems: "center",
     padding: "0px",
   },
 }));
@@ -52,7 +52,7 @@ export const LogoAyni = styled("img")(({ src, theme }) => ({
     width: "15em",
   },
   [theme.breakpoints.down("sm")]: {
-    width: "10em",
+    width: "5em",
   },
 }));
 
@@ -71,7 +71,19 @@ export const LoginImage = styled("img")(({ src, theme }) => ({
   },
 }));
 
-export const LoginText = styled(Typography)(({ theme }) => ({
+export const MIcon = styled("img")(({ src, theme }) => ({
+  src: `url(${src})`,
+  width: "60px",
+  margin: "5px",
+  [theme.breakpoints.down("md")]: {
+    width: "40px",
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "30px",
+  },
+}));
+
+export const Text = styled(Typography)(({ theme }) => ({
   lineHeight: 1.5,
   fontSize: "16px",
   paddingBottom: "30px",
@@ -79,10 +91,11 @@ export const LoginText = styled(Typography)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
     fontSize: "14px",
     paddingBottom: "10px",
+    width: "280px",
   },
 }));
 
-export const LoginForm = styled(Box)(({ theme }) => ({
+export const XForm = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   padding: "20px 0px",
@@ -94,7 +107,7 @@ export const LoginForm = styled(Box)(({ theme }) => ({
 export const FormDiv = styled(Box)(({ theme }) => ({
   width: "300px",
   height: "200px",
-  padding: "20px 0px",
+  padding: "10px 0px",
   justifyContent: "center",
 }));
 
@@ -109,6 +122,7 @@ export const Subtitle = styled(Typography)(({ theme }) => ({
   margin: "20px 0px",
   fontWeight: "bold",
   fontSize: "24px",
+  fontFamily: "Poppins",
   [theme.breakpoints.down("sm")]: {
     marginBottom: "0px",
   },
@@ -119,18 +133,32 @@ export const LinkText = styled(Link)(({ theme }) => ({
   flexDirection: "flex-end",
   fontSize: "14px",
   color: "#FFA37F",
+  fontFamily: "Poppins",
 }));
 
-export const Btn = styled(Button )(({ theme }) => ({
+export const Btn = styled(Button)(({ theme }) => ({
   textAlign: "center",
   fontSize: "18px",
   color: "#F6F6F6",
   width: "350px",
   height: "50px",
   backgroundColor: "#FFA37F",
+  fontFamily: "Poppins",
 }));
 
 export const SmallText = styled(Typography)(({ theme }) => ({
   fontSize: "14px",
   fontFamily: "Poppins",
+}));
+
+export const SmallBox = styled(Box)(({ theme }) => ({
+  width: "400px",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  [theme.breakpoints.down("sm")]: {
+    width: "200px",
+    justifyContent: "space-between",
+    padding: "0px",
+  },
 }));

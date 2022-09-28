@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../context/useAuth";
 import { Link } from "react-router-dom";
 import Alert from "../../components/reusables/Alert";
-import { View, LeftContent, RightContent, Subtitle, LogoAyni, LoginImage, LoginForm, InputForm, FormDiv } from "../../styles/auth/index";
+import { View, LeftContent, RightContent, Subtitle, LogoAyni, LoginImage, XForm, InputForm, FormDiv } from "../../styles/auth/index";
 import { Button } from "@mui/material";
 
 export default function ForgotPassword() {
@@ -40,7 +40,7 @@ export default function ForgotPassword() {
       <RightContent sx={{ alignItems: "center" }}>
         <Subtitle>¿HAS OLVIDADO TU CONTRASEÑA?</Subtitle>
         {error && <Alert message={error} />}
-        <LoginForm>
+        <XForm>
           <FormDiv sx={{ height: "100px" }}>
             <label id="outlined-basic" label="Outlined" variant="outlined"
               htmlFor="email">
@@ -51,7 +51,7 @@ export default function ForgotPassword() {
           </FormDiv>
 
           <button className="btn" onClick={handleResetPassword}> Modificar contraseña </button>
-        </LoginForm>
+        </XForm>
 
         <Button sx={{ fontSize: "14px" }}><Link to="/login">
           Volver a la página de inicio de sesión </Link>
