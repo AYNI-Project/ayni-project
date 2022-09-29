@@ -3,14 +3,14 @@ import { Typography, Button, Box } from "@mui/material";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import IconButton from "@mui/material/IconButton";
 import Appbar from "../components/appbar";
-import { InputForm, LeftContent, RightContent, View } from "../styles/auth";
+import { InputForm, LeftContent, RightContent, Subtitle, View } from "../styles/auth";
 export default function Profile() {
   return (
     <>
       <Appbar />
       <View>
         <LeftContent>
-          <Typography>EDITAR PERFIL</Typography>
+          <Subtitle>EDITAR PERFIL</Subtitle>
           <InputForm
             type={"text"}
             id="name"
@@ -56,22 +56,20 @@ export default function Profile() {
             rows={3}
             variant="standard"
           />
-          <Typography
-            type={"text"}
-            id="profile-picture"
-            label="Elige una foto de perfil"
-            variant="standard"
-          />
-          <IconButton
-            color="primary"
+           <IconButton
+            color="inherit"
             aria-label="upload picture"
             component="label"
+            variant= 'text'
+            style={{padding: "2rem"}}
           >
+            <Typography style={{ color: "#696969",paddingRight: "2rem" }}>Elige una foto de perfil</Typography>
+            
             <input hidden accept="image/*" type="file" />
             <PhotoCamera />
-          </IconButton>
+          </IconButton>         
           <Box style={{ padding: "2rem" }}>
-            <Button type="submit" variant="outlined">
+            <Button type="submit" variant="outlined" color='inherit' style={{backgroundColor:"#FFA37F"}}>
               Guardar perfil
             </Button>
           </Box>
@@ -80,3 +78,13 @@ export default function Profile() {
     </>
   );
 }
+
+ <IconButton
+            color="inherit"
+            aria-label="upload picture"
+            component="label"
+            variant= 'text'
+          >Elige una foto de perfil
+            <input hidden accept="image/*" type="file" />
+            <PhotoCamera />
+          </IconButton>
