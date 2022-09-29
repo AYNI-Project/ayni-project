@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
-import { Box, Link, Typography, TextField } from "@mui/material";
-import { Colors } from "../../styles/theme";
+import { Box, Button, Link, Typography, TextField } from "@mui/material";
+// import { Link } from "react-router-dom";
 
 export const View = styled(Box)(({ theme }) => ({
   // backgroundColor:"yellow",
@@ -19,6 +19,7 @@ export const View = styled(Box)(({ theme }) => ({
 }));
 
 export const LeftContent = styled(Box)(({ theme }) => ({
+  // backgroundColor:"green",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -32,7 +33,6 @@ export const LeftContent = styled(Box)(({ theme }) => ({
 }));
 
 export const RightContent = styled(Box)(({ theme }) => ({
-  // backgroundColor: "green",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -132,20 +132,19 @@ export const LinkText = styled(Link)(({ theme }) => ({
   display: "flex",
   flexDirection: "flex-end",
   fontSize: "14px",
-  color: Colors.secondary,
+  color: "#FFA37F",
   fontFamily: "Poppins",
-  textDecoration:"none",
 }));
 
-// export const Btn = styled(Button)(({ theme }) => ({
-//   textAlign: "center",
-//   fontSize: "18px",
-//   color: "#F6F6F6",
-//   width: "350px",
-//   height: "50px",
-//   backgroundColor: "#FFA37F",
-//   fontFamily: "Poppins",
-// }));
+export const Btn = styled(Button)(({ theme }) => ({
+  textAlign: "center",
+  fontSize: "18px",
+  color: "#F6F6F6",
+  width: "350px",
+  height: "50px",
+  backgroundColor: "#FFA37F",
+  fontFamily: "Poppins",
+}));
 
 export const SmallText = styled(Typography)(({ theme }) => ({
   fontSize: "14px",

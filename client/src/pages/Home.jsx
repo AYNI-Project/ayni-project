@@ -5,11 +5,15 @@ import Promotions from "../components/promotions";
 import Categories from "../components/categories";
 import { Container, Typography, Box } from "@mui/material";
 import Footer from '../components/footer/Footer';
+
 export default function Home() {
+
   useEffect(() => {
     document.title = "Ayni-Home"
   }, []);
+
   return (
+
     <Container maxWidth="xl" sx={{ background: '#fff' }}>
       <Appbar />
       <Banner />
@@ -18,7 +22,7 @@ export default function Home() {
         <Typography variant="h4"> ¿Qué quieres intercambiar? </Typography>
       </Box>
       <Categories />
-      <Footer />
+      <Footer/>
     </Container>
   );
 }

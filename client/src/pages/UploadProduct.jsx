@@ -1,70 +1,116 @@
+import React from 'react';
 import { useState } from "react";
-// import axios from 'axios';
-import { View, LeftContent, RightContent } from "../../src/styles/auth";
+import { useForm } from "@pankod/refine-react-hook-form";
+import { useSelect, useApiUrl } from "@pankod/refine-core";
 
 export default function UploadProduct() {
 
-  const [title, setTitle] = useState("");
-  const [file, setFile] = useState("");
-  const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("");
-  const [category, setCategory] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
-  async function addProduct() {
-    console.warn(title, file, description, status, category)
+  const {
+    refineCore: { onFinish, formLoading },
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
+
+  const apiURL = useApiUrl();
+
+  const { options } = useSelect({
+    resource: "categories",
+  });
+
+  const onSubmitFile = async () => {
+    setIsUploading(true);
+    const inputFile = document.getElementById(
+      "fileInput",
+    );
+
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('title', title);
-    formData.append('status', status);
-    formData.append('category', category);
-    formData.append('description', description);
-    let result = await fetch("http://localhost:3000/upload-product", {
-      method: 'POST',
-      body: formData
-    });
-    alert("Data has been uploaded successfully.")
-  }
+    formData.append("file", inputFile?.files?.item(0));
+
+    const res = await axios
+      .post { url } (
+        `${apiURL}upload-product`,
+        formData,
+        {
+          withCredentials: false,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        },
+        setValue("thumbnail", res.data.url));
+    setIsUploading(false);
+  };
+
   return (
     <View>
       <LeftContent>
+
       </LeftContent>
       <RightContent>
-        <form>
+        <form
+          onSubmit={handleSubmit(onFinish)}
+        >
           <label>Título:</label>
-          <input type="text" className="form-control" onChange={(e) => setTitle(e.target.value)} />
-          <br />
-          <label>Descripción:</label>
-          <br />
-          <textarea type="text" className="form-control" onChange={(e) => setDescription(e.target.value)}
+          <input
+            {...register("title", { required: true })}
           />
-          <label>Estado:</label>
-          <select type="text" className="form-control" onChange={(e) => setStatus(e.target.value)}>
+          {errors.title && <span>This field is required</span>}
+          <br />
+          <label>Descripción: </label>
+          <br />
+          <textarea
+            {...register("content", { required: true })}
+            rows={10}
+            cols={50}
+          />
+          {errors.content && <span>This field is required</span>}
+          <br/>
+          <label>Estado: </label>
+          <select
+            {...register("status")}
+          >
             <option value="published">Publicado</option>
             <option value="draft">Borrador</option>
           </select>
           <br />
-          <label>Categoria:</label>
-          <select type="text" className="form-control" onChange={(e) => setCategory(e.target.value)}>
+          <label>Categoria: </label>
+          <select
+            defaultValue={""}
+            {...register("category.id", { required: true })}
+          >
             <option value={""} disabled>
               Selecciona:
             </option>
-            {/* {options?.map((category) => ( */}
-            <option key={category.value} value={category.value}>
-              {category.label}
-            </option>
-            {/* } */}
+            {options?.map((category) => (
+              <option key={category.value} value={category.value}>
+                {category.label}
+              </option>
+            ))}
           </select>
+          {errors.category && <span>This field is required</span>}
           <br />
+
           <br />
           <label>Imagen: </label>
           <input id="fileInput" type="file"
-            onChange={(e) => setFile(e.target.files[0])} placeholder="File"
+            onChange={onSubmitFile}
           />
+          <input
+            type="hidden"
+            {...register("thumbnail", { required: true })}
+          />
+          {errors.thumbnail && <span>This field is required</span>}
           <br />
           <br />
-          <button onClick={UploadProduct}></button>
+          <input type="submit"
+            disabled={isUploading}
+            value="Submit" />
+          {formLoading && <p>Cargando...</p>}
         </form>
       </RightContent>
-    </View >
+    </View>
   );
 };

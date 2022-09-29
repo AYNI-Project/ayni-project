@@ -1,4 +1,6 @@
-html{
+
+body{
+  background-color: #2F303A;
   font-family:'Poppins', sans-serif;
 }
 
@@ -9,20 +11,5 @@ html{
   width: 350px;
   height: 50px;
   background-color: #FFA37F;
-  border-radius: 3px;
-  border-color: #F6F6F6;
 }
 
-.link, .icon {
-  color: #5BBCC0;
-  text-decoration: none;
-}
-.link:hover, .icon:hover {
-   color: #F6F6F6;
-   text-decoration: underline;
-}
-
-.link:visited, .icon:visited {
-  color: #5BBCC0;
-  text-decoration: none;
-}
