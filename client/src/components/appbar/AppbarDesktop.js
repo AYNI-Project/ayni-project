@@ -27,9 +27,9 @@ export default function AppbarDesktop({ matches }) {
   }
   return (
     <AppbarContainer>
-      <LogoImage src="./images/banner/2.png" alt="logo-Ayni" />
+      <LogoImage src="./images/banner/2.png" alt="logo-Ayni" onClick={navigateToHome}/>
       <MyList sx={{display: "flex", flexDirection: "row", justifyContent: "flex-end"}}>
-        <AddCircleOutlineIcon sx={{ paddingRight: "0.5em" }} onClick={navigateToUploadProduct}/>
+        <AddCircleOutlineIcon sx={{ paddingRight: "0.5em" }} />
         <ListItemText primary="Agregar trueque" onClick={navigateToUploadProduct} />
         <ListItemButton>
           <ListItemIcon>
