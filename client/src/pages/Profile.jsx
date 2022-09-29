@@ -4,7 +4,6 @@ import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import IconButton from "@mui/material/IconButton";
 import Appbar from "../components/appbar";
 import { InputForm, LeftContent, RightContent, View } from "../styles/auth";
-
 export default function Profile() {
   return (
     <>
@@ -57,10 +56,12 @@ export default function Profile() {
             rows={3}
             variant="standard"
           />
-
-          <Typography>
-           Elige una foto de perfil
-            </Typography>
+          <Typography
+            type={"text"}
+            id="profile-picture"
+            label="Elige una foto de perfil"
+            variant="standard"
+          />
           <IconButton
             color="primary"
             aria-label="upload picture"
@@ -69,7 +70,6 @@ export default function Profile() {
             <input hidden accept="image/*" type="file" />
             <PhotoCamera />
           </IconButton>
-
           <Box style={{ padding: "2rem" }}>
             <Button type="submit" variant="outlined">
               Guardar perfil

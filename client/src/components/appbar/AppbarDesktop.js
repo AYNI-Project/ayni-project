@@ -11,22 +11,22 @@ import Actions from "./Actions";
 import "@fontsource/poppins";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useNavigate } from "react-router-dom";
+
+
 export default function AppbarDesktop({ matches }) {
   const navigate = useNavigate();
+  
+  const navigateToHome = () => {
+    navigate("/");
+  };
+
   const navigateToUploadProduct = () => {
     navigate("/upload-product");
   };
 
-  const navigateToHome = () => {
-    navigate("/");
-  };
   return (
     <AppbarContainer>
-      <LogoImage
-        src="./images/banner/2.png"
-        alt="logo-Ayni"
-        onClick={navigateToHome}
-      />
+      <LogoImage src="./images/banner/2.png" alt="logo-Ayni" onClick={navigateToHome}/>
       <MyList
         sx={{
           display: "flex",
