@@ -1,5 +1,4 @@
 import {
-  ListItemText,
   Stack,
   ListItemButton,
   ListItemIcon,
@@ -43,7 +42,3 @@ export default function AppbarDesktop({ matches }) {
   );
 }
 
-/*
-<AddCircleOutlineIcon sx={{ paddingRight: "0.5em" }} />
-        <ListItemText primary="Agregar trueque" onClick={navigateToUploadProduct} />
-        */
