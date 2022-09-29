@@ -36,7 +36,17 @@ export const Colors = {
         },
         secondary: {
             main: Colors.secondary
-        }
+        },
+        action: {
+            active: "#5BBCC0"[200],
+            activeOpacity: 1,
+            hover: "#5BBCC0"[100],
+            hoverOpacity: 0.7,
+            focus: "#5BBCC0"[600],
+            focusOpacity: 1,
+            selected: "#5BBCC0"[300],
+            selectedOpacity: 1
+          },
     },
 
     components: {

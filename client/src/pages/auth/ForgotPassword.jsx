@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Alert from "../../components/reusables/Alert";
 import { View, LeftContent, RightContent, Subtitle, LogoAyni, LoginImage, XForm, InputForm, FormDiv } from "../../styles/auth/index";
 import { Button } from "@mui/material";
+import Footer from "../../components/footer/Footer";
 
 export default function ForgotPassword() {
 
@@ -32,31 +33,34 @@ export default function ForgotPassword() {
   };
 
   return (
-    <View>
-      <LeftContent>
-        <LogoAyni src="./images/banner/2.png" alt="logo-Ayni" />
-        <LoginImage src="./images/banner/post-sign.png" alt="poste con flechas apuntando hacia distintas direcciones" />
-      </LeftContent>
-      <RightContent sx={{ alignItems: "center" }}>
-        <Subtitle>¿HAS OLVIDADO TU CONTRASEÑA?</Subtitle>
-        {error && <Alert message={error} />}
-        <XForm>
-          <FormDiv sx={{ height: "100px" }}>
-            <label id="outlined-basic" label="Outlined" variant="outlined"
-              htmlFor="email">
-              Introduce tu correo electrónico:
-            </label>
-            <InputForm id="email" type="email"
-              name="email" label="Email" variant="outlined" onChange={handleChange} />
-          </FormDiv>
+    <>
+      <View>
+        <LeftContent>
+          <Link to="/"><LogoAyni src="./images/banner/2.png" alt="logo-Ayni" /></Link>
+          <LoginImage src="./images/banner/post-sign.png" alt="poste con flechas apuntando hacia distintas direcciones" />
+        </LeftContent>
+        <RightContent sx={{ alignItems: "center" }}>
+          <Subtitle>¿HAS OLVIDADO TU CONTRASEÑA?</Subtitle>
+          {error && <Alert message={error} />}
+          <XForm>
+            <FormDiv sx={{ height: "100px" }}>
+              <label id="outlined-basic" label="Outlined" variant="outlined"
+                htmlFor="email">
+                Introduce tu correo electrónico:
+              </label>
+              <InputForm id="email" type="email"
+                name="email" label="Email" variant="outlined" onChange={handleChange} />
+            </FormDiv>
 
-          <button className="btn" onClick={handleResetPassword}> Modificar contraseña </button>
-        </XForm>
+            <button className="btn" onClick={handleResetPassword}> Modificar contraseña </button>
+          </XForm>
 
-        <Button sx={{ fontSize: "14px" }}><Link to="/login">
-          Volver a la página de inicio de sesión </Link>
-        </Button>
-      </RightContent>
-    </View>
+          <Button sx={{ fontSize: "14px" }}><Link className="link" to="/login">
+            Volver a la página de inicio de sesión </Link>
+          </Button>
+        </RightContent>
+      </View>
+      <Footer />
+    </>
   );
 }
