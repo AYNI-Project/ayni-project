@@ -43,9 +43,3 @@ export default function AppbarDesktop({ matches }) {
     </AppbarContainer>
   );
 }
-/*
-<Button onClick={navigateToUploadProduct}>Agregar trueque</Button>
-<ListItemText primary="Agregar trueque" onClick={navigateToUploadProduct} />
-<AddCircleOutlineIcon sx={{ paddingRight: "0.5em" }} onClick={navigateToUploadProduct}/>
-
-*/
