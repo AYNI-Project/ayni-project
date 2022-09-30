@@ -1,9 +1,4 @@
-import {
-  ListItemText,
-  Stack,
-  ListItemButton,
-  ListItemIcon,
-} from "@mui/material";
+import { Stack, ListItemButton, ListItemIcon, Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { AppbarContainer, MyList, LogoImage } from "../../styles/appbar";
 import Actions from "./Actions";
@@ -35,11 +30,13 @@ export default function AppbarDesktop({ matches }) {
           justifyContent: "flex-end",
         }}
       >
-        <AddCircleOutlineIcon sx={{ paddingRight: "0.5em" }} />
-        <ListItemText
-          primary="Agregar trueque"
+        <Button
+          color="inherit"
+          startIcon={<AddCircleOutlineIcon sx={{ paddingRight: "0.5em" }} />}
           onClick={navigateToUploadProduct}
-        />
+        >
+          Agregar trueque
+        </Button>
         <ListItemButton>
           <ListItemIcon>
             <SearchIcon />
