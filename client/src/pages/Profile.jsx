@@ -8,14 +8,14 @@ import { useState, setState } from "react";
 
 export default function Profile() {
 
-  const [name, setName] = useState(null);
-  const [lastName, setLastName] = useState(null);
-  const [city, setCity] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [password,setPassword] = useState(null);
-  const [confirmPassword,setConfirmPassword] = useState(null);
-  const [aboutMe, setAboutMe] = useState(null);
-  const [picture, setPicture] = useState(null);
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [city, setCity] = useState('');
+  const [email, setEmail] = useState('');
+  const [password,setPassword] = useState('');
+  const [confirmPassword,setConfirmPassword] = useState('');
+  const [aboutMe, setAboutMe] = useState('');
+  const [picture, setPicture] = useState('');
   
   const handleInputChange = (e) => {
     const {id , value} = e.target;
@@ -94,8 +94,8 @@ const handleSubmit  = () => {
             label="Contraseña"
             variant="standard"
             value={password}
-            onChange = {(e) => handleInputChange(e)}
-          />
+            onChange = {(e) => handleInputChange(e)}/>
+          
           <InputForm
             type="password"
             id="confirmPassword"
