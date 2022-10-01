@@ -1,7 +1,7 @@
 
 export const knowledge = [
     {
-        "id_usuario_conocimiento": 1,
+        "id_conocimientos_usuario": 15,
         "titulo": "Clases de fotografia",
         "usuario_id": 1,
         "estado_conocimiento": {
@@ -13,7 +13,7 @@ export const knowledge = [
         "categoria_id": 6
     },
     {
-        "id_usuario_conocimiento": 2,
+        "id_conocimientos_usuario": 16,
         "titulo": "Clases de Javascript",
         "usuario_id": 2,
         "estado_conocimiento": {
@@ -25,7 +25,7 @@ export const knowledge = [
         "categoria_id": 1
     },
     {
-        "id_usuario_conocimiento": 3,
+        "id_conocimientos_usuario": 17,
         "titulo": "Vamos a patinar en Skate!",
         "usuario_id": 3,
         "estado_conocimiento": {
@@ -37,7 +37,7 @@ export const knowledge = [
         "categoria_id": 6
     },
     {
-        "id_usuario_conocimiento": 4,
+        "id_conocimientos_usuario": 18,
         "titulo": "Introducción a Material UI",
         "usuario_id": 3,
         "estado_conocimiento": {
@@ -49,7 +49,7 @@ export const knowledge = [
         "categoria_id": 3
     },
     {
-        "id_usuario_conocimiento": 5,
+        "id_conocimientos_usuario": 19,
         "titulo": "Clases de guitarra",
         "usuario_id": 4,
         "estado_conocimiento": {
@@ -61,7 +61,7 @@ export const knowledge = [
         "categoria_id": 3
     },
     {
-        "id_usuario_conocimiento": 6,
+        "id_conocimientos_usuario": 20,
         "titulo": "Comida asiática",
         "usuario_id": 6,
         "estado_conocimiento": {
@@ -73,7 +73,7 @@ export const knowledge = [
         "categoria_id": 7
     },
     {
-        "id_usuario_conocimiento": 7,
+        "id_conocimientos_usuario": 21,
         "titulo": "Jugamos a basket?",
         "usuario_id": 5,
         "estado_conocimiento": {
@@ -85,7 +85,7 @@ export const knowledge = [
         "categoria_id": 5
     },
     {
-        "id_usuario_conocimiento": 8,
+        "id_conocimientos_usuario": 22,
         "titulo": "Tardes de canto",
         "usuario_id": 7,
         "estado_conocimiento": {
@@ -97,7 +97,7 @@ export const knowledge = [
         "categoria_id": 3
     },
     {
-        "id_usuario_conocimiento": 9,
+        "id_conocimientos_usuario": 23,
         "titulo": "Masterclass de Ilustraciones con Paint",
         "usuario_id": 8,
         "estado_conocimiento": {
@@ -109,7 +109,7 @@ export const knowledge = [
         "categoria_id": 6
     },
     {
-        "id_usuario_conocimiento": 10,
+        "id_conocimientos_usuario": 24,
         "titulo": "English classes",
         "usuario_id": 10,
         "estado_conocimiento": {

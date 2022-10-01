@@ -2,7 +2,6 @@ import { Stack, ListItemButton, ListItemIcon, Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { AppbarContainer, MyList, LogoImage } from "../../styles/appbar";
 import Actions from "./Actions";
-import "@fontsource/poppins";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +13,7 @@ export default function AppbarDesktop({ matches }) {
   };
 
   const navigateToUploadProduct = () => {
-    navigate("/upload-product");
+    navigate("/knowledge/upload");
   };
   return (
     <AppbarContainer>

@@ -1,15 +1,15 @@
 import { Response, Request } from "express";
-import usuarioModel from "../model/usuarioModel";
+import usuariosModel from "../model/usuariosModel";
 import { iUsuario, iUsuariologin } from "../model/interfaces/iUsuario";
 
-const usuarioController = {
+const usuariosController = {
     getUsuarios: async (req: Request, res: Response) => {
-        const usuarios: any = await usuarioModel.getUsuarios();
+        const usuarios: any = await usuariosModel.getUsuarios();
         res.json(usuarios);
     },
     getUnUsuario: async (req: Request, res: Response) => {
         const param: any = req.params["id"];
-        const usuarios: any = await usuarioModel.getUnUsuario(param);
+        const usuarios: any = await usuariosModel.getUnUsuario(param);
         res.json(usuarios);
     },
     addUsuario: async (req: Request, res: Response) => {
@@ -31,7 +31,7 @@ const usuarioController = {
                     .status(400)
                     .json({ message: "Porfavor, rellene todos los campos obligatorios." });
             }
-            const resultado: iUsuario = await usuarioModel.addUsuario({
+            const resultado: iUsuario = await usuariosModel.addUsuario({
                 foto,
                 nombre,
                 apellidos,
@@ -65,7 +65,7 @@ const usuarioController = {
                     .status(400)
                     .json({ message: "Porfavor, rellena todos los campos obligatorios." });
             }
-            const resultado: iUsuario = await usuarioModel.loginUsuario({
+            const resultado: iUsuario = await usuariosModel.loginUsuario({
                 email,
                 password,
             });
@@ -78,6 +78,6 @@ const usuarioController = {
                 error: err,
             });
         }
-    }
+    },
 };
-export default usuarioController;
+export default usuariosController;

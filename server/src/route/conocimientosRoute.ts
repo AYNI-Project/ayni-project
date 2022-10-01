@@ -4,16 +4,15 @@ import conocimientosController from "../controller/conocimientosController";
 const conocimientosRoute = Router();
 
 //obtener todos los conocimientos
-conocimientosRoute.get("/conocimientos", conocimientosController.getConocimientos);
+conocimientosRoute.get("/knowledge", conocimientosController.getConocimientos);
 //obtener el detalle de un conocimiento en concreto
-conocimientosRoute.get("/conocimientos/:id", conocimientosController.getUnConocimiento);
+conocimientosRoute.get("/knowledge/:id", conocimientosController.getUnConocimiento);
 //añadir un conocimiento
-conocimientosRoute.post("/conocimientos/add", conocimientosController.addConocimiento);
+conocimientosRoute.post("/knowledge/upload", conocimientosController.addConocimiento);
 //editar un conocimiento
-conocimientosRoute.put("/conocimientos/edit/:id", conocimientosController.editConocimiento);
-conocimientosRoute.patch("/conocimientos/edit/:id", conocimientosController.editConocimiento);
+conocimientosRoute.put("/knowledge/edit/:id", conocimientosController.editConocimiento);
+conocimientosRoute.patch("/knowledge/edit/:id", conocimientosController.editConocimiento);
 //eliminar un conocimiento
-conocimientosRoute.delete("/conocimientos/:id", conocimientosController.deleteConocimiento
-);
+conocimientosRoute.delete("/knowledge/:id", conocimientosController.deleteConocimiento);
 
 export default conocimientosRoute;

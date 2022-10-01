@@ -3,8 +3,8 @@ import { Box, Button, Link, Typography, TextField } from "@mui/material";
 
 export const View = styled(Box)(({ theme }) => ({
   fontFamily: "Poppins",
-  width: "100%",
-  height: "100%",
+  width: "100wh",
+  height: "100vh",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-evenly",

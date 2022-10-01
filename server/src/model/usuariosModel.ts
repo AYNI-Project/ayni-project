@@ -2,7 +2,7 @@ import { connection } from "../services/database.service";
 import { iUsuario, iUsuariologin } from "./interfaces/iUsuario";
 import { Pool } from "pg";
 
-class Usuario {
+class Usuarios {
     client: Pool;
     constructor(client: any) {
         this.client = client;
@@ -10,7 +10,7 @@ class Usuario {
 
     async getUsuarios() {
         try {
-            const queryStr = "SELECT * FROM usuario";
+            const queryStr = "SELECT * FROM usuarios";
             const resultado: any = await this.client.query(queryStr, []);
             return resultado.rows;
         } catch (error) {
@@ -18,10 +18,10 @@ class Usuario {
         }
     }
 
-    async getUnUsuario(usuario: iUsuariologin) {
+    async getUnUsuario(usuarios: iUsuariologin) {
         try {
-            const queryStr = "SELECT * FROM usuario WHERE email = $1";
-            const values = [usuario.email];
+            const queryStr = "SELECT * FROM usuarios WHERE email = $1";
+            const values = [usuarios.email];
             const resultado = await this.client.query(queryStr, values);
             return resultado.rows[0];
         } catch (error) {
@@ -29,15 +29,15 @@ class Usuario {
         }
     }
 
-    async addUsuario(usuario: iUsuario) {
+    async addUsuario(usuarios: iUsuario) {
         try {
             const queryStr =
-                'INSERT INTO "usuario"(email, password, nombre, apellido) VALUES($1,$2, $3, $4) RETURNING *';
+                'INSERT INTO "usuarios"(email, password, nombre, apellidos) VALUES($1,$2, $3, $4) RETURNING *';
             const values = [
-                usuario.email,
-                usuario.password,
-                usuario.nombre,
-                usuario.apellidos || null,
+                usuarios.email,
+                usuarios.password,
+                usuarios.nombre,
+                usuarios.apellidos || null,
             ];
             const resultado = await this.client.query(queryStr, values);
             return resultado.rows[0];
@@ -46,12 +46,12 @@ class Usuario {
         }
     }
 
-    async loginUsuario(usuario: iUsuariologin) {
+    async loginUsuario(usuarios: iUsuariologin) {
         try {
             const queryStr = "SELECT * FROM usuarios WHERE email = $1";
             const resultado = await this.client.query(queryStr, [
-                usuario.email,
-                usuario.password,
+                usuarios.email,
+                usuarios.password,
             ]);
             console.log(resultado.rows);
             return resultado.rows[0];
@@ -59,20 +59,20 @@ class Usuario {
             console.log(error);
         }
     }
-    async editUsuario(usuario: iUsuario, id_usuario: any) {
+    async editUsuario(usuarios: iUsuario, id_usuario: any) {
         try {
             const queryStr =
                 "UPDATE usuarios SET (foto, nombre, apellidos, ciudad, sobre_mi, email, password, telefono, opiniones) =($1,$2,$3,$4,$5,$6,$7,$8,$9) WHERE id_usuario=$10 returning *";
             const resultado = await this.client.query(queryStr, [
-                usuario.foto,
-                usuario.nombre,
-                usuario.apellidos,
-                usuario.ciudad,
-                usuario.sobre_mi,
-                usuario.email,
-                usuario.password,
-                usuario.telefono,
-                usuario.opiniones,
+                usuarios.foto,
+                usuarios.nombre,
+                usuarios.apellidos,
+                usuarios.ciudad,
+                usuarios.sobre_mi,
+                usuarios.email,
+                usuarios.password,
+                usuarios.telefono,
+                usuarios.opiniones,
                 id_usuario,
             ]);
             console.log(resultado.rows);
@@ -81,5 +81,14 @@ class Usuario {
             console.log(error);
         }
     }
+    //eliminar conocimiento_usuario
+    // async deleteUsuario(usuarios: iUsuario, id_usuario: any) {
+    //     const queryStr =
+    //         "DELETE FROM conocimiento_usuario WHERE id_conocimientos_usuario = $1 returning *";
+
+    //     const resultado: any = await this.client.query(queryStr, [id_conocimientos_usuario]);
+
+    //     return resultado.rows[0];
+    // }
 }
-export default new Usuario(connection());
+export default new Usuarios(connection());

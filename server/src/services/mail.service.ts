@@ -1,9 +1,8 @@
 import express, { Request, Response } from "express";
-
 const nodemailer = require('nodemailer');
-
 const app = express();
 const router = express.Router();
+
 app.use("/", router);
 
 const transporter = nodemailer.createTransport({

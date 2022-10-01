@@ -67,7 +67,7 @@ const handleSubmit  = () => {
           <InputForm
             type={"text"}
             id="lastName"
-            label="Apellido"
+            label="Apellidos"
             variant="standard"
             value={lastName}
             onChange = {(e) => handleInputChange(e)}
@@ -129,7 +129,7 @@ const handleSubmit  = () => {
             <PhotoCamera />
           </IconButton>         
           <Box style={{ padding: "2rem" }}>
-            <Button type="submit" variant="outlined" color='inherit' style={{backgroundColor:"#FFA37F"}} onClick={()=>handleSubmit()}>
+            <Button className="btn" type="submit" variant="outlined" color='inherit' style={{backgroundColor:"#FFA37F"}} onClick={()=>handleSubmit()}>
               Guardar perfil
             </Button>
           </Box>

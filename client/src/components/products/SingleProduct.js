@@ -44,7 +44,6 @@ export default function SingleProduct ({product, matches}) {
                     <ProductActionButton>
                         <ShareIcon color="primary" />
                     </ProductActionButton>
-                   
                 </Stack>
             </ProductActionsWrapper>
         </Product>

@@ -8,7 +8,7 @@ class Conocimiento {
         this.client = client;
     }
     async getConocimientos() {
-        const queryStr = "SELECT * FROM conocimientos_usuario";
+        const queryStr = "SELECT * FROM conocimiento_usuario";
         const resultado = await this.client.query(queryStr);
         return resultado.rows;
     }

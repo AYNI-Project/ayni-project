@@ -20,9 +20,6 @@ export default function AppbarMobile({ matches }) {
             </IconButton>
             <LogoImage src="./images/banner/2.png" alt="logo-Ayni" 
             onClick={navigateToHome}/>
-            {/*<AppbarHeader textAlign={"center"} variant="h4">
-                Ayni
-            </AppbarHeader>*/}
             <IconButton>
                 <SearchIcon />
             </IconButton>

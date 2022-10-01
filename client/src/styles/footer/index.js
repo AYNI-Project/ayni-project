@@ -15,13 +15,12 @@ export const FooterBox = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   alignContent: "center",
+  width:"100%",
   [theme.breakpoints.down("md")]: {
     height: "120px",
-    padding: "10px",
     fontSize: "14px",
   },
   [theme.breakpoints.down("sm")]: {
-    padding: "4px",
     fontSize: "12px",
     height: "300px",
   },
