@@ -42,8 +42,8 @@ useEffect(() => {
   }, [favorites]);
 
   function handleFavorite(id_usuario_conocimiento) {
-    const newFavorites = favorites.map(item => {
-      return item.id_usuario_conocimiento === id_usuario_conocimiento ? { ...item, favorite: !item.favorite } : item;
+    const newFavorites = favorites.map(knows => {
+      return knows.id_usuario_conocimiento === id_usuario_conocimiento ? { ...knows, favorite: !knows.favorite } : knows;
     });
 
     setFavorites(newFavorites);
@@ -86,8 +86,8 @@ useEffect(() => {
                     <Stack direction="row">
                       <ExchangeFavButton isfav={0}>
                         <FavoriteIcon color="secondary" onClick={() => {
-                          handleFavorite(item.id_usuario_conocimiento);
-                        }}>{item.favorite === true ? "Remove" : "Add"}
+                          handleFavorite(knows.id_usuario_conocimiento);
+                        }}>{knows.favorite === true ? "Remove" : "Add"}
                         </FavoriteIcon>
                       </ExchangeFavButton>
                       <ExchangeActionButton>
