@@ -33,11 +33,8 @@ export default function AppbarMobile({ matches }) {
             <IconButton  onClick={() => setShowSearchBox(true)} >
                 <SearchIcon  />
                 </IconButton>
-            <LogoImage src="./images/banner/2.png" alt="logo-Ayni" 
-            onClick={navigateToHome}/>
-            <IconButton>
-                <SearchIcon />
-            </IconButton>
+           
+         
             <Actions matches={matches}  />
         </AppbarContainer>
     )
