@@ -12,10 +12,10 @@
   },
   "name": "server2",
   "version": "1.0.0",
-  "main": "./src/app.ts",
+  "main": "./build/server.js",
   "scripts": {
     "dev": "nodemon ./src/app.ts",
-    "start": "ts-node ./src/server.ts",
+    "start": "ts-node index.js",
     "build": "tsc --build"
   },
   "keywords": [],
