@@ -1,8 +1,15 @@
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/system";
+<<<<<<< HEAD
+import { Colors, DrawerWidth} from "../theme";
+import { Typography, List, IconButton } from "@mui/material";
+import "@fontsource/poppins"; 
+
+=======
 import { Colors } from "../theme";
 import { Typography, List } from "@mui/material";
 import "@fontsource/poppins";
+>>>>>>> 631a04adfc0dc1dac6677f29fd2bdb0b4b91a958
 
 // container
 export const AppbarContainer = styled(Box)(({theme}) => ({
@@ -61,3 +68,17 @@ export const ActionIconsContainerMobile = styled(Box)(() => ({
   zIndex: 99,
   borderTop: `1px solid ${Colors.border}`,
 }));
+<<<<<<< HEAD
+
+///DrawerMenu BUTTON
+
+
+export const DrawerCloseButton = styled(IconButton)(() => ({
+  position: 'absolute',
+  top: 10,
+  left: DrawerWidth,
+  zIndex: 1999,      
+}));
+
+=======
+>>>>>>> 631a04adfc0dc1dac6677f29fd2bdb0b4b91a958

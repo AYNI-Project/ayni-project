@@ -10,10 +10,13 @@ export const Exchange = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  flexDirection: "column",
+  flexDirection: "column", 
+  marginLeft: "0",
+
+
   [theme.breakpoints.up("md")]: {
-    position: "relative",
-  },
+   
+      },
 }));
 
 export const ExchangeImage = styled("img")(({ src, theme }) => ({
@@ -28,6 +31,7 @@ export const ExchangeImage = styled("img")(({ src, theme }) => ({
   [theme.breakpoints.down("md")]: {
     width: "80%", 
     padding: '24px',
+    
   },
 }));
 

@@ -5,10 +5,10 @@ import Login from "../../pages/auth/Login";
 import Register from "../../pages/auth/Register";
 import ForgotPassword from "../../pages/auth/ForgotPassword";
 import Home from "../../pages/Home";
-import Profile from "../../pages/Profile";
+import Profile from "../../pages/probando/Profile";
 import Favorites from "../../pages/Favorites";
 import KnowHow from "../../pages/KnowHow/Index";
-import DetailProduct from "../../pages/DetailProduct";
+import DetailProduct from "../../pages/detailProduct.js/DetailCard";
 import UploadProduct from "../../pages/UploadProduct";
 import About from "../../pages/footer/About";
 import Contact from "../../pages/footer/Contact";
@@ -23,6 +23,7 @@ export default function AppRoutes() {
             <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
             <Route path="/knowledge" element={<ProtectedRoute><KnowHow /></ProtectedRoute>} />
+            <Route path="/knowhow/detail" element={<ProtectedRoute><DetailProduct /></ProtectedRoute>} />
             <Route path="/profile/edit/:id" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
             <Route path="/detail" element={<ProtectedRoute><DetailProduct /></ProtectedRoute>} />
             <Route path="/knowledge/upload" element={<ProtectedRoute><UploadProduct /></ProtectedRoute>} />
