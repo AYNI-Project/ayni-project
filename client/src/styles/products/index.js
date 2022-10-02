@@ -24,6 +24,20 @@ export const ProductImage = styled("img")(({ src, theme }) => ({
   },
 }));
 
+export const CategoryImage = styled("img")(({ src, theme }) => ({
+  src: `url(${src})`,
+  width: "18%",
+  padding: '10px',
+  [theme.breakpoints.down("md")]: {
+    width: "30%", 
+    padding: '24px',
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "40%", 
+    padding: '20px',
+  },
+}));
+
 export const ProductActionButton = styled(IconButton)(() => ({
   background: Colors.white,
   margin: 4,

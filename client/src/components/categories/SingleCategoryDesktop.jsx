@@ -1,29 +1,22 @@
 import {
     Product,
-    ProductAddToCart,
-    ProductImage,
+    CategoryImage,
 } from "../../styles/products";
 import CategoryMeta from "./CategoriesMeta";
-import { useState } from "react";
+import Paper from '@mui/material/Paper';
+import {Link} from 'react-router-dom';
 
 export default function SingleCategoryDesktop({ categories, matches }) {
-    const [showOption, setShowOption] = useState(false);
-    const handleMouseEnter = () => {
-        setShowOption(true);
-    }
-    const handleMouseLeave = () => {
-        setShowOption(false);
-    }
-
     return (
         <>
-            <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <ProductImage src={categories.image} />
-                {/* {showOption && <ProductAddToCart show={showOption} variant="contained" >Me interesa</ProductAddToCart>}
-                {/* <ProductActionsWrapper show={showOption}>
-                </ProductActionsWrapper> */} 
-            </Product>
-            <CategoryMeta categories={categories} matches={matches} />
+        <Link className="link" to="/knowhow">
+            <Paper elevation={2} sx={{width:"220px", borderRadius:"10px"}}>
+                <Product >
+                    <CategoryImage src={categories.image} />
+                </Product>
+                <CategoryMeta categories={categories} matches={matches} />
+            </Paper>
+            </Link>
         </>
     )
 } 

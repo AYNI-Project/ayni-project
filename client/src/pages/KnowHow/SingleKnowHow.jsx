@@ -1,23 +1,22 @@
-import React from 'react';
-import { Box, Grid, Card, CardContent, CardMedia, Typography, CardActionArea , Stack} from '@mui/material';
-import { useMediaQuery } from "@mui/material";
-import { knowledge } from "../../components/test/mock/conocimientos.jsx"
-import { Exchange, ExchangeImage, ExchangeActionButton, ExchangeFavButton, ExchangeAddButton, ExchangeMetaWrapper, ExchangeActionsWrapper  } from '../../styles/KnowHow/index.jsx';
+import { useState, useEffect } from 'react';
+import { knowledge } from "../../data/conocimientos"
+import { Box, Grid, Card, CardContent, CardMedia, Typography, CardActionArea, Stack } from '@mui/material';
+import { Exchange, ExchangeImage, ExchangeActionButton, ExchangeFavButton, ExchangeMetaWrapper, ExchangeActionsWrapper } from '../../styles/KnowHow/index.jsx';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-import { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import "@fontsource/poppins";
 
-
-import "@fontsource/poppins"; 
-import { useEffect } from 'react';
 
 
 export default function SingleKnowHow({matches}) {
 //PAGINATION
 //let [pageNumber, setPageNumber] = useState(1)
 let [getKnowledge, setGetknowledge] = useState ([]);
+
+const [favorites, setFavorites] = useState([]);
 
 // const URL =`url`
 
@@ -34,11 +33,25 @@ useEffect(() => {
 
   
 
-  
- 
+  useEffect(() => {
+    setFavorites(knowledge);
+  }, []);
+
+  useEffect(() => {
+    console.log(favorites);
+  }, [favorites]);
+
+  function handleFavorite(id_usuario_conocimiento) {
+    const newFavorites = favorites.map(item => {
+      return item.id_usuario_conocimiento === id_usuario_conocimiento ? { ...item, favorite: !item.favorite } : item;
+    });
+
+    setFavorites(newFavorites);
+  }
+
   return (
     <Box flex={4} p={2} >
-        <Exchange>
+      <Exchange>
         <Grid container spacing={2}>
             {
            
@@ -70,41 +83,33 @@ useEffect(() => {
         </CardContent>
       </CardActionArea>
       <ExchangeActionsWrapper>
-      <Stack direction= "row">
-                    <ExchangeFavButton isfav= {0}> 
-                    <FavoriteIcon color="secondary" />
-                    </ExchangeFavButton>
-                    <ExchangeActionButton>
+                    <Stack direction="row">
+                      <ExchangeFavButton isfav={0}>
+                        <FavoriteIcon color="secondary" onClick={() => {
+                          handleFavorite(item.id_usuario_conocimiento);
+                        }}>{item.favorite === true ? "Remove" : "Add"}
+                        </FavoriteIcon>
+                      </ExchangeFavButton>
+                      <ExchangeActionButton>
                         <ShareIcon color="secondary" />
-                    </ExchangeActionButton>
-                   
-                </Stack>
-      </ExchangeActionsWrapper>
+                      </ExchangeActionButton>
+                    </Stack>
+                  </ExchangeActionsWrapper>
     </Card> 
    
 
     </Grid>
+   
+     
      )} 
       return <>
       <Typography> "No Characters Found :/"</Typography>
       </>
-    })        
-                
+    })      
+  }</Grid>  
+    </Exchange>
+    </ Box>
+  )
             
   }
-        </Grid>  
-  
-        
-        </Exchange>  
-        
-    </Box>
-        
-   
-    
-  )
-}
-
-
-
-
-{/*   <Box bgcolor="blue" flex={4} p={2} >*/}
+       

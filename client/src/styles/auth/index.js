@@ -1,12 +1,10 @@
 import { styled } from "@mui/material/styles";
 import { Box, Button, Link, Typography, TextField } from "@mui/material";
-// import { Link } from "react-router-dom";
 
 export const View = styled(Box)(({ theme }) => ({
-  // backgroundColor:"yellow",
   fontFamily: "Poppins",
-  width: "100%",
-  height: "100%",
+  width: "100wh",
+  height: "100vh",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-evenly",
@@ -19,7 +17,6 @@ export const View = styled(Box)(({ theme }) => ({
 }));
 
 export const LeftContent = styled(Box)(({ theme }) => ({
-  // backgroundColor:"green",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -38,7 +35,6 @@ export const RightContent = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   maxWidth: "50%",
-  paddingTop: "60px",
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
     padding: "0px",

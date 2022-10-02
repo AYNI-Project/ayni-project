@@ -2,6 +2,7 @@ import { Box, Button } from '@mui/material';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { LeftContent, RightContent, Subtitle, View, Text, LoginImage, XForm, FormDiv, InputForm, } from '../../styles/auth';
+import Footer from "../../components/footer/Footer";
 
 export default function Contact() {
 
@@ -32,6 +33,7 @@ export default function Contact() {
     };
 
     return (
+        <>
         <View>
             <LeftContent>
                 <Subtitle>¡Aquí estamos!</Subtitle>
@@ -110,6 +112,7 @@ export default function Contact() {
                 </Button>
             </RightContent>
         </View>
+        <Footer/>
+        </>
     )
 }
-

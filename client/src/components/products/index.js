@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import { products } from "../../data";
 import SingleProduct from "./SingleProduct";
 import { useTheme } from "@mui/material/styles";
@@ -11,7 +11,16 @@ export default function Products(knows) {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   const renderProducts = products.map((product) => (
-    <Grid item key={product.id} xs={2} sm={4} md={4} display="flex" flexDirection={'column'} alignItems="center">
+    <Grid
+      item
+      key={product.id}
+      xs={2}
+      sm={4}
+      md={4}
+      display="flex"
+      flexDirection={"column"}
+      alignItems="center"
+    >
       {matches ? (
         <SingleProduct product={product} matches={matches} />
       ) : (
@@ -21,7 +30,7 @@ export default function Products(knows) {
   ));
   return (
     <Container>
-      <Grid        
+      <Grid
         container
         spacing={{ xs: 2, md: 3 }}
         justifyContent="center"

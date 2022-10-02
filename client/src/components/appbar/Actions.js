@@ -101,7 +101,7 @@ export default function Actions({ matches }) {
                 horizontal: "right",
               }}
             >
-              <Typography>
+              <Typography sx={{familyFont:"Poppins"}}>
                 Hola, {user.displayName || user.email}{" "}
               </Typography>
               <MenuItem onClick={navigateToProfile}>Mi Perfil</MenuItem>

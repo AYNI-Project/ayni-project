@@ -8,9 +8,5 @@ export const AlertBox = styled(Box)(({ theme }) => ({
   padding: "0px 0px",
   margin: "auto",
   alignItems: "center",
-  color:"#F6F6F6",
-//   border:"1px #5BBCC0 solid",
-//   backgroundColor:"#5BBCC0",
-//   [theme.breakpoints.down("sm")]: {
-//   },
+  color: "#F6F6F6",
 }));
