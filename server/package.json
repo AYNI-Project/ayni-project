@@ -12,9 +12,12 @@
   },
   "name": "server2",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/app.ts",
   "scripts": {
-    "dev": "nodemon ./src/app.ts"
+    "dev": "nodemon ./src/app.ts",
+    "start:dev": "ts-node ./src/app.ts",
+    "start": "react-scripts start",
+    "build": "tsc --build"
   },
   "keywords": [],
   "author": "",

@@ -49,9 +49,9 @@ export default function Login() {
   return (
     <View>
       <LeftContent>
-        <LogoAyni src="./images/banner/2.png" alt="logo-Ayni" />
+        <LogoAyni src="../images/banner/2.png" alt="logo-Ayni" />
         <Text>Entra y comienza a intercambiar con nuestra comunidad.</Text>
-        <LoginImage src="./images/banner/post-sign.png" alt="poste direcciones" />
+        <LoginImage src="../images/banner/post-sign.png" alt="poste direcciones" />
       </LeftContent>
       <RightContent>
         <Subtitle>Inicia Sesión</Subtitle>

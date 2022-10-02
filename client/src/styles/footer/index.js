@@ -15,7 +15,7 @@ export const FooterBox = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   alignContent: "center",
-  width:"100%",
+  width: "100%",
   [theme.breakpoints.down("md")]: {
     height: "120px",
     fontSize: "14px",
