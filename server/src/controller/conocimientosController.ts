@@ -40,7 +40,7 @@ const conocimientosController = {
                 ...conocimientos,
             });
             res.status(200).json({
-                message: `Tu oferta ${resultado.id_conocimiento_usuario} ha sido añadida con éxito.`,
+                message: `Tu oferta ${resultado.id_conocimientos_usuario} ha sido añadida con éxito.`,
             });
         } catch (err: any) {
             res.status(400).json({
@@ -52,16 +52,16 @@ const conocimientosController = {
     editConocimiento: async (req: Request, res: Response) => {
         try {
             const id: any = req.params.id;
-            const conocimiento: iConocimiento = req.body;
+            const conocimientos: iConocimiento = req.body;
 
             const resultado: iConocimiento = await conocimientosModel.editConocimiento(
                 id,
-                conocimiento
+                conocimientos
             );
             res
                 .status(200)
                 .json({
-                    message: `Tu oferta ${resultado.id_conocimiento_usuario} ha sido editada con éxito.`,
+                    message: `Tu oferta ${resultado.id_conocimientos_usuario} ha sido editada con éxito.`,
                 });
         } catch (err) {
             return res.status(400).json({
@@ -69,14 +69,13 @@ const conocimientosController = {
             });
         }
     },
-
     deleteConocimiento: async (req: Request, res: Response) => {
         try {
             const id = req.params.id;
             const resultado: any = await conocimientosModel.deleteConocimiento(parseInt(id));
 
             res.status(200).json({
-                message: `Tu oferta ${resultado.id_conocimiento_usuario} ha sido borrada con éxito.`,
+                message: `Tu oferta ${resultado.id_conocimientos_usuario} ha sido borrada con éxito.`,
             });
         } catch (err: any) {
             res.status(400).json({
