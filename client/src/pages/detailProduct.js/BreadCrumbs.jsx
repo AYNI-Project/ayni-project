@@ -5,40 +5,44 @@ import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import GrainIcon from '@mui/icons-material/Grain';
+//import { Link } from 'react-router-dom';
+
 
 function handleClick(event) {
   event.preventDefault();
   console.info('You clicked a breadcrumb.');
 }
 
-export default function IconBreadcrumbs() {
+export default function IconBreadcrumbs(knows) {
   return (
     <div role="presentation" onClick={handleClick}>
       <Breadcrumbs aria-label="breadcrumb" sx={{ m: 4 }}>
         <Link
+          href='/'
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center' }}
-          color="inherit"
-          href="/"
+          color= "secondary"
+
+          
         >
           <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-          MUI
+         Home
         </Link>
         <Link
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center' }}
-          color="inherit"
-          href="/material-ui/getting-started/installation/"
+          color= "secondary"
+         to="/knowHow"
         >
           <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-          Core
+          Trueques
         </Link>
         <Typography
           sx={{ display: 'flex', alignItems: 'center' }}
-          color="text.primary"
+          color= "secondary"
         >
           <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-          Breadcrumb
+          {knows.id_usuario_conocimiento} id de conocimiento
         </Typography>
       </Breadcrumbs>
     </div>

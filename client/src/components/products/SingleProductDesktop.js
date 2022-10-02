@@ -14,34 +14,15 @@ import {
 import { useState } from "react";
 
 export default function SingleProductDesktop ({product, matches}) {
-    const [showOption, setShowOption] = useState (false);
-    const handleMouseEnter = () => {
-        setShowOption(true);
-    }
-    const handleMouseLeave = () => {
-        setShowOption(false);
-    }
-        
+  
         return (
         <>
         
-        <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <Product >
        
             <ProductImage src={product.image} />
-            
-            <ProductFavButton isfav={0}>
-                <FavoriteIcon />
-            </ProductFavButton>
-                {showOption && <ProductAddToCart show={showOption} variant = "contained" >Me interesa</ProductAddToCart>}
-            
-            <ProductActionsWrapper show={showOption}>
-                <Stack direction= "column">
-                    <ProductActionButton >
-                        <ShareIcon color="primary" />
-                    </ProductActionButton>
-                    
-                </Stack>
-            </ProductActionsWrapper>
+                            
+           
         </Product>
         <ProductMeta product={product} matches={matches}/> 
         </>

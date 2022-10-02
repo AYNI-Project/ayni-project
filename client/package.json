@@ -16,6 +16,7 @@
     "axios": "^0.27.2",
     "dotenv": "^16.0.2",
     "firebase": "^9.9.4",
+    "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-mui-fileuploader": "^0.2.0",

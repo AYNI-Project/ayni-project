@@ -7,15 +7,20 @@ import { knowledge } from "../../components/test/mock/conocimientos.jsx"
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import CategoryMenu from "./CategoryMenu";
-
+import SearchBar from '../../components/searchBar/SearchBar'
+import { useState } from 'react';
+import { UIProvider } from '../../context/indexUi'
 
 export default function Exchanges() {
+
+ 
 
   return (
     <Box>
 
       <Appbar />
-
+      
+      
       <Stack direction="row" spacing={2} justifyContent="space-between">
         <CategoryMenu />
         <SingleKnowHow />

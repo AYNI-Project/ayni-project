@@ -19,9 +19,9 @@ export default function SingleCategoryDesktop({ categories, matches }) {
         <>
             <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <ProductImage src={categories.image} />
-                {showOption && <ProductAddToCart show={showOption} variant="contained" >Me interesa</ProductAddToCart>}
+                {/* {showOption && <ProductAddToCart show={showOption} variant="contained" >Me interesa</ProductAddToCart>}
                 {/* <ProductActionsWrapper show={showOption}>
-                </ProductActionsWrapper> */}
+                </ProductActionsWrapper> */} 
             </Product>
             <CategoryMeta categories={categories} matches={matches} />
         </>

@@ -44,16 +44,39 @@ const labels = {
 const ProductDetailWrapper = styled(Box)(({ theme }) => ({
   display: "flex",
   padding: theme.spacing(4),
+  width: "100%",
 }));
 
 const ProductDetailInfoWrapper = styled(Box)(() => ({
   display: "flex",
   flexDirection: "column",
-  maxWidth: 500,
+  paddingLeft: "30px",
+ 
+  width: "50%",
   lineHeight: 1.5,
 }));
 
-export default function DetailCard(knows) {
+const DetailImage = styled("img")(({ src, theme }) => ({
+  src: `url(${src})`,
+  // backgroundImage: `url(${src})`,
+  // backgroundRepeat: "no-repeat",
+  // backgroundPosition: "center",
+  height: "250px",
+  borderRadius: "25px",
+  justifyContent: "center",
+  alignItems: "center",
+ 
+
+  [theme.breakpoints.down("md")]: {
+    width: "300px",
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "100px",
+    height: "300px",
+  },
+}));
+
+export default function DetailCard(results) {
   const value = 3.5;
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
@@ -62,22 +85,18 @@ export default function DetailCard(knows) {
     <Box>
       <Appbar />
       <IconBreadcrumbs />
-
       <ProductDetailWrapper
+        bgcolor="lightblue"
         display={"flex"}
-        flexDirection={ matches ? "column" : "row"}
-      >
-        <Exchange>
-          <ExchangeImage
-            src="https://cdn.pixabay.com/photo/2015/02/09/14/31/blonde-629726_960_720.jpg"
-            sx={{
-              width: "50%",
-              height: "80%",
-               
-            }}
-          />
+        flexDirection={matches ? "column" : "row"}>
+        <Exchange
+          bgcolor="red" sx={{ width: "20%", marginLeft:"30%"}}
+          >
+          <DetailImage src="https://cdn.pixabay.com/photo/2015/02/09/14/31/blonde-629726_960_720.jpg" sx={{width:"20px"}}/>
         </Exchange>
-        <ProductDetailInfoWrapper>
+        {/*  information wrapper  */}
+
+        <ProductDetailInfoWrapper bgcolor="pink" sx={{ width: "50%" }}>
           <Stack direction="row" spacing={1} sx={{ mt: 4, marginRight: "6px" }}>
             <Avatar
               alt="Remy Sharp"
@@ -86,7 +105,7 @@ export default function DetailCard(knows) {
             />
             <Stack>
               <Typography sx={{ fontFamily: "Poppins" }} variant="h4">
-                {knows.name} Chechutech
+                {results.name} Chechutech
               </Typography>
 
               <Rating
@@ -110,11 +129,11 @@ export default function DetailCard(knows) {
             color="secondary"
             variant="h4"
           >
-            {knows.titulo} Javascript
+            {results.titulo} Javascript
           </Typography>
 
           <Typography variant="body">
-            {knows.descripcion}ashdashdakjksjdakjsdhkajhds
+            {results.descripcion}ashdashdakjksjdakjsdhkajhds
           </Typography>
           <Box
             sx={{ mt: 4 }}
@@ -161,7 +180,7 @@ export default function DetailCard(knows) {
       justifyContent: "center",
       alignItems: "center"
 
-        }}>  <img src= {knows.foto}
+        }}>  <img src= {results.foto}
      
       
         />
@@ -175,7 +194,7 @@ export default function DetailCard(knows) {
    
       
      <Typography>
-      {knows.titulo}
+      {results.titulo}
 
      </Typography>
      <Rating
