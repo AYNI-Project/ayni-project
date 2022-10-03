@@ -1,5 +1,5 @@
+"use strict";
 // import { Router, Request, Response } from "express";
-
 // router.post("/contact", (req: Request, res:Response) => {
 //     const name = req.body.name;
 //     const email = req.body.email;

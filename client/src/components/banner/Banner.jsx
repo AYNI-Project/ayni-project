@@ -8,22 +8,25 @@ import {
   BannerImage,
 } from "../../styles/banner";
 import "@fontsource/poppins";
+import { Link } from "react-router-dom";
 
 export default function Banner() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    
-    <BannerContainer 
-    sx={{ overflow:"hidden", height: "600px", alignItems:"center", alignContent:"center", justifyContent:"center" }}>
-      <BannerContent sx={{ textAlign:"center"}}>
+
+    <BannerContainer
+      sx={{ overflow: "hidden", height: "600px", alignItems: "center", alignContent: "center", justifyContent: "center" }}>
+      <BannerContent sx={{ textAlign: "center" }}>
         <Typography variant="h6"> Te damos la bienvenida a </Typography>
         <BannerTitle variant="h2">AYNI</BannerTitle>
         <BannerDescription variant="subtitle">
           Significa 'Reciprocidad'. <br></br> Compartamos conocimientos entre
           compañeros.<br></br>“Hoy por ti, mañana por mi.”
         </BannerDescription>
+        <Link to="/knowledge">
+          <button className="btn">Ir al catálogo</button></Link>
       </BannerContent>
       <BannerImage
         src="./images/banner/mountains.png"

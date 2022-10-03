@@ -81,14 +81,14 @@ class Usuarios {
             console.log(error);
         }
     }
-    //eliminar conocimiento_usuario
-    // async deleteUsuario(usuarios: iUsuario, id_usuario: any) {
-    //     const queryStr =
-    //         "DELETE FROM conocimiento_usuario WHERE id_conocimientos_usuario = $1 returning *";
+    //eliminar usuario
+    async deleteUsuario(id_usuario: number) {
+        const queryStr =
+            "DELETE FROM usuarios WHERE id_usuario = $1 returning *";
 
-    //     const resultado: any = await this.client.query(queryStr, [id_conocimientos_usuario]);
+        const resultado: any = await this.client.query(queryStr, [id_usuario]);
 
-    //     return resultado.rows[0];
-    // }
+        return resultado.rows[0];
+    }
 }
 export default new Usuarios(connection());

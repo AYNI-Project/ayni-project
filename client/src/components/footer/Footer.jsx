@@ -38,7 +38,7 @@ export default function Footer() {
           </Box>
         </Grid>
         <Grid item md={5} lg={2} sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-          <LogoAyni src="./images/footer/logo-footer.png" alt="logo-factoriaf5" sx={{ width: "100px" }} />
+        <a className="icon" href="https://factoriaf5.org/"><LogoAyni src="./images/footer/logo-footer.png" alt="logo-factoriaf5" sx={{ width: "100px" }}/></a>
         </Grid>
       </Grid>
     </FooterBox>

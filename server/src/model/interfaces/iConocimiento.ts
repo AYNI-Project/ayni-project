@@ -1,5 +1,5 @@
 export default interface iConocimiento {
-    id_conocimiento_usuario: number;
+    id_conocimientos_usuario: number;
     titulo: string;
     descripcion: string;
     imagen: string;

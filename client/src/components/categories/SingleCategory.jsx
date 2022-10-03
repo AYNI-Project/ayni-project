@@ -6,7 +6,7 @@ export default function SingleCategory({ categories, matches }) {
 
   return (
     <>
-      <Link className="link" to="/knowhow">
+      <Link className="link" to="/knowledge">
         <Product>
           <CategoryImage src={categories.image} />
           <ProductMeta categories={categories} matches={matches} />

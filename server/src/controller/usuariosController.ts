@@ -53,7 +53,7 @@ const usuariosController = {
             });
         }
     },
-    loginController: async (req: Request, res: Response) => {
+    loginUsuario: async (req: Request, res: Response) => {
         try {
             const {
                 email,
@@ -79,5 +79,39 @@ const usuariosController = {
             });
         }
     },
+    editUsuario: async (req: Request, res: Response) => {
+        try {
+            const id: any = req.params.id;
+            const usuario: iUsuario = req.body;
+
+            const resultado: iUsuario = await usuariosModel.editUsuario(
+                id,
+                usuario
+            );
+            res
+                .status(200)
+                .json({
+                    message: `Tu perfil ${resultado.id_usuario} ha sido editado con éxito.`,
+                });
+        } catch (err) {
+            return res.status(400).json({
+                error: err,
+            });
+        }
+    },
+    deleteUsuario: async (req: Request, res: Response) => {
+        try {
+            const id = req.params.id;
+            const resultado: any = await usuariosModel.deleteUsuario(parseInt(id));
+
+            res.status(200).json({
+                message: `Tu perfil ${resultado.id_usuario} ha sido borrado con éxito.`,
+            });
+        } catch (err: any) {
+            res.status(400).json({
+                error: err,
+            });
+        }
+    }
 };
 export default usuariosController;
