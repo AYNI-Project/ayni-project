@@ -3,7 +3,7 @@
 
 ## How to quickly try it?
 
-👉 The project is hosted on Firebase: https://ayni-f5.web.app/
+👉 The project is hosted on Firebase: https://ayni-f5.web.app/<br/>
 👉 Database on Heroku: https://ayni-project.herokuapp.com/
 
 💡 If you don't want to go through the sign-up process, here are a few login credentials you can use:
@@ -20,7 +20,7 @@
 
 ### Front
 * [React](https://reactjs.org/)
-* [Material-Ui](https://material-ui.com/) : React UI framework
+* [Material-Ui](https://material-ui.com/)
 
 ## How we've been working
 * 🗓 Planning the project and user stories on Trello : https://trello.com/b/cpEoZolB/ayni
@@ -29,7 +29,7 @@
 
 ## Credits
 
-👨🏻‍💻👩🏻‍💻👩🏻‍💻Built and designed by:
-<a href="https://github.com/Mariacarranzavaldes">Maria Carranza</a>
-<a href="https://github.com/marielleia">Marielle Ibias</a>
+👨🏻‍💻👩🏻‍💻👩🏻‍💻Built and designed by:<br/>
+<a href="https://github.com/Mariacarranzavaldes">Maria Carranza</a><br/>
+<a href="https://github.com/marielleia">Marielle Ibias</a><br/>
 <a href="https://github.com/Chechutech">Cecilia Olmedo</a>
