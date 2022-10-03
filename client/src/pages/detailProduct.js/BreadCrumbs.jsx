@@ -21,28 +21,25 @@ export default function IconBreadcrumbs(knows) {
           href='/'
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center' }}
-          color= "secondary"
-
-          
-        >
+          color="secondary">
           <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-         Home
+          Home
         </Link>
         <Link
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center' }}
-          color= "secondary"
-         to="/knowHow"
+          color="secondary"
+          to="/knowledge"
         >
           <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
           Trueques
         </Link>
         <Typography
           sx={{ display: 'flex', alignItems: 'center' }}
-          color= "secondary"
+          color="secondary"
         >
           <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-          {knows.id_usuario_conocimiento} id de conocimiento
+          {knows.titulo} id de conocimiento
         </Typography>
       </Breadcrumbs>
     </div>

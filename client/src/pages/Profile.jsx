@@ -4,7 +4,7 @@ import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import IconButton from "@mui/material/IconButton";
 import Appbar from "../components/appbar";
 import { InputForm, LeftContent, RightContent, Subtitle, View } from "../styles/auth";
-import { useState, setState } from "react";
+import { useState } from "react";
 
 export default function Profile() {
 

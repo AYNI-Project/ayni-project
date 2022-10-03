@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const messages = [
   "Busca lo que necesitas",
-  <Link className="link" to="/aboutus">
+  <Link className="link" to="/about-us">
     Aprende sobre AYNI
   </Link>,
   "Intercambia conocimientos",

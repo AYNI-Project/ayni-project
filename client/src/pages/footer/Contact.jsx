@@ -103,11 +103,11 @@ export default function Contact() {
                             <label htmlFor="agree"> He leído y acepto la <a href="https://factoriaf5.org/politica-de-privacidad/">Política de privacidad</a></label>
                         </Box>
                     </FormDiv>
-                    <button type='submit'>
+                    <button type='submit' className='btn'>
                         {status}
                     </button>
                 </XForm>
-                <Button sx={{ fontSize: "14px" }}><Link to="/login">
+                <Button sx={{ fontSize: "14px", justifyItems:"center" }}><Link to="/users/login">
                     Volver a la página de inicio de sesión </Link>
                 </Button>
             </RightContent>

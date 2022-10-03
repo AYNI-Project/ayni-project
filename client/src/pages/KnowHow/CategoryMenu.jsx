@@ -76,7 +76,6 @@ export default function CategoryMenu() {
               </ListItemIcon>
               <ListItemText primary="Más" />
             </ListItemButton>
-          
           </ListItem>
         </List>
       </nav>

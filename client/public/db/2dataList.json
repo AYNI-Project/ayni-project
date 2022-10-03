@@ -10,7 +10,7 @@
     
   "results": [ 
     {
-        "id_usuario_conocimiento": 1,
+        "id_conocimientos_usuario": 1,
         "titulo": "Clases de fotografia",
         "usuario_id": 1,
         "estado_conocimiento": {
@@ -24,7 +24,7 @@
        
     },
     {
-        "id_usuario_conocimiento": 2,
+        "id_conocimientos_usuario": 2,
         "titulo": "Clases de Javascript",
         "usuario_id": 2,
         "estado_conocimiento": {
@@ -37,7 +37,7 @@
         "categoria": "programación"
     },
     {
-        "id_usuario_conocimiento": 3,
+        "id_conocimientos_usuario": 3,
         "titulo": "Vamos a patinar en Skate!",
         "usuario_id": 3,
         "estado_conocimiento": {
@@ -50,7 +50,7 @@
         "categoria": "arte"
     },
     {
-        "id_usuario_conocimiento": 4,
+        "id_conocimientos_usuario": 4,
         "titulo": "Introducción a Material UI",
         "usuario_id": 3,
         "estado_conocimiento": {
@@ -63,7 +63,7 @@
         "categoria": "musica"
     },
     {
-        "id_usuario_conocimiento": 5,
+        "id_conocimientos_usuario": 5,
         "titulo": "Clases de guitarra",
         "usuario_id": 4,
         "estado_conocimiento": {
@@ -76,7 +76,7 @@
         "categoria": "musica"
     },
     {
-        "id_usuario_conocimiento": 6,
+        "id_conocimientos_usuario": 6,
         "titulo": "Comida asiática",
         "usuario_id": 6,
         "estado_conocimiento": {
@@ -89,7 +89,7 @@
         "categoria": "cocina"
     },
     {
-        "id_usuario_conocimiento": 7,
+        "id_conocimientos_usuario": 7,
         "titulo": "Jugamos a basket?",
         "usuario_id": 5,
         "estado_conocimiento": {
@@ -102,7 +102,7 @@
         "categoria": "deporte"
     },
     {
-        "id_usuario_conocimiento": 8,
+        "id_conocimientos_usuario": 8,
         "titulo": "Tardes de canto",
         "usuario_id": 7,
         "estado_conocimiento": {
@@ -115,7 +115,7 @@
         "categoria": "musica"
     },
     {
-        "id_usuario_conocimiento": 9,
+        "id_conocimientos_usuario": 9,
         "titulo": "Masterclass de Ilustraciones con Paint",
         "usuario_id": 8,
         "estado_conocimiento": {
@@ -128,7 +128,7 @@
         "categoria": "arte"
     },
     {
-        "id_usuario_conocimiento": 10,
+        "id_conocimientos_usuario": 10,
         "titulo": "English classes",
         "usuario_id": 10,
         "estado_conocimiento": {
