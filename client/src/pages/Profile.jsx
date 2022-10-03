@@ -151,33 +151,3 @@ export default function Profile() {
   );
 }
 
-/*onClick={()=>handleSubmit()}
-
-const handleInputChange = (e) => {
-  const {id , value} = e.target;
-  if(id === "name"){
-      setName(value);
-  }
-  if(id === "lastName"){
-      setLastName(value);
-  }
-  if(id === "city"){
-    setCity(value);
-  }
-   if(id === "email"){
-      setEmail(value);
-  }
-  if(id === "password"){
-      setPassword(value);
-  }
-  if(id === "confirmPassword"){
-      setConfirmPassword(value);
-  }
-  if(id === "aboutMe"){
-    setAboutMe(value);
-  }
-  if(id === "picture"){
-    setPicture(value);
-  }
-
-}*/
