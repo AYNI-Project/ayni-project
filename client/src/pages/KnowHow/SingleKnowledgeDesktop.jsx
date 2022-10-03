@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
+
 export default function SingleProductDesktop({ Exchange, matches }) {
   const [showOption, setShowOption] = useState(false);
   let [getKnowledge, setGetknowledge] = useState([]);
@@ -51,7 +52,7 @@ export default function SingleProductDesktop({ Exchange, matches }) {
   }
 
   return (
-    <Box flex={4} p={2} >
+    <Box flex={4} p={2}>
       <Exchange>
         <Grid container spacing={2}>
           {getKnowledge.map((knows) => {
