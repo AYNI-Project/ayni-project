@@ -32,19 +32,19 @@ export default function Home() {
 
     <Container maxWidth="xl" sx={{ background: '#fff' }}>
       <UIProvider>
-      <Appbar />
-      <Banner />
-      <Promotions />
-      <SearchBar />
+        <Appbar />
+        <Banner />
+       <Promotions />
+        {/* <SearchBar /> */}
 
-      <Box sx={{ display: "flex", textAlign: "center", justifyContent: "center", margin: "30px 0px" }}>
-        <Typography variant="h4"> ¿Qué quieres intercambiar? </Typography>
-      </Box>
-      <Categories />
+       <Box sx={{ display: "flex", textAlign: "center", justifyContent: "center", margin: "30px 0px" }}>
+          <Typography variant="h4"> ¿Qué quieres intercambiar? </Typography>
+        </Box>
+        <Categories />
       
       
-      <Footer/> 
-      <AppMenu />
+        < Footer/> 
+        <AppMenu />
       </UIProvider>
 
     </Container>
