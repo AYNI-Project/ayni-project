@@ -77,19 +77,15 @@ export default function SingleKnowHow({ matches }) {
     console.log(favorites);
   }, [favorites]);
 
-  function handleFavorite(id_conocimientos_usuario) {
-    const newFavorites = favorites.map((knows) => {
-      return knows.id_conocimientos_usuario === id_conocimientos_usuario
-        ? { ...knows, favorite: !knows.favorite }
-        : knows;
-    });
-    const handleNotification = (type) => {
-      type === 1 && setLiked(true);
-    };
-
-    setFavorites(newFavorites);
+  const handleNotification = (type) => {
+    type === 1 && setLiked(true);
   }
-
+    function handleFavorite(id_conocimientos_usuario) {
+      const newFavorites = favorites.map(knows => {
+        return knows.id_conocimientos_usuario === id_conocimientos_usuario ? { ...knows, favorite: !knows.favorite } : knows;
+      });
+      setFavorites(newFavorites);
+    }
   return (
     <Box flex={4} p={2}>
       <Box flex={1} p={2} sx={{ display: { sm: "none", md: "block" } }}>
