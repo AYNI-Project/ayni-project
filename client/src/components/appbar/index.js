@@ -3,6 +3,8 @@ import { useTheme } from "@mui/material";
 import AppbarMobile from "./AppbarMobile";
 import AppbarDesktop from "./AppbarDesktop";
 import "@fontsource/poppins";
+import SearchBar from "../searchBar/SearchBar";
+
 
 
 export default function Appbar() {
@@ -11,13 +13,13 @@ export default function Appbar() {
 
   return (
     <>
-   
+      
       {matches ? (
         <AppbarMobile matches={matches} />
-      ) : (
+      )  : (
         <AppbarDesktop matches={matches} />
       )}
-     
+       <SearchBar />
     </>
   );
 }

@@ -62,8 +62,9 @@ const Demo = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
 }));
 
-export default function SearchBar({ matches }) {
+export default function SearchBar() {
   const { showSearchBox, setShowSearchBox } = useUIContext();
+ 
   let [search, setSearch] = useState([]);
   const [lookup, setLookup] = useState("");
 

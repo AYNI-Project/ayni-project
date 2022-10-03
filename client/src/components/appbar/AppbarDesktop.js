@@ -6,14 +6,16 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useNavigate } from "react-router-dom";
 import { useUIContext } from "../../context/indexUi";
 import { Link } from "react-router-dom";
+import SearchBar from "../searchBar/SearchBar";
+
 
 export default function AppbarDesktop({ matches }) {
-  const { setDrawerOpen, setShowSearchBox } = useUIContext();
+  const { setShowSearchBox } = useUIContext();
   const navigate = useNavigate();
 
-  const navigateToHome = () => {
-    navigate("/");
-  };
+  // const navigateToHome = () => {
+  //   navigate("/");
+  // };
 
   const navigateToUploadProduct = () => {
     navigate("/uploadProduct");
@@ -39,14 +41,17 @@ export default function AppbarDesktop({ matches }) {
         >
           Agregar trueque
         </Button>
-        <ListItemButton>
-          <ListItemIcon onClick={() => setShowSearchBox(true)}>
+        <ListItemButton onClick={() => setShowSearchBox(true)}>
+            
+          <ListItemIcon  >
             <SearchIcon />
+        
           </ListItemIcon>
         </ListItemButton>
       </MyList>
-      <Stack direction="row" spacing={2}></Stack>
+      {/* <Stack direction="row" spacing={2} /> */}
       <Actions matches={matches} />
+   
     </AppbarContainer>
   );
 }

@@ -6,6 +6,7 @@ import Actions from "./Actions";
 import { useUIContext } from "../../context/indexUi";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "../searchBar/SearchBar";
 
 
 
@@ -31,7 +32,10 @@ export default function AppbarMobile({ matches }) {
                 Ayni
             </AppbarHeader>*/}
             <IconButton  onClick={() => setShowSearchBox(true)} >
-                <SearchIcon  />
+
+                
+                <SearchBar />
+
                 </IconButton>
            
          

@@ -53,7 +53,7 @@ export default function ForgotPassword() {
           <button className="btn" onClick={handleResetPassword}> Modificar contraseña </button>
         </XForm>
 
-        <Button sx={{ fontSize: "14px" }}><Link to="/login">
+        <Button sx={{ fontSize: "14px" }}><Link to="/users/login">
           Volver a la página de inicio de sesión </Link>
         </Button>
       </RightContent>

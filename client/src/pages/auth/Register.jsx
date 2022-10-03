@@ -3,7 +3,7 @@ import { useAuth } from "../../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
 import Alert from "../../components/reusables/Alert";
 import { Button, Box } from "@mui/material";
-import { View, LogoAyni, LeftContent, RightContent, LoginImage, Text, XForm, InputForm, FormDiv, Subtitle} from "../../styles/auth";
+import { View, LogoAyni, LeftContent, RightContent, LoginImage, Text, XForm, InputForm, FormDiv, Subtitle } from "../../styles/auth";
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -23,32 +23,22 @@ export default function Register() {
     setError("");
     try {
       await signup(user.email, user.password);
-      // verifyEmail(user.email);
       navigate('/');
-      // setTimeActive(true);
-      // navigate('/verify-email');
     }
     catch (error) {
       console.log(error.code);
-      if (error.code === "auth/internal-error") {
-        setError("Correo inválido");
-        // }
-        // if (error.code === "auth/email-already-in-use") {
-        //   setError("Correo en uso. Prueba otro.");
-        // if (error.code === "auth/weak-password") {
-        //   setError("Contraseña débil");
-        //   }
-      }
-      // setError(error.message);
+      if (error.code === "auth/internal-error") { setError("Correo inválido");}
+      if (error.code === "auth/email-already-in-use") { setError("Correo en uso. Prueba otro.");}
+      if (error.code === "auth/weak-password") { setError("Contraseña débil");}
     }
   };
 
   return (
     <View>
       <LeftContent>
-      <Link to="/"><LogoAyni src="./images/banner/2.png" alt="logo-Ayni" /></Link>
+        <Link to="/"><LogoAyni src="./images/banner/2.png" alt="logo-Ayni" /></Link>
         <Text>Registra y rellena los datos del nuevo usuario.</Text>
-        <LoginImage src="./images/banner/post-sign.png" alt="poste direcciones"/>
+        <LoginImage src="./images/banner/post-sign.png" alt="poste direcciones" />
       </LeftContent>
       <RightContent>
         <Subtitle>Registro de usuarios</Subtitle>
@@ -102,7 +92,7 @@ export default function Register() {
             Registrar
           </button>
         </XForm>
-        <Button sx={{ fontSize: "14px" }}><Link to="/login">
+        <Button sx={{ fontSize: "14px" }}><Link to="/users/login">
           Volver a la página de inicio de sesión </Link>
         </Button>
       </RightContent>
