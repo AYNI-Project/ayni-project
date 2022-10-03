@@ -105,7 +105,7 @@ export default function DetailCard(results) {
             />
             <Stack>
               <Typography sx={{ fontFamily: "Poppins" }} variant="h4">
-                {results.name} Chechutech
+                {results.titulo} 
               </Typography>
 
               <Rating
@@ -129,11 +129,11 @@ export default function DetailCard(results) {
             color="secondary"
             variant="h4"
           >
-            {results.titulo} Javascript
+            {results.titulo} 
           </Typography>
 
           <Typography variant="body">
-            {results.descripcion}ashdashdakjksjdakjsdhkajhds
+            {results.descripcion}
           </Typography>
           <Box
             sx={{ mt: 4 }}
