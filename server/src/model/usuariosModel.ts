@@ -64,7 +64,7 @@ class Usuarios {
         try {
             console.log(usuarios,id_usuario)
             const queryStr =
-                "UPDATE usuarios SET (foto, nombre, apellidos, ciudad, sobre_mi, email, telefono, opiniones) =($1,$2,$3,$4,$5,$6,$7,$8) WHERE id_usuario=$9 returning *";
+                "UPDATE usuarios SET (foto, nombre, apellidos, ciudad, sobre_mi, email, password, telefono, opiniones) =($1,$2,$3,$4,$5,$6,$7,$8,$9) WHERE id_usuario=$10 returning *";
             const resultado = await this.client.query(queryStr, [
                 usuarios.foto,
                 usuarios.nombre,
@@ -72,7 +72,7 @@ class Usuarios {
                 usuarios.ciudad,
                 usuarios.sobre_mi,
                 usuarios.email,
-              //  usuarios?.password || '',
+                usuarios?.password || '',
                 usuarios.telefono,
                 usuarios.opiniones,
                 id_usuario,
