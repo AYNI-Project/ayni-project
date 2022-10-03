@@ -10,6 +10,7 @@ const usuariosController = {
     getUnUsuario: async (req: Request, res: Response) => {
         const param: any = req.params["id"];
         const usuarios: any = await usuariosModel.getUnUsuario(param);
+        console.log(usuarios)
         res.json(usuarios);
     },
     addUsuario: async (req: Request, res: Response) => {
@@ -85,8 +86,8 @@ const usuariosController = {
             const usuario: iUsuario = req.body;
 
             const resultado: iUsuario = await usuariosModel.editUsuario(
-                id,
-                usuario
+                usuario,
+                id
             );
             res
                 .status(200)

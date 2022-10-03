@@ -11,7 +11,7 @@ usuariosRoute.post("/users/register",usuariosController.addUsuario);
 
 usuariosRoute.post("/users/login", usuariosController.loginUsuario);
 
-usuariosRoute.post("users/edit/:id", usuariosController.editUsuario);
+usuariosRoute.put("/users/edit/:id", usuariosController.editUsuario);
 
 usuariosRoute.delete("/users/:id", usuariosController.deleteUsuario);
 

@@ -3,62 +3,45 @@ import { Typography, Button, Box } from "@mui/material";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import IconButton from "@mui/material/IconButton";
 import Appbar from "../components/appbar";
-import { InputForm, LeftContent, RightContent, Subtitle, View } from "../styles/auth";
-import { useState} from "react";
-import axios from 'axios'
+import {
+  InputForm,
+  LeftContent,
+  RightContent,
+  Subtitle,
+  View,
+} from "../styles/auth";
+import { useState } from "react";
+import axios from "axios";
 
 export default function Profile() {
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [city, setCity] = useState("");
+  const [celNumber, setCelNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [aboutMe, setAboutMe] = useState("");
+  const [picture, setPicture] = useState("");
   const [user, setUser] = useState([]);
-  const [name, setName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [city, setCity] = useState('');
-  const [celNumber, setCelNumber] = useState('');
-  const [email, setEmail] = useState('');
-  const [password,setPassword] = useState('');
-  const [confirmPassword,setConfirmPassword] = useState('');
-  const [aboutMe, setAboutMe] = useState('');
-  const [picture, setPicture] = useState('');
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-       .put('https://ayni-project.herokuapp.com/user/edit/:id', {
-          name: name,
-          lastName: lastName,
-          city: city,
-          celNumber: celNumber,
-          email: email,
-          password: password,
-          confirmPassword: confirmPassword,
-          aboutMe: aboutMe,
-          picture: picture
-
-
-       })
-       .then((res) => {
-          setUser((user) => [res.data, ...user]);
-          setName('');
-          setLastName('');
-          setCity('');
-          setCelNumber('');
-          setEmail('');
-          setPassword ('');
-          setConfirmPassword ('');
-          setAboutMe ('');
-          setPicture('')
-       })
-       .catch((err) => {
-          console.log(err.message);
-       });
- }; 
-
+      .put("https://ayni-project.herokuapp.com/user/edit/:id", { user })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
 
   return (
     <>
       <Appbar />
       <View>
         <LeftContent>
-
           <Subtitle>EDITAR PERFIL</Subtitle>
           <InputForm
             type={"text"}
@@ -66,7 +49,7 @@ export default function Profile() {
             label="Nombre"
             variant="standard"
             value={name}
-            onChange={(e)=> setName(e.target.value)}
+            onChange={(e) => setUser({ ...user, name: e.target.value })}
           />
           <InputForm
             type={"text"}
@@ -74,7 +57,7 @@ export default function Profile() {
             label="Apellidos"
             variant="standard"
             value={lastName}
-            onChange={(e)=> setLastName(e.target.value)}
+            onChange={(e) => setUser({ ...user, lastName: e.target.value })}
           />
           <InputForm
             type={"text"}
@@ -82,7 +65,7 @@ export default function Profile() {
             label="Ciudad"
             variant="standard"
             value={city}
-            onChange={(e)=> setCity(e.target.value)}
+            onChange={(e) => setUser({ ...user, city: e.target.value })}
           />
           <InputForm
             type={"text"}
@@ -90,7 +73,7 @@ export default function Profile() {
             label="Teléfono Móvil"
             variant="standard"
             value={celNumber}
-            onChange = {(e) => setCelNumber(e.target.value)}
+            onChange={(e) => setUser({ ...user, celNumber: e.target.value })}
           />
           <InputForm
             type={"email"}
@@ -98,7 +81,7 @@ export default function Profile() {
             label="Email"
             variant="standard"
             value={email}
-            onChange={(e)=> setEmail(e.target.value)}
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
           />
           <InputForm
             type="password"
@@ -106,15 +89,18 @@ export default function Profile() {
             label="Contraseña"
             variant="standard"
             value={password}
-            onChange={(e)=> setPassword(e.target.value)}
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
+
           <InputForm
             type="password"
             id="confirmPassword"
             label="Confirmar Contraseña"
             variant="standard"
             value={confirmPassword}
-            onChange={(e)=> setConfirmPassword(e.target.value)}
+            onChange={(e) =>
+              setUser({ ...user, confirmPassword: e.target.value })
+            }
           />
         </LeftContent>
         <RightContent>
@@ -125,29 +111,37 @@ export default function Profile() {
             rows={3}
             variant="standard"
             value={aboutMe}
-            onChange={(e)=> setAboutMe(e.target.value)}
+            onChange={(e) => setUser({ ...user, aboutMe: e.target.value })}
           />
-           <IconButton
+          <IconButton
             color="inherit"
             aria-label="picture"
             component="label"
-            variant= 'text'
-            style={{padding: "2rem"}}
+            variant="text"
+            style={{ padding: "2rem" }}
             value={picture}
-            onChange={(e)=> setPicture(e.target.value)}
+            onChange={(e) => setUser({ ...user, picture: e.target.value })}
           >
-            <Typography style={{ color: "#696969",paddingRight: "2rem" }}>Elige una foto de perfil</Typography>
+            <Typography style={{ color: "#696969", paddingRight: "2rem" }}>
+              Elige una foto de perfil
+            </Typography>
             <input hidden accept="image/*" type="file" />
             <PhotoCamera />
-          </IconButton>         
+          </IconButton>
           <Box style={{ padding: "2rem" }}>
-            <Button className="btn" type="submit" variant="outlined" color='inherit' style={{backgroundColor:"#FFA37F"}} onClick={handleSubmit}>
+            <Button
+              className="btn"
+              type="submit"
+              variant="outlined"
+              color="inherit"
+              style={{ backgroundColor: "#FFA37F" }}
+              onClick={handleSubmit}
+            >
               Guardar perfil
             </Button>
           </Box>
         </RightContent>
       </View>
-          </>
+    </>
   );
 }
-
