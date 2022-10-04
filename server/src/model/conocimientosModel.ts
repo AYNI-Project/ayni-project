@@ -19,7 +19,7 @@ class Conocimiento {
     
     } 
     async getConocimientosByCategoryId(category_id: any) {
-        const queryStr = "SELECT * FROM conocimientos_usuario WHERE category_id=$1";
+        const queryStr = "SELECT * FROM conocimientos_usuario WHERE categoria_id = $1";
         const resultado = await this.client.query(queryStr, [category_id]);
         return resultado.rows[0];
     }

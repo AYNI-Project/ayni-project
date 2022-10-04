@@ -35,9 +35,10 @@ export const RightContent = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   maxWidth: "50%",
+ // paddingRight: "400px",
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
-    padding: "0px",
+    padding: "30px",
   },
 }));
 

@@ -33,27 +33,29 @@ const SearchBoxContainer = styled(Box)(({ theme }) => ({
   left: 0,
   width: "100%",
   height: "100%",
-  background: Colors.primary,
+  background: Colors.secondary,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   zIndex: 99999,
-  opacity: 0.9,
+  opacity: 0.8,
 }));
 
 const SearchField = styled(TextField)(({ theme }) => ({
   ".MuiInputLabel-root": {
-    color: Colors.secondary,
+    color: Colors.white,
   },
   ".MuiInput-root": {
-    fontSize: "1rem",
+    fontSize: "2rem",
+    fontWeight: "bold",
     [theme.breakpoints.up("md")]: {
       fontSize: "2rem",
+      fontWeight: "bold", color: "white"
     },
-    color: Colors.secondary,
+    color: Colors.white,
   },
   ".MuiInput-root::before": {
-    borderBottom: `1px solid ${Colors.secondary}`,
+    borderBottom: `1px solid ${Colors.white}`,
   },
   padding: "0 0 0 40px",
 }));
@@ -113,71 +115,7 @@ export default function SearchBar() {
                           </Grid>
                           </Box>
             :''))}
-       
-            {/* {/* return (
-                <>
-                  <Typography> "No Characters Found :/"</Typography>
-                </>
-              );
-            })}
-          </Grid>
-        </Box>
-      ))}
-            <Box> 
-              <Grid container spacing={2}>
-               
-                  //let {id_usuario_conocimiento, titulo, descripcion, foto} = index;
-                  if (search) {
-            //         return (
-            //           //<Grid key={index.id_usuario_conocimiento}   >
-            //           <Grid
-            //             container
-            //             spacing={2}
-            //             key={index.id_usuario_conocimiento}
-            //           >
-            //             <Grid item xs={12} md={6}>
-            //               <Link to="/knowhow/detail">
-            //                 <List>
-            //                   <ListItem>
-            //                     <ListItemText
-            //                       primary={index.titulo}
-            //                       underline="none"
-            //                       sx={{ color: "white" }}
-            //                     />
-            //                   </ListItem>
-            //                 </List>
-            //               </Link>
-            //             </Grid>
-            //           </Grid>
-
-            //           //          <Card f>
-            //           //        <CardActionArea>
-            //           //          <CardMedia>
-            //           //          <Link to='/knowhow/detail' >
-            //           //            <ExchangeImage src={index.foto} />
-            //           //            </Link>
-            //           //          </CardMedia>
-            //           //          <CardContent>
-            //           //              <ExchangeMetaWrapper>
-            //           //            <Link to='/knowhow/detail' >
-            //           //            <Typography variant={matches ? "h6" : "h5"} sx={{ fontFamily: "Poppins", fontWeight: 700}}
-            //           //  >
-            //           //              {index.titulo}
-            //           //            </Typography>
-            //           //            </Link>
-            //           //            <Typography variant="body2" color="text.secondary">
-            //           //             {index.descripcion}
-            //           //             </Typography>
-            //           //             </ExchangeMetaWrapper>
-            //           //          </CardContent>
-            //           //        </CardActionArea>
-
-            //           //      </Card>
-
-            //           //      </Grid>
-            //         );
-            //       } */}
-                  
+                    
         <Link to="/knowHow">
           <IconButton>
             <SearchIcon
@@ -194,9 +132,10 @@ export default function SearchBar() {
             right: 10,
           }}
         >
-          <CloseIcon sx={{ fontSize: "4rem" }} color="secondary" />
+          <CloseIcon sx={{ fontSize: "4rem", color: 'white' }} color='' />
         </IconButton>
       </SearchBoxContainer>
     </Slide>
   );
 }
+// <>{getKnowledge.map((e)=><div key={e.id_conocimientos_usuario}>{e.titulo}</div>)}</>

@@ -66,10 +66,11 @@ export const Colors = {
         styleOverrides: {
           paper: {
             width: DrawerWidth,          
-            background: Colors.primary,
-            color: Colors.secondary,
+            background: Colors.secondary,
+            color: Colors.white,
             borderRadius: '0px 20px 20px 0px',
-            borderRight: `1px solid ${Colors.primary}`
+            borderRight: `1px solid ${Colors.secondary}}`
+            
           }
         }
       },
@@ -80,25 +81,25 @@ export const Colors = {
           }
         }
       },
-    //   MyShopButton: {
-    //     styleOverrides: {
-    //       root: {
-    //         color: Colors.white,
-    //       },
-    //       primary: {
-    //         background: Colors.primary,
-    //         "&:hover": {
-    //           background: lighten(0.05, Colors.primary),
-    //         },
-    //       },
-    //       secondary: {
-    //         background: `${Colors.secondary}`,
-    //         "&:hover": {
-    //           background: lighten(0.05, Colors.primary),
-    //         },
-    //       },
-    //     },
-    //   },
+      MyShopButton: {
+        styleOverrides: {
+          root: {
+            color: Colors.white,
+          },
+          primary: {
+            background: Colors.primary,
+            "&:hover": {
+              background: lighten(0.05, Colors.primary),
+            },
+          },
+          secondary: {
+            background: `${Colors.secondary}`,
+            "&:hover": {
+              background: lighten(0.05, Colors.primary),
+            },
+          },
+        },
+      },
     },
   });
   

@@ -5,11 +5,14 @@ import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const messages = [
-  "Busca lo que necesitas",
+  
   <Link className="link" to="/about-us">
-    Aprende sobre AYNI
+    Aprende sobre ayni
   </Link>,
+  "Busca lo que necesitas",
   "Intercambia conocimientos",
+  "Envia Solicitud y comienza con el truque",
+
 ];
 
 export default function Promotions() {

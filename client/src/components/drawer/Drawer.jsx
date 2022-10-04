@@ -1,9 +1,6 @@
 import {
-    Box,
-    Button,
-    Divider,
+     Divider,
     Drawer,
-    IconButton,
     List,
     ListItemButton,
     ListItemText,
@@ -14,8 +11,10 @@ import {
   import { DrawerCloseButton } from "../../styles/appbar";
   import { lighten } from "polished";
   import { Colors } from "../../styles/theme/index";
+  import "@fontsource/poppins";
   
   const MiddleDivider = styled((props) => (
+    
     <Divider variant="middle" {...props} />
   ))``;
   
@@ -26,7 +25,7 @@ import {
     return (
       <>
         {drawerOpen && (
-          <DrawerCloseButton onClick={() => setDrawerOpen(false)}>
+          <DrawerCloseButton onClick={() => setDrawerOpen(false)} >
             <CloseIcon
               sx={{
                 fontSize: "2.5rem",
@@ -35,10 +34,10 @@ import {
             />
           </DrawerCloseButton>
         )}
-        <Drawer open={drawerOpen} >
-          <List>
+        <Drawer open={drawerOpen} sx={{fontFamily: "Poppins", fontWeight:600}}>
+          <List sx={{fontFamily: "Poppins", fontWeight:600}}>
             <ListItemButton>
-              <ListItemText>Home</ListItemText>
+              <ListItemText sx={{fontFamily: "Poppins", fontWeight:600}}>Home</ListItemText>
             </ListItemButton>
             <MiddleDivider />
             <ListItemButton>

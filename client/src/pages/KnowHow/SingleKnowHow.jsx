@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { knowledge } from "../../data/conocimientos";
+import {useNavigate} from "react-router-dom";
 import {
   Box,
   Grid,
@@ -27,31 +28,50 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShareIcon from "@mui/icons-material/Share";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "@fontsource/poppins";
 import { Colors } from "../../styles/theme";
-import { initializeFirestore } from "firebase/firestore";
+import { LeftContent, RightContent, View } from "../../styles/auth";
 
 export default function SingleKnowHow({ matches }) {
   //PAGINATION
   //let [pageNumber, setPageNumber] = useState(1)
-  let [getKnowledge, setGetknowledge] = useState([]);
-  let [knowledgeCategory, setKnowledgeCategory] = useState([]);
+  const [getKnowledge, setGetKnowledge] = useState([]);
+  const [knowledgeCategory, setKnowledgeCategory] = useState([]);
   const [liked, setLiked] = useState(false);
   let [favorites, setFavorites] = useState([]);
-
+  const navigate = useNavigate();
+  //uspeParams para recuperar el id de la categoria
+  let { id_categoria } = useParams();
   // const URL =`url`
 
   useEffect(() => {
-    axios
-      .get("https://ayni-project.herokuapp.com/knowledge")
+    const fetchData = async () => {
+      const res = await axios.get(`http://localhost:3001/knowledge/`);
+      setGetKnowledge(res.data)
+      //console.log(res.data.filter((e) => e.categoria_id == id_categoria))
+      setKnowledgeCategory(
+        res.data.filter((e) => e.categoria_id == id_categoria)
+      );
+      
+     
+    };
+    fetchData();
+    /*  axios
+      .get(`http://localhost:3001/knowledge/` )
       .then((res) => {
-        setGetknowledge(res.data);
-        setKnowledgeCategory(res.data);
-        console.log(res.data);
+        debugger;
+        //setTimeout(() =>
+       // setGetKnowledge(getKnowledge => getKnowledge.concat(...res.data)),1000)
+       // setKnowledgeCategory(knowledgeCategory => knowledgeCategory.concat(...res.data));
+        console.log(knowledgeCategory)
+        searchByCategory(id_categoria)
+        console.log(knowledgeCategory)
+        // setKnowledgeCategory(res.data);
+        // console.log(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err));*/
   }, []);
 
   // const searchByStepName = (e:string) => {
@@ -62,10 +82,12 @@ export default function SingleKnowHow({ matches }) {
   // };
   function searchByCategory(category) {
     setKnowledgeCategory(getKnowledge);
-    if (category !== "all")
+    if (category !== "all"){
       setKnowledgeCategory(
         getKnowledge.filter((knows) => knows.categoria_id === category)
       );
+      navigate(`/knowledge/${category}`)
+    }
     console.log("mostrando lista", knowledgeCategory);
   }
 
@@ -79,31 +101,23 @@ export default function SingleKnowHow({ matches }) {
 
   const handleNotification = (type) => {
     type === 1 && setLiked(true);
+  };
+  function handleFavorite(id_conocimientos_usuario) {
+    const newFavorites = favorites.map((knows) => {
+      return knows.id_conocimientos_usuario === id_conocimientos_usuario
+        ? { ...knows, favorite: !knows.favorite }
+        : knows;
+    });
+    setFavorites(newFavorites);
   }
-    function handleFavorite(id_conocimientos_usuario) {
-      const newFavorites = favorites.map(knows => {
-        return knows.id_conocimientos_usuario === id_conocimientos_usuario ? { ...knows, favorite: !knows.favorite } : knows;
-      });
-      setFavorites(newFavorites);
-    }
   return (
-    <Box flex={4} p={2}>
-      <Box flex={1} p={2} sx={{ display: { sm: "none", md: "block" } }}>
-        <Box
-          bgcolor={Colors.primary}
-          position={"fixed"}
-          sx={{ borderRadius: 2, boxShadow: 2, height: "390px", width: "20%" }}
-        >
+  
+    //<Box  p={2} bgcolor="pink"  >
+    <View>
+ 
+        <LeftContent>
           <nav aria-label="main category page">
-            <List>            
-            <ListItem disablePadding>
-                <ListItemButton onClick={() => searchByCategory("all")}>
-                  <ListItemIcon>
-                    <KeyboardDoubleArrowRightIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Todas las categorías" />
-                </ListItemButton>
-              </ListItem>
+            <List >
               <ListItem disablePadding>
                 <ListItemButton onClick={() => searchByCategory("all")}>
                   <ListItemIcon>
@@ -112,10 +126,9 @@ export default function SingleKnowHow({ matches }) {
                   <ListItemText primary="Todas las categorías" />
                 </ListItemButton>
               </ListItem>
+              
               <ListItem disablePadding>
-                <ListItemButton
-                  onClick={() => searchByCategory(1)}
-                >
+                <ListItemButton onClick={() => searchByCategory(1)}>
                   <ListItemIcon>
                     <KeyboardDoubleArrowRightIcon />
                   </ListItemIcon>
@@ -180,78 +193,76 @@ export default function SingleKnowHow({ matches }) {
               </ListItem>
             </List>
           </nav>
-        </Box>
-      </Box>
-      <Exchange>
-        <Grid container spacing={2}>
-          {knowledgeCategory.map((knows) => {
-            if (getKnowledge) {
-              return (
-                <Grid
-                  key={knows.id_conocimientos_usuario}
-                  item
-                  xs={6}
-                  sm={4}
-                  md={3}
-                >
-                  <Link to="/knowledge/detail">
-                    <Card sx={{ maxWidth: 345, mb: 5, height: 370 }}>
-                      <CardActionArea>
-                        <CardMedia>
-                          <ExchangeImage src={knows.imagen} />
-                        </CardMedia>
-                        <CardContent>
-                          <ExchangeMetaWrapper>
-                            <Typography
-                              variant={matches ? "h6" : "h5"}
-                              sx={{ fontFamily: "Poppins", fontWeight: 700 }}
+         
+          </LeftContent>
+
+    
+      
+        <Grid container spacing={2} sx={{maxHeight:"300px"}} bgcolor="red"> 
+         
+          {knowledgeCategory.length > 0 ? (
+            knowledgeCategory.map((knows) => 
+              <Grid
+                key={knows.id_conocimientos_usuario}
+                item
+                xs={6}
+                sm={4}
+                md={3}
+              >
+                <Link to="/knowledge/detail">
+                  <Card sx={{ maxWidth: 345, mb: 5, height: 370 }}>
+                    <CardActionArea>
+                      <CardMedia>
+                        <ExchangeImage src={knows.imagen} />
+                      </CardMedia>
+                      <CardContent>
+                        <ExchangeMetaWrapper>
+                          <Typography
+                            variant={matches ? "h6" : "h5"}
+                            sx={{ fontFamily: "Poppins", fontWeight: 700 }}
+                          >
+                            {knows.titulo}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {knows.descripcion}
+                          </Typography>
+                        </ExchangeMetaWrapper>
+                      </CardContent>
+                    </CardActionArea>
+                    <ExchangeActionsWrapper>
+                      <Stack direction="row">
+                        <ExchangeFavButton isfav={0}>
+                          {liked ? (
+                            <FavoriteBorderIcon
+                              onClick={handleNotification(1)}
+                            ></FavoriteBorderIcon>
+                          ) : (
+                            <FavoriteIcon
+                              color="secondary"
+                              onClick={() => {
+                                handleFavorite(knows.id_conocimientos_usuario);
+                              }}
                             >
-                              {knows.titulo}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                              {knows.descripcion}
-                            </Typography>
-                          </ExchangeMetaWrapper>
-                        </CardContent>
-                      </CardActionArea>
-                      <ExchangeActionsWrapper>
-                        <Stack direction="row">
-                          <ExchangeFavButton isfav={0}>
-                            {liked ? (
-                              <FavoriteBorderIcon
-                                onClick={handleNotification(1)}
-                              ></FavoriteBorderIcon>
-                            ) : (
-                              <FavoriteIcon
-                                color="secondary"
-                                onClick={() => {
-                                  handleFavorite(
-                                    knows.id_conocimientos_usuario
-                                  );
-                                }}
-                              >
-                                {knows.favorite === true ? "Remove" : "Add"}
-                              </FavoriteIcon>
-                            )}
-                          </ExchangeFavButton>
-                          <ExchangeActionButton>
-                            <ShareIcon color="secondary" />
-                          </ExchangeActionButton>
-                        </Stack>
-                      </ExchangeActionsWrapper>
-                    </Card>
-                  </Link>
-                </Grid>
-              );
-            }
-            return (
-              <>
-                <Typography> "No Characters Found :/"</Typography>
-              </>
-            );
-          })}
+                              {knows.favorite === true ? "Remove" : "Add"}
+                            </FavoriteIcon>
+                          )}
+                        </ExchangeFavButton>
+                        <ExchangeActionButton>
+                          <ShareIcon color="secondary" />
+                        </ExchangeActionButton>
+                      </Stack>
+                    </ExchangeActionsWrapper>
+                  </Card>
+                </Link>
+              </Grid>
+            )
+          ) : (
+            <>
+              <Typography> "Lo siento, eso que estas buscando seguro aparecerá pronto. :/"</Typography>
+            </>
+          )}
         </Grid>
-      </Exchange>
-    </Box>
+        
+        </View>
   );
 }

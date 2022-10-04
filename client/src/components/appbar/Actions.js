@@ -55,7 +55,7 @@ export default function Actions({ matches }) {
               color: matches && Colors.secondary,
             }}
           >
-            <EmailIcon />
+            <EmailIcon color='secondary'/>
           </ListItemIcon>
         </ListItemButton>
         <ListItemButton
@@ -70,7 +70,7 @@ export default function Actions({ matches }) {
               color: matches && Colors.secondary,
             }}
           >
-            <FavoriteIcon onClick={navigateToFavorite} />
+            <FavoriteIcon color='secondary'onClick={navigateToFavorite} />
           </ListItemIcon>
         </ListItemButton>
 
@@ -86,8 +86,8 @@ export default function Actions({ matches }) {
               color: matches && Colors.secondary,
             }}
           >
-            <PersonIcon onClick={(e) => setOpen(true)}/>
-            <Menu
+            <PersonIcon color='secondary' onClick={(e) => setOpen(true)}/>
+            {/* <Menu
               id="demo-positioned-menu"
               aria-labelledby="demo-positioned-button"
               open={open}
@@ -106,7 +106,7 @@ export default function Actions({ matches }) {
               </Typography>
               <MenuItem onClick={navigateToProfile}>Mi Perfil</MenuItem>
               <MenuItem onClick={handleLogout}>Cerrar Sesión</MenuItem>
-            </Menu>
+            </Menu> */}
           </ListItemIcon>
         </ListItemButton>
       </MyList>

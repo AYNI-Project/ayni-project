@@ -14,15 +14,15 @@ html{
 }
 
 .link, .icon {
-  color: #5BBCC0;
+  color: #F6F6F6;
   text-decoration: none;
 }
 .link:hover, .icon:hover {
-   color: #F6F6F6;
+   color: #5BBCC0;
    text-decoration: underline;
 }
 
 .link:visited, .icon:visited {
-  color: #5BBCC0;
+  color: #F6F6F6;
   text-decoration: none;
 }
