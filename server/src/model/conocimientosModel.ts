@@ -16,8 +16,18 @@ class Conocimiento {
         const queryStr = "SELECT * FROM conocimientos_usuario WHERE id_conocimientos_iusuario=$1";
         const resultado = await this.client.query(queryStr, [id_conocimientos_usuario]);
         return resultado.rows[0];
+    
+    } 
+    async getConocimientosByCategoryId(category_id: any) {
+        const queryStr = "SELECT * FROM conocimientos_usuario WHERE category_id=$1";
+        const resultado = await this.client.query(queryStr, [category_id]);
+        return resultado.rows[0];
     }
+    
+    
     // añadir experiencia
+
+
     async addConocimiento(id_conocimientos_usuario: iConocimiento) {
         const queryStr =
             "INSERT INTO conocimientos_usuario (titulo, descripcion, imagen, estado) VALUES ($1, $2, $3, $4) returning *";
