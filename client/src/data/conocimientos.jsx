@@ -1,4 +1,3 @@
-
 export const knowledge = [
     {
         "id_conocimientos_usuario": 15,

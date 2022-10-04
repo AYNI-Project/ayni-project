@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { knowledge } from "../../data/conocimientos";
 import {
   Box,
   Grid,
@@ -31,7 +30,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "@fontsource/poppins";
 import { Colors } from "../../styles/theme";
-import { initializeFirestore } from "firebase/firestore";
+import { knowledge } from "../../data/conocimientos.jsx";
 
 export default function SingleKnowHow({ matches }) {
   //PAGINATION
@@ -40,8 +39,6 @@ export default function SingleKnowHow({ matches }) {
   let [knowledgeCategory, setKnowledgeCategory] = useState([]);
   const [liked, setLiked] = useState(false);
   let [favorites, setFavorites] = useState([]);
-
-  // const URL =`url`
 
   useEffect(() => {
     axios
@@ -194,7 +191,7 @@ export default function SingleKnowHow({ matches }) {
                   sm={4}
                   md={3}
                 >
-                  <Link to="/knowledge/detail">
+                  <Link to={`detail/${knows.id_conocimientos_usuario}`}>
                     <Card sx={{ maxWidth: 345, mb: 5, height: 370 }}>
                       <CardActionArea>
                         <CardMedia>

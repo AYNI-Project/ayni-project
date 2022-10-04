@@ -19,7 +19,7 @@ import {
     <Divider variant="middle" {...props} />
   ))``;
   
-  
+
   export default function AppMenu() {
     const { drawerOpen, setDrawerOpen } = useUIContext();
   

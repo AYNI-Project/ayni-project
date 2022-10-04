@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 import { Button, IconButton } from "@mui/material";
 import { Box } from "@mui/system";
-import { slideInBottom, slideInRight } from "../../animation";
+import { slideInBottom, slideInRight } from "../animation";
 import { Typography } from "@mui/material";
 import { Colors } from '../theme';
 import "@fontsource/poppins"; 
@@ -12,8 +12,6 @@ export const Exchange = styled(Box)(({ theme }) => ({
   alignItems: "center",
   flexDirection: "column", 
   marginLeft: "0",
-
-
   [theme.breakpoints.up("md")]: {
    
       },
@@ -31,7 +29,6 @@ export const ExchangeImage = styled("img")(({ src, theme }) => ({
   [theme.breakpoints.down("md")]: {
     width: "80%", 
     padding: '24px',
-    
   },
 }));
 

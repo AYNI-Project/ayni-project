@@ -6,9 +6,7 @@ import SearchBar from '../components/searchBar/SearchBar';
 export default function DetailProduct() {
   return (
     <Container>DetailProduct
-      
       <Appbar />
-   
       <Footer />
       <SearchBar />
     </Container>

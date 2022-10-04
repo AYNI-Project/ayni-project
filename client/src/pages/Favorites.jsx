@@ -2,11 +2,39 @@ import React, { useState, useEffect } from 'react';
 import Footer from '../components/footer/Footer';
 import { View, Subtitle } from '../styles/auth';
 import { knowledge } from '../data/conocimientos';
-import Appbar from "../components/appbar/index"
+import Appbar from "../components/appbar/index";
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Favorites() {
 
+  const { id } = useParams();
+
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    setLoading(true)
+    axios
+      .get(process.env.REACT_APP_BACKEND_URL + "users/myfavorites/")
+      .get(process.env.REACT_APP_BACKEND_URL + "knowledge/")
+      .then(res => {
+        console.log("probando", res.data)
+        setData(res.data);
+        setLoading(false)
+      })
+  }, [])
+
+  const getMyFavorites = data.map(fav => fav.id === id);
+  console.log("probando faves", getMyFavorites)
+
+  function handleFavorite(id) {
+    const newFavorites = favorites.map(item => {
+      return item.id === id ? { ...item, favorite: !item.favorite } : item;
+    });
+    setFavorites(newFavorites);
+  }
 
   useEffect(() => {
     setFavorites(knowledge);
@@ -16,13 +44,7 @@ export default function Favorites() {
     console.log(favorites);
   }, [favorites]);
 
-  function handleFavorite(id_conocimientos_usuario) {
-    const newFavorites = favorites.map(item => {
-      return item.id_conocimientos_usuario === id_conocimientos_usuario ? { ...item, favorite: !item.favorite } : item;
-    });
-
-    setFavorites(newFavorites);
-  }
+  if (loading) return <section>Cargando...</section>
 
   return (
     <>

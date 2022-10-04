@@ -1,47 +1,57 @@
-import React from 'react'
+import React from "react";
 import { Typography, Box } from "@mui/material";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import IconButton from "@mui/material/IconButton";
 import Appbar from "../components/appbar";
-import { LeftContent, RightContent, Subtitle, View } from "../styles/auth";
-import { useState, useEffect } from "react";
+import {
+  InputForm,
+  LeftContent,
+  RightContent,
+  Subtitle,
+  View
+} from "../styles/auth";
+import { useState } from "react";
 import axios from "axios";
 
-export default function Profile() {
+export default function EditProfile() {
 
-    const [user, setUser] = useState([]);
-    const id = localStorage.getItem('id')
-    const [data, setData] = useState([])
-    const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState([]);
 
-    useEffect(() => {
-        setLoading(true)
-        axios.get(process.env.REACT_APP_BACKEND_URL + `/users/:id${id}`)
-            .then(res => {
-                setData(res.data);
-                setLoading(false)
-            })
-    }, [id])
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .put(process.env.REACT_APP_BACKEND_URL + "user/edit/:id", { user })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
 
-    const getUser = data;
-
-    if (loading) return <section>Cargando...</section>
-
-    return (
-        <>
-            <Appbar />
-            <View>
-                <LeftContent>
-                    {getUser.map((user, index) => (
-                        <Box key={index}>
-                            <Typography>{user.nombre}</Typography>
-                        </Box>))}
-                </LeftContent>
-            </View>
-        </>)
-};
-
-{/* <Typography
+  return (
+    <>
+      <Appbar />
+      <View>
+        <LeftContent>
+          <Subtitle>EDITAR PERFIL</Subtitle>
+          <InputForm
+            type={"text"}
+            id="name"
+            label="Nombre"
+            variant="standard"
+            value={user.name}
+            onChange={(e) => setUser({ ...user, name: e.target.value })}
+          />
+          <InputForm
+            type={"text"}
+            id="lastName"
+            label="Apellidos"
+            variant="standard"
+            value={user.lastName}
+            onChange={(e) => setUser({ ...user, lastName: e.target.value })}
+          />
+          <InputForm
             type={"text"}
             id="city"
             label="Ciudad"
@@ -49,7 +59,7 @@ export default function Profile() {
             value={user.city}
             onChange={(e) => setUser({ ...user, city: e.target.value })}
           />
-          <Typography
+          <InputForm
             type={"text"}
             id="celNumber "
             label="Teléfono Móvil"
@@ -57,7 +67,7 @@ export default function Profile() {
             value={user.celNumber}
             onChange={(e) => setUser({ ...user, celNumber: e.target.value })}
           />
-          <Typography
+          <InputForm
             type={"email"}
             id="email"
             label="Email"
@@ -65,7 +75,7 @@ export default function Profile() {
             value={user.email}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
           />
-          <Typography
+          <InputForm
             type="password"
             id="password"
             label="Contraseña"
@@ -74,7 +84,7 @@ export default function Profile() {
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
 
-          <Typography
+          <InputForm
             type="password"
             id="confirmPassword"
             label="Confirmar Contraseña"
@@ -86,7 +96,7 @@ export default function Profile() {
           />
         </LeftContent>
         <RightContent>
-          <Typography
+          <InputForm
             id="aboutMe"
             label="Sobre mi"
             multiline
@@ -125,5 +135,4 @@ export default function Profile() {
     </>
   );
 }
-  )
-} */};
+
