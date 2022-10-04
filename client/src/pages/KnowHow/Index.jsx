@@ -1,4 +1,4 @@
-import { Stack, Box } from "@mui/material";
+import { Stack, Box, Typography } from "@mui/material";
 import Appbar from "../../components/appbar";
 import SingleKnowHow from "./SingleKnowHow";
 
@@ -8,10 +8,8 @@ export default function Exchanges() {
   return (
     <Box>
       <Appbar />
-     
-        {/* <CategoryMenu /> */}
-        <SingleKnowHow />
-
+      {/* <CategoryMenu /> */}
+      <SingleKnowHow />
       <Footer />
     </Box>
   );

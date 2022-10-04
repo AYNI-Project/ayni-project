@@ -8,22 +8,12 @@ import axios from "axios";
 import {
   Box,
   Grid,
-  Card,
-  CardContent,
-  CardMedia,
   Typography,
-  CardActionArea,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  ListItemIcon,
-  Stack,
   Link
 } from "@mui/material";
 
 
-import { useParams} from "react-router-dom";
+
 
 
 export const ProductImage = styled("img")(({ src, theme }) => ({
@@ -55,7 +45,7 @@ useEffect(() => {
 
   const fetchData = async () => {
       try {
-          let res = await axios.get('http://localhost:3001/category');
+          let res = await axios.get(process.env.REACT_APP_BACKEND_URL + 'category');
          
               setCategories(res.data);
          console.log(res.data);

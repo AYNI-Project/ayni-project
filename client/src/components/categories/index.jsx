@@ -1,8 +1,7 @@
-// import { Container, Grid, useMediaQuery } from "@mui/material";
-// import { categorias } from "../../data/categorias";
-// import SingleCategory from "./SingleCategory";
-// import { useTheme } from "@mui/material/styles";
-// import SingleCategoryDesktop from "./SingleCategoryDesktop";
+import { Container, Grid, useMediaQuery, Box, Typography } from "@mui/material";
+import SingleCategory from "./SingleCategory";
+import { useTheme } from "@mui/material/styles";
+
 
 export default function Categories() {
   const theme = useTheme(); 
@@ -16,6 +15,9 @@ export default function Categories() {
         sx={{ margin: `20px 4px 10px 4px` }}
         
       >
+          <Box sx={{ display: "flex", textAlign: "center", justifyContent: "center", margin: "30px 0px" }}>
+          <Typography variant="h4" sx={{ fontFamily:"Poppins", fontWeight:"bold"}}> ¿Qué quieres intercambiar? </Typography>
+          </Box>
        <SingleCategory />
       </Grid>
     </Container>

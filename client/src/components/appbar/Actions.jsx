@@ -87,7 +87,7 @@ export default function Actions({ matches }) {
             }}
           >
             <PersonIcon color='secondary' onClick={(e) => setOpen(true)}/>
-            {/* <Menu
+            <Menu
               id="demo-positioned-menu"
               aria-labelledby="demo-positioned-button"
               open={open}
@@ -106,7 +106,7 @@ export default function Actions({ matches }) {
               </Typography>
               <MenuItem onClick={navigateToProfile}>Mi Perfil</MenuItem>
               <MenuItem onClick={handleLogout}>Cerrar Sesión</MenuItem>
-            </Menu> */}
+            </Menu>
           </ListItemIcon>
         </ListItemButton>
       </MyList>
