@@ -8,21 +8,13 @@ import {
   LeftContent,
   RightContent,
   Subtitle,
-  View,
+  View
 } from "../styles/auth";
 import { useState } from "react";
 import axios from "axios";
 
 export default function Profile() {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [city, setCity] = useState("");
-  const [celNumber, setCelNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [aboutMe, setAboutMe] = useState("");
-  const [picture, setPicture] = useState("");
+  
   const [user, setUser] = useState([]);
 
   const handleSubmit = (e) => {
@@ -48,7 +40,7 @@ export default function Profile() {
             id="name"
             label="Nombre"
             variant="standard"
-            value={name}
+            value={user.name}
             onChange={(e) => setUser({ ...user, name: e.target.value })}
           />
           <InputForm
@@ -56,7 +48,7 @@ export default function Profile() {
             id="lastName"
             label="Apellidos"
             variant="standard"
-            value={lastName}
+            value={user.lastName}
             onChange={(e) => setUser({ ...user, lastName: e.target.value })}
           />
           <InputForm
@@ -64,7 +56,7 @@ export default function Profile() {
             id="city"
             label="Ciudad"
             variant="standard"
-            value={city}
+            value={user.city}
             onChange={(e) => setUser({ ...user, city: e.target.value })}
           />
           <InputForm
@@ -72,7 +64,7 @@ export default function Profile() {
             id="celNumber "
             label="Teléfono Móvil"
             variant="standard"
-            value={celNumber}
+            value={user.celNumber}
             onChange={(e) => setUser({ ...user, celNumber: e.target.value })}
           />
           <InputForm
@@ -80,7 +72,7 @@ export default function Profile() {
             id="email"
             label="Email"
             variant="standard"
-            value={email}
+            value={user.email}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
           />
           <InputForm
@@ -88,7 +80,7 @@ export default function Profile() {
             id="password"
             label="Contraseña"
             variant="standard"
-            value={password}
+            value={user.password}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
 
@@ -97,7 +89,7 @@ export default function Profile() {
             id="confirmPassword"
             label="Confirmar Contraseña"
             variant="standard"
-            value={confirmPassword}
+            value={user.confirmPassword}
             onChange={(e) =>
               setUser({ ...user, confirmPassword: e.target.value })
             }
@@ -110,7 +102,7 @@ export default function Profile() {
             multiline
             rows={3}
             variant="standard"
-            value={aboutMe}
+            value={user.aboutMe}
             onChange={(e) => setUser({ ...user, aboutMe: e.target.value })}
           />
           <IconButton
@@ -119,29 +111,28 @@ export default function Profile() {
             component="label"
             variant="text"
             style={{ padding: "2rem" }}
-            value={picture}
+            value={user.picture}
             onChange={(e) => setUser({ ...user, picture: e.target.value })}
           >
             <Typography style={{ color: "#696969", paddingRight: "2rem" }}>
               Elige una foto de perfil
             </Typography>
-            <input hidden accept="image/*" type="file" />
+            
+            <input id="picture "hidden accept="image/*" type="file" />
             <PhotoCamera />
           </IconButton>
           <Box style={{ padding: "2rem" }}>
-            <Button
+            <button
               className="btn"
               type="submit"
-              variant="outlined"
-              color="inherit"
-              style={{ backgroundColor: "#FFA37F" }}
               onClick={handleSubmit}
             >
               Guardar perfil
-            </Button>
+            </button>
           </Box>
         </RightContent>
       </View>
     </>
   );
 }
+
