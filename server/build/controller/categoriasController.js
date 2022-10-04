@@ -61,65 +61,48 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-var conocimientosModel_1 = __importDefault(require("../model/conocimientosModel"));
-var conocimientosController = {
-    getConocimientos: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var conocimientos;
+var categoriasModel_1 = __importDefault(require("../model/categoriasModel"));
+var categoriasController = {
+    getCategorias: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var categorias;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, conocimientosModel_1["default"].getConocimientos()];
+                case 0: return [4 /*yield*/, categoriasModel_1["default"].getCategorias()];
                 case 1:
-                    conocimientos = _a.sent();
-                    res.json(conocimientos);
+                    categorias = _a.sent();
+                    res.json(categorias);
                     return [2 /*return*/];
             }
         });
     }); },
-    getUnConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var param, conocimientos;
+    getUnaCategoria: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var param, categorias;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     param = req.params["id"];
-                    return [4 /*yield*/, conocimientosModel_1["default"].getUnConocimiento(param)];
+                    return [4 /*yield*/, categoriasModel_1["default"].getUnaCategoria(param)];
                 case 1:
-                    conocimientos = _a.sent();
-                    res.json(conocimientos);
+                    categorias = _a.sent();
+                    res.json(categorias);
                     return [2 /*return*/];
             }
         });
     }); },
-    getConocimientosByCategoryId: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var param, conocimientos;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    param = req.params["cateogory_id"];
-                    return [4 /*yield*/, conocimientosModel_1["default"].getConocimientosByCategoryId(param)];
-                case 1:
-                    conocimientos = _a.sent();
-                    res.json(conocimientos);
-                    return [2 /*return*/];
-            }
-        });
-    }); },
-    addConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, titulo, descripcion, imagen, estado, conocimientos, resultado, err_1;
+    addCategoria: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var _a, nombre, imagen, categorias, resultado, err_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 2, , 3]);
-                    _a = req.body, titulo = _a.titulo, descripcion = _a.descripcion, imagen = _a.imagen, estado = _a.estado, conocimientos = __rest(_a, ["titulo", "descripcion", "imagen", "estado"]);
-                    if (!titulo ||
-                        !descripcion ||
-                        !imagen ||
-                        !estado)
+                    _a = req.body, nombre = _a.nombre, imagen = _a.imagen, categorias = __rest(_a, ["nombre", "imagen"]);
+                    if (!nombre)
                         res.status(400).json({ message: "Por favor, rellena los campos obligatorios." });
-                    return [4 /*yield*/, conocimientosModel_1["default"].addConocimiento(__assign({ titulo: titulo, descripcion: descripcion, imagen: imagen, estado: estado }, conocimientos))];
+                    return [4 /*yield*/, categoriasModel_1["default"].addCategoria(__assign({ nombre: nombre, imagen: imagen }, categorias))];
                 case 1:
                     resultado = _b.sent();
                     res.status(200).json({
-                        message: "Tu oferta ".concat(resultado.id_conocimientos_usuario, " ha sido a\u00F1adida con \u00E9xito.")
+                        message: "Una nueva categoria ".concat(resultado.id_categoria, " ha sido a\u00F1adida con \u00E9xito.")
                     });
                     return [3 /*break*/, 3];
                 case 2:
@@ -132,21 +115,21 @@ var conocimientosController = {
             }
         });
     }); },
-    editConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, conocimientos, resultado, err_2;
+    editCategoria: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var id_categoria, categorias, resultado, err_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    id = req.params.id;
-                    conocimientos = req.body;
-                    return [4 /*yield*/, conocimientosModel_1["default"].editConocimiento(id, conocimientos)];
+                    id_categoria = req.params.id;
+                    categorias = req.body;
+                    return [4 /*yield*/, categoriasModel_1["default"].editCategoria(id_categoria, categorias)];
                 case 1:
                     resultado = _a.sent();
                     res
                         .status(200)
                         .json({
-                        message: "Tu oferta ".concat(resultado.id_conocimientos_usuario, " ha sido editada con \u00E9xito.")
+                        message: "Tu categoria ".concat(resultado.id_categoria, " ha sido editada con \u00E9xito.")
                     });
                     return [3 /*break*/, 3];
                 case 2:
@@ -158,18 +141,18 @@ var conocimientosController = {
             }
         });
     }); },
-    deleteConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    deleteCategoria: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
         var id, resultado, err_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
                     id = req.params.id;
-                    return [4 /*yield*/, conocimientosModel_1["default"].deleteConocimiento(parseInt(id))];
+                    return [4 /*yield*/, categoriasModel_1["default"].deleteCategoria(parseInt(id))];
                 case 1:
                     resultado = _a.sent();
                     res.status(200).json({
-                        message: "Tu oferta ".concat(resultado.id_conocimientos_usuario, " ha sido borrada con \u00E9xito.")
+                        message: "Tu categoria ".concat(resultado.id_categoria, " ha sido borrada con \u00E9xito.")
                     });
                     return [3 /*break*/, 3];
                 case 2:
@@ -183,4 +166,4 @@ var conocimientosController = {
         });
     }); }
 };
-exports["default"] = conocimientosController;
+exports["default"] = categoriasController;

@@ -27,7 +27,7 @@ class Favorito {
         return resultado.rows[0];
     }
     //eliminar favorito
-    async deleteFavorito(id_favorito: iFavorito) {
+    async deleteFavorito(id_favorito: number) {
         const queryStr =
             "DELETE FROM favoritos WHERE id_favorito = $1 returning *";
 

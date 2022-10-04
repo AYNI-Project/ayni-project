@@ -37,18 +37,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var database_service_1 = require("../services/database.service");
-var Conocimiento = /** @class */ (function () {
-    function Conocimiento(client) {
+var Favorito = /** @class */ (function () {
+    function Favorito(client) {
         this.client = client;
     }
-    //obtener toda lista de conocimientos
-    Conocimiento.prototype.getConocimientos = function () {
+    //obtener todos mis favoritos
+    Favorito.prototype.getMyFavoritos = function () {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        queryStr = "SELECT * FROM conocimientos_usuario";
+                        queryStr = "SELECT * FROM favoritos WHERE id = $1";
                         return [4 /*yield*/, this.client.query(queryStr)];
                     case 1:
                         resultado = _a.sent();
@@ -57,15 +57,15 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
-    //obtener un conocimiento
-    Conocimiento.prototype.getUnConocimiento = function (id_conocimientos_usuario) {
+    //obtener un favorito en concreto
+    Favorito.prototype.getUnFavorito = function (id_favorito) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        queryStr = "SELECT * FROM conocimientos_usuario WHERE id_conocimientos_iusuario=$1";
-                        return [4 /*yield*/, this.client.query(queryStr, [id_conocimientos_usuario])];
+                        queryStr = "SELECT * FROM favoritos WHERE id_favorito=$1";
+                        return [4 /*yield*/, this.client.query(queryStr, [id_favorito])];
                     case 1:
                         resultado = _a.sent();
                         return [2 /*return*/, resultado.rows[0]];
@@ -73,15 +73,15 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
-    //obtener todos los conocimientos de un usuario
-    Conocimiento.prototype.getConocimientosByCategoryId = function (category_id) {
+    // añadir favorito
+    Favorito.prototype.addFavorito = function (id_favorito) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        queryStr = "SELECT * FROM conocimientos_usuario WHERE categoria_id=$1";
-                        return [4 /*yield*/, this.client.query(queryStr, [category_id])];
+                        queryStr = "INSERT INTO favoritos FROM (SELECT usuario_id from usuarios) returning * favoritos";
+                        return [4 /*yield*/, this.client.query(queryStr, [id_favorito])];
                     case 1:
                         resultado = _a.sent();
                         return [2 /*return*/, resultado.rows[0]];
@@ -89,20 +89,15 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
-    // añadir conocimiento nuevo
-    Conocimiento.prototype.addConocimiento = function (id_conocimientos_usuario) {
+    //eliminar favorito
+    Favorito.prototype.deleteFavorito = function (id_favorito) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        queryStr = "INSERT INTO conocimientos_usuario (titulo, descripcion, imagen, estado) VALUES ($1, $2, $3, $4) returning *";
-                        return [4 /*yield*/, this.client.query(queryStr, [
-                                id_conocimientos_usuario.titulo,
-                                id_conocimientos_usuario.descripcion,
-                                id_conocimientos_usuario.imagen,
-                                id_conocimientos_usuario.estado,
-                            ])];
+                        queryStr = "DELETE FROM favoritos WHERE id_favorito = $1 returning *";
+                        return [4 /*yield*/, this.client.query(queryStr, [id_favorito])];
                     case 1:
                         resultado = _a.sent();
                         return [2 /*return*/, resultado.rows[0]];
@@ -110,45 +105,6 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
-    //editar un conocimiento
-    Conocimiento.prototype.editConocimiento = function (id_conocimientos_usuario, body) {
-        return __awaiter(this, void 0, void 0, function () {
-            var titulo, descripcion, imagen, estado, queryStr, resultado;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        titulo = body.titulo, descripcion = body.descripcion, imagen = body.imagen, estado = body.estado;
-                        queryStr = "UPDATE conocimientos_usuario SET (titulo, descripcion, imagen, estado)=($1, $2, $3, $4) WHERE id_conocimientos_usuario =$5  returning *";
-                        return [4 /*yield*/, this.client.query(queryStr, [
-                                titulo,
-                                descripcion,
-                                imagen,
-                                estado,
-                                id_conocimientos_usuario,
-                            ])];
-                    case 1:
-                        resultado = _a.sent();
-                        return [2 /*return*/, resultado.rows[0]];
-                }
-            });
-        });
-    };
-    //eliminar conocimiento
-    Conocimiento.prototype.deleteConocimiento = function (id_conocimientos_usuario) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryStr, resultado;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryStr = "DELETE FROM conocimientos_usuario WHERE id_conocimientos_usuario = $1 returning *";
-                        return [4 /*yield*/, this.client.query(queryStr, [id_conocimientos_usuario])];
-                    case 1:
-                        resultado = _a.sent();
-                        return [2 /*return*/, resultado.rows[0]];
-                }
-            });
-        });
-    };
-    return Conocimiento;
+    return Favorito;
 }());
-exports["default"] = new Conocimiento((0, database_service_1.connection)());
+exports["default"] = new Favorito((0, database_service_1.connection)());

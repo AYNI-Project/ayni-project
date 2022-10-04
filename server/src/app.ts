@@ -18,7 +18,7 @@ app.use(conocimientosRouter);
 app.use(usuariosRouter);
 app.use(truequesRouter);
 app.use(categoriasRoute);
-// app.use(favRoute);
+app.use(favRoute);
 app.use("/", mailer);
 
 const transporter = nodemailer.createTransport({

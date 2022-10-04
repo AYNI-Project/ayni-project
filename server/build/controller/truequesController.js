@@ -61,66 +61,46 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-var conocimientosModel_1 = __importDefault(require("../model/conocimientosModel"));
-var conocimientosController = {
-    getConocimientos: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var conocimientos;
+var truequesModel_1 = __importDefault(require("../model/truequesModel"));
+var truequeController = {
+    getTrueques: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var trueques;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, conocimientosModel_1["default"].getConocimientos()];
+                case 0: return [4 /*yield*/, truequesModel_1["default"].getTrueques()];
                 case 1:
-                    conocimientos = _a.sent();
-                    res.json(conocimientos);
+                    trueques = _a.sent();
+                    res.json(trueques);
                     return [2 /*return*/];
             }
         });
     }); },
-    getUnConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var param, conocimientos;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    param = req.params["id"];
-                    return [4 /*yield*/, conocimientosModel_1["default"].getUnConocimiento(param)];
-                case 1:
-                    conocimientos = _a.sent();
-                    res.json(conocimientos);
-                    return [2 /*return*/];
-            }
-        });
-    }); },
-    getConocimientosByCategoryId: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var param, conocimientos;
+    getPendingTrueques: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var param, trueques;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    param = req.params["cateogory_id"];
-                    return [4 /*yield*/, conocimientosModel_1["default"].getConocimientosByCategoryId(param)];
+                    console.log(req.params);
+                    param = req.params["pendiente"];
+                    return [4 /*yield*/, truequesModel_1["default"].getPendingTrueques(param)];
                 case 1:
-                    conocimientos = _a.sent();
-                    res.json(conocimientos);
+                    trueques = _a.sent();
+                    res.json(trueques);
                     return [2 /*return*/];
             }
         });
     }); },
-    addConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, titulo, descripcion, imagen, estado, conocimientos, resultado, err_1;
+    createTrueque: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var _a, conocimiento1_usuario_id, conocimiento2_usuario_id, trueques, resultado, err_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 2, , 3]);
-                    _a = req.body, titulo = _a.titulo, descripcion = _a.descripcion, imagen = _a.imagen, estado = _a.estado, conocimientos = __rest(_a, ["titulo", "descripcion", "imagen", "estado"]);
-                    if (!titulo ||
-                        !descripcion ||
-                        !imagen ||
-                        !estado)
-                        res.status(400).json({ message: "Por favor, rellena los campos obligatorios." });
-                    return [4 /*yield*/, conocimientosModel_1["default"].addConocimiento(__assign({ titulo: titulo, descripcion: descripcion, imagen: imagen, estado: estado }, conocimientos))];
+                    _a = req.body, conocimiento1_usuario_id = _a.conocimiento1_usuario_id, conocimiento2_usuario_id = _a.conocimiento2_usuario_id, trueques = __rest(_a, ["conocimiento1_usuario_id", "conocimiento2_usuario_id"]);
+                    return [4 /*yield*/, truequesModel_1["default"].createTrueque({ conocimiento1_usuario_id: conocimiento1_usuario_id, conocimiento2_usuario_id: conocimiento2_usuario_id })];
                 case 1:
                     resultado = _b.sent();
-                    res.status(200).json({
-                        message: "Tu oferta ".concat(resultado.id_conocimientos_usuario, " ha sido a\u00F1adida con \u00E9xito.")
-                    });
+                    res.status(200).json({ message: "Has creado una solicitud trueque con el ID ".concat(resultado.id_trueque) });
                     return [3 /*break*/, 3];
                 case 2:
                     err_1 = _b.sent();
@@ -128,59 +108,40 @@ var conocimientosController = {
                         error: err_1
                     });
                     return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                case 3:
+                    ;
+                    return [2 /*return*/];
             }
         });
     }); },
-    editConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, conocimientos, resultado, err_2;
+    updateTrueque: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var trueque, resultado, err_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    id = req.params.id;
-                    conocimientos = req.body;
-                    return [4 /*yield*/, conocimientosModel_1["default"].editConocimiento(id, conocimientos)];
+                    trueque = __assign({}, req.body);
+                    return [4 /*yield*/, truequesModel_1["default"].updateTrueque(trueque)];
                 case 1:
                     resultado = _a.sent();
-                    res
-                        .status(200)
-                        .json({
-                        message: "Tu oferta ".concat(resultado.id_conocimientos_usuario, " ha sido editada con \u00E9xito.")
-                    });
+                    //si resultado ok notificar usuarios
+                    if (trueque.estado === "aceptado")
+                        res.status(200).json({ message: "Has aceptado la solicitud de trueque con el ID ".concat(resultado.id_trueque) });
+                    else
+                        (trueque.estado === "rechazado");
+                    res.status(200).json({ message: "Has rechazado la solicitud de trueque con el ID ".concat(resultado.id_trueque) });
                     return [3 /*break*/, 3];
                 case 2:
                     err_2 = _a.sent();
-                    return [2 /*return*/, res.status(400).json({
-                            error: err_2
-                        })];
-                case 3: return [2 /*return*/];
-            }
-        });
-    }); },
-    deleteConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, resultado, err_3;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    id = req.params.id;
-                    return [4 /*yield*/, conocimientosModel_1["default"].deleteConocimiento(parseInt(id))];
-                case 1:
-                    resultado = _a.sent();
-                    res.status(200).json({
-                        message: "Tu oferta ".concat(resultado.id_conocimientos_usuario, " ha sido borrada con \u00E9xito.")
-                    });
-                    return [3 /*break*/, 3];
-                case 2:
-                    err_3 = _a.sent();
                     res.status(400).json({
-                        error: err_3
+                        error: err_2
                     });
                     return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                case 3:
+                    ;
+                    return [2 /*return*/];
             }
         });
     }); }
 };
-exports["default"] = conocimientosController;
+exports["default"] = truequeController;

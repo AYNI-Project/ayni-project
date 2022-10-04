@@ -37,18 +37,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var database_service_1 = require("../services/database.service");
-var Conocimiento = /** @class */ (function () {
-    function Conocimiento(client) {
+var Categoria = /** @class */ (function () {
+    function Categoria(client) {
         this.client = client;
     }
-    //obtener toda lista de conocimientos
-    Conocimiento.prototype.getConocimientos = function () {
+    // obtener todas las categorias
+    Categoria.prototype.getCategorias = function () {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        queryStr = "SELECT * FROM conocimientos_usuario";
+                        queryStr = "SELECT * FROM categorias";
                         return [4 /*yield*/, this.client.query(queryStr)];
                     case 1:
                         resultado = _a.sent();
@@ -57,15 +57,15 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
-    //obtener un conocimiento
-    Conocimiento.prototype.getUnConocimiento = function (id_conocimientos_usuario) {
+    // obtener el detalle de una categoria
+    Categoria.prototype.getUnaCategoria = function (id_categoria) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        queryStr = "SELECT * FROM conocimientos_usuario WHERE id_conocimientos_iusuario=$1";
-                        return [4 /*yield*/, this.client.query(queryStr, [id_conocimientos_usuario])];
+                        queryStr = "SELECT * FROM categorias WHERE id_categoria=$1";
+                        return [4 /*yield*/, this.client.query(queryStr, [id_categoria])];
                     case 1:
                         resultado = _a.sent();
                         return [2 /*return*/, resultado.rows[0]];
@@ -73,35 +73,17 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
-    //obtener todos los conocimientos de un usuario
-    Conocimiento.prototype.getConocimientosByCategoryId = function (category_id) {
+    // añadir nueva categoria
+    Categoria.prototype.addCategoria = function (id_categoria) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        queryStr = "SELECT * FROM conocimientos_usuario WHERE categoria_id=$1";
-                        return [4 /*yield*/, this.client.query(queryStr, [category_id])];
-                    case 1:
-                        resultado = _a.sent();
-                        return [2 /*return*/, resultado.rows[0]];
-                }
-            });
-        });
-    };
-    // añadir conocimiento nuevo
-    Conocimiento.prototype.addConocimiento = function (id_conocimientos_usuario) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryStr, resultado;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryStr = "INSERT INTO conocimientos_usuario (titulo, descripcion, imagen, estado) VALUES ($1, $2, $3, $4) returning *";
+                        queryStr = "INSERT INTO categorias (nombre, imagen) VALUES ($1, $2) returning *";
                         return [4 /*yield*/, this.client.query(queryStr, [
-                                id_conocimientos_usuario.titulo,
-                                id_conocimientos_usuario.descripcion,
-                                id_conocimientos_usuario.imagen,
-                                id_conocimientos_usuario.estado,
+                                id_categoria.nombre,
+                                id_categoria.imagen,
                             ])];
                     case 1:
                         resultado = _a.sent();
@@ -110,21 +92,19 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
-    //editar un conocimiento
-    Conocimiento.prototype.editConocimiento = function (id_conocimientos_usuario, body) {
+    //editar una categoria
+    Categoria.prototype.editCategoria = function (id_categoria, body) {
         return __awaiter(this, void 0, void 0, function () {
-            var titulo, descripcion, imagen, estado, queryStr, resultado;
+            var nombre, imagen, queryStr, resultado;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        titulo = body.titulo, descripcion = body.descripcion, imagen = body.imagen, estado = body.estado;
-                        queryStr = "UPDATE conocimientos_usuario SET (titulo, descripcion, imagen, estado)=($1, $2, $3, $4) WHERE id_conocimientos_usuario =$5  returning *";
+                        nombre = body.nombre, imagen = body.imagen;
+                        queryStr = "UPDATE categorias SET (nombre, imagen)=($1, $2) WHERE id_categoria =$3  returning *";
                         return [4 /*yield*/, this.client.query(queryStr, [
-                                titulo,
-                                descripcion,
+                                nombre,
                                 imagen,
-                                estado,
-                                id_conocimientos_usuario,
+                                id_categoria,
                             ])];
                     case 1:
                         resultado = _a.sent();
@@ -133,15 +113,15 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
-    //eliminar conocimiento
-    Conocimiento.prototype.deleteConocimiento = function (id_conocimientos_usuario) {
+    //eliminar una categoria
+    Categoria.prototype.deleteCategoria = function (id_categoria) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        queryStr = "DELETE FROM conocimientos_usuario WHERE id_conocimientos_usuario = $1 returning *";
-                        return [4 /*yield*/, this.client.query(queryStr, [id_conocimientos_usuario])];
+                        queryStr = "DELETE FROM categorias WHERE id_categoria = $1 returning *";
+                        return [4 /*yield*/, this.client.query(queryStr, [id_categoria])];
                     case 1:
                         resultado = _a.sent();
                         return [2 /*return*/, resultado.rows[0]];
@@ -149,6 +129,6 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
-    return Conocimiento;
+    return Categoria;
 }());
-exports["default"] = new Conocimiento((0, database_service_1.connection)());
+exports["default"] = new Categoria((0, database_service_1.connection)());

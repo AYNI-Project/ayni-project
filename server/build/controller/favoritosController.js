@@ -61,65 +61,46 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-var conocimientosModel_1 = __importDefault(require("../model/conocimientosModel"));
-var conocimientosController = {
-    getConocimientos: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var conocimientos;
+var favoritosModel_1 = __importDefault(require("../model/favoritosModel"));
+var favoritosController = {
+    getMyFavoritos: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var categorias;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, conocimientosModel_1["default"].getConocimientos()];
+                case 0: return [4 /*yield*/, favoritosModel_1["default"].getMyFavoritos()];
                 case 1:
-                    conocimientos = _a.sent();
-                    res.json(conocimientos);
+                    categorias = _a.sent();
+                    res.json(categorias);
                     return [2 /*return*/];
             }
         });
     }); },
-    getUnConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var param, conocimientos;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    param = req.params["id"];
-                    return [4 /*yield*/, conocimientosModel_1["default"].getUnConocimiento(param)];
-                case 1:
-                    conocimientos = _a.sent();
-                    res.json(conocimientos);
-                    return [2 /*return*/];
-            }
-        });
-    }); },
-    getConocimientosByCategoryId: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var param, conocimientos;
+    getUnFavorito: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var param, categorias;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    param = req.params["cateogory_id"];
-                    return [4 /*yield*/, conocimientosModel_1["default"].getConocimientosByCategoryId(param)];
+                    param = req.params["id_favorito"];
+                    return [4 /*yield*/, favoritosModel_1["default"].getUnFavorito(param)];
                 case 1:
-                    conocimientos = _a.sent();
-                    res.json(conocimientos);
+                    categorias = _a.sent();
+                    res.json(categorias);
                     return [2 /*return*/];
             }
         });
     }); },
-    addConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, titulo, descripcion, imagen, estado, conocimientos, resultado, err_1;
+    addFavorito: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var _a, usuario_id, conocimientos_usuario_id, favorito, resultado, err_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 2, , 3]);
-                    _a = req.body, titulo = _a.titulo, descripcion = _a.descripcion, imagen = _a.imagen, estado = _a.estado, conocimientos = __rest(_a, ["titulo", "descripcion", "imagen", "estado"]);
-                    if (!titulo ||
-                        !descripcion ||
-                        !imagen ||
-                        !estado)
-                        res.status(400).json({ message: "Por favor, rellena los campos obligatorios." });
-                    return [4 /*yield*/, conocimientosModel_1["default"].addConocimiento(__assign({ titulo: titulo, descripcion: descripcion, imagen: imagen, estado: estado }, conocimientos))];
+                    _a = req.body, usuario_id = _a.usuario_id, conocimientos_usuario_id = _a.conocimientos_usuario_id, favorito = __rest(_a, ["usuario_id", "conocimientos_usuario_id"]);
+                    return [4 /*yield*/, favoritosModel_1["default"].addFavorito(__assign({ usuario_id: usuario_id, conocimientos_usuario_id: conocimientos_usuario_id }, favorito))];
                 case 1:
                     resultado = _b.sent();
                     res.status(200).json({
-                        message: "Tu oferta ".concat(resultado.id_conocimientos_usuario, " ha sido a\u00F1adida con \u00E9xito.")
+                        message: "Una nuevo favorito ".concat(resultado.id_favorito, " ha sido a\u00F1adido con \u00E9xito.")
                     });
                     return [3 /*break*/, 3];
                 case 2:
@@ -132,50 +113,24 @@ var conocimientosController = {
             }
         });
     }); },
-    editConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, conocimientos, resultado, err_2;
+    deleteFavorito: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var id, resultado, err_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
                     id = req.params.id;
-                    conocimientos = req.body;
-                    return [4 /*yield*/, conocimientosModel_1["default"].editConocimiento(id, conocimientos)];
+                    return [4 /*yield*/, favoritosModel_1["default"].deleteFavorito(parseInt(id))];
                 case 1:
                     resultado = _a.sent();
-                    res
-                        .status(200)
-                        .json({
-                        message: "Tu oferta ".concat(resultado.id_conocimientos_usuario, " ha sido editada con \u00E9xito.")
+                    res.status(200).json({
+                        message: "Tu favorito ".concat(resultado.id_favorito, " ha sido eliminado con \u00E9xito.")
                     });
                     return [3 /*break*/, 3];
                 case 2:
                     err_2 = _a.sent();
-                    return [2 /*return*/, res.status(400).json({
-                            error: err_2
-                        })];
-                case 3: return [2 /*return*/];
-            }
-        });
-    }); },
-    deleteConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, resultado, err_3;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    id = req.params.id;
-                    return [4 /*yield*/, conocimientosModel_1["default"].deleteConocimiento(parseInt(id))];
-                case 1:
-                    resultado = _a.sent();
-                    res.status(200).json({
-                        message: "Tu oferta ".concat(resultado.id_conocimientos_usuario, " ha sido borrada con \u00E9xito.")
-                    });
-                    return [3 /*break*/, 3];
-                case 2:
-                    err_3 = _a.sent();
                     res.status(400).json({
-                        error: err_3
+                        error: err_2
                     });
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
@@ -183,4 +138,4 @@ var conocimientosController = {
         });
     }); }
 };
-exports["default"] = conocimientosController;
+exports["default"] = favoritosController;

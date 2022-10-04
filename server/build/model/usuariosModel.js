@@ -41,6 +41,7 @@ var Usuarios = /** @class */ (function () {
     function Usuarios(client) {
         this.client = client;
     }
+    // obtener todos los usuarios
     Usuarios.prototype.getUsuarios = function () {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado, error_1;
@@ -62,15 +63,16 @@ var Usuarios = /** @class */ (function () {
             });
         });
     };
-    Usuarios.prototype.getUnUsuario = function (usuarios) {
+    //obtener un usuario con su id
+    Usuarios.prototype.getUnUsuario = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, values, resultado, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        queryStr = "SELECT * FROM usuarios WHERE email = $1";
-                        values = [usuarios.email];
+                        queryStr = "SELECT * FROM usuarios WHERE id_usuario = $1";
+                        values = [id];
                         return [4 /*yield*/, this.client.query(queryStr, values)];
                     case 1:
                         resultado = _a.sent();
@@ -84,6 +86,7 @@ var Usuarios = /** @class */ (function () {
             });
         });
     };
+    // añadir un nuevo usuario
     Usuarios.prototype.addUsuario = function (usuarios) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, values, resultado, error_3;
@@ -111,6 +114,7 @@ var Usuarios = /** @class */ (function () {
             });
         });
     };
+    // iniciar sesión
     Usuarios.prototype.loginUsuario = function (usuarios) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado, error_4;
@@ -136,6 +140,7 @@ var Usuarios = /** @class */ (function () {
             });
         });
     };
+    //edit perfil de usuario
     Usuarios.prototype.editUsuario = function (usuarios, id_usuario) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado, error_5;
@@ -151,7 +156,7 @@ var Usuarios = /** @class */ (function () {
                                 usuarios.ciudad,
                                 usuarios.sobre_mi,
                                 usuarios.email,
-                                usuarios.password,
+                                (usuarios === null || usuarios === void 0 ? void 0 : usuarios.password) || '',
                                 usuarios.telefono,
                                 usuarios.opiniones,
                                 id_usuario,

@@ -10,6 +10,6 @@ usuariosRoute.get("/users/", usuariosController_1["default"].getUsuarios);
 usuariosRoute.get("/users/:id", usuariosController_1["default"].getUnUsuario);
 usuariosRoute.post("/users/register", usuariosController_1["default"].addUsuario);
 usuariosRoute.post("/users/login", usuariosController_1["default"].loginUsuario);
-usuariosRoute.post("users/edit/:id", usuariosController_1["default"].editUsuario);
+usuariosRoute.put("/users/edit/:id", usuariosController_1["default"].editUsuario);
 usuariosRoute["delete"]("/users/:id", usuariosController_1["default"].deleteUsuario);
 exports["default"] = usuariosRoute;

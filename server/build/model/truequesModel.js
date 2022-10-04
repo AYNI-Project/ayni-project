@@ -37,118 +37,107 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var database_service_1 = require("../services/database.service");
-var Conocimiento = /** @class */ (function () {
-    function Conocimiento(client) {
+var Trueques = /** @class */ (function () {
+    function Trueques(client) {
         this.client = client;
     }
-    //obtener toda lista de conocimientos
-    Conocimiento.prototype.getConocimientos = function () {
+    // obtener todos los trueques de la base de datos
+    Trueques.prototype.getTrueques = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var queryStr, resultado;
+            var queryStr, resultado, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        queryStr = "SELECT * FROM conocimientos_usuario";
-                        return [4 /*yield*/, this.client.query(queryStr)];
+                        _a.trys.push([0, 2, , 3]);
+                        queryStr = "SELECT * FROM trueques";
+                        return [4 /*yield*/, this.client.query(queryStr, [])];
                     case 1:
                         resultado = _a.sent();
                         return [2 /*return*/, resultado.rows];
+                    case 2:
+                        error_1 = _a.sent();
+                        console.log(error_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
                 }
             });
         });
     };
-    //obtener un conocimiento
-    Conocimiento.prototype.getUnConocimiento = function (id_conocimientos_usuario) {
+    // cuando usuario A inicia sesión se le muestra el total de peticiones de trueques pendientes a aceptar o rechazar
+    Trueques.prototype.getPendingTrueques = function (trueque) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryStr, resultado;
+            var queryStr, resultado, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        queryStr = "SELECT * FROM conocimientos_usuario WHERE id_conocimientos_iusuario=$1";
-                        return [4 /*yield*/, this.client.query(queryStr, [id_conocimientos_usuario])];
+                        _a.trys.push([0, 2, , 3]);
+                        queryStr = 'SELECT * from "trueques" WHERE conocimiento1_usuario_id IN (SELECT id_conocimientos_usuario from "conocimientos_usuario" where usuario_id = 1)';
+                        return [4 /*yield*/, this.client.query(queryStr)];
                     case 1:
                         resultado = _a.sent();
                         return [2 /*return*/, resultado.rows[0]];
+                    case 2:
+                        error_2 = _a.sent();
+                        console.log(error_2);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
                 }
             });
         });
     };
-    //obtener todos los conocimientos de un usuario
-    Conocimiento.prototype.getConocimientosByCategoryId = function (category_id) {
+    // //crear el trueque
+    Trueques.prototype.createTrueque = function (trueque) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryStr, resultado;
+            var queryStr, values, resultado, error_3;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        queryStr = "SELECT * FROM conocimientos_usuario WHERE categoria_id=$1";
-                        return [4 /*yield*/, this.client.query(queryStr, [category_id])];
+                        _a.trys.push([0, 2, , 3]);
+                        queryStr = "INSERT INTO trueques(conocimiento1_usuario_id, conocimiento2_usuario_id, estado) VALUES ($1, $2, $3) returning *";
+                        values = [
+                            trueque.conocimiento1_usuario_id,
+                            trueque.conocimiento2_usuario_id,
+                            "pendiente",
+                        ];
+                        return [4 /*yield*/, this.client.query(queryStr, values)];
                     case 1:
                         resultado = _a.sent();
                         return [2 /*return*/, resultado.rows[0]];
+                    case 2:
+                        error_3 = _a.sent();
+                        console.log(error_3);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
                 }
             });
         });
     };
-    // añadir conocimiento nuevo
-    Conocimiento.prototype.addConocimiento = function (id_conocimientos_usuario) {
+    // //cambiar estado de pendiente a aceptado o rechazado
+    Trueques.prototype.updateTrueque = function (trueque) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryStr, resultado;
+            var queryStr, values, resultado, error_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        queryStr = "INSERT INTO conocimientos_usuario (titulo, descripcion, imagen, estado) VALUES ($1, $2, $3, $4) returning *";
-                        return [4 /*yield*/, this.client.query(queryStr, [
-                                id_conocimientos_usuario.titulo,
-                                id_conocimientos_usuario.descripcion,
-                                id_conocimientos_usuario.imagen,
-                                id_conocimientos_usuario.estado,
-                            ])];
+                        _a.trys.push([0, 2, , 3]);
+                        queryStr = 'UPDATE trueques SET estado = $1 WHERE id_trueque = $2 returning *';
+                        values = [
+                            trueque.id_trueque,
+                            trueque.estado
+                        ];
+                        return [4 /*yield*/, this.client.query(queryStr, values)];
                     case 1:
                         resultado = _a.sent();
                         return [2 /*return*/, resultado.rows[0]];
+                    case 2:
+                        error_4 = _a.sent();
+                        console.log(error_4);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
                 }
             });
         });
     };
-    //editar un conocimiento
-    Conocimiento.prototype.editConocimiento = function (id_conocimientos_usuario, body) {
-        return __awaiter(this, void 0, void 0, function () {
-            var titulo, descripcion, imagen, estado, queryStr, resultado;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        titulo = body.titulo, descripcion = body.descripcion, imagen = body.imagen, estado = body.estado;
-                        queryStr = "UPDATE conocimientos_usuario SET (titulo, descripcion, imagen, estado)=($1, $2, $3, $4) WHERE id_conocimientos_usuario =$5  returning *";
-                        return [4 /*yield*/, this.client.query(queryStr, [
-                                titulo,
-                                descripcion,
-                                imagen,
-                                estado,
-                                id_conocimientos_usuario,
-                            ])];
-                    case 1:
-                        resultado = _a.sent();
-                        return [2 /*return*/, resultado.rows[0]];
-                }
-            });
-        });
-    };
-    //eliminar conocimiento
-    Conocimiento.prototype.deleteConocimiento = function (id_conocimientos_usuario) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryStr, resultado;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryStr = "DELETE FROM conocimientos_usuario WHERE id_conocimientos_usuario = $1 returning *";
-                        return [4 /*yield*/, this.client.query(queryStr, [id_conocimientos_usuario])];
-                    case 1:
-                        resultado = _a.sent();
-                        return [2 /*return*/, resultado.rows[0]];
-                }
-            });
-        });
-    };
-    return Conocimiento;
+    return Trueques;
 }());
-exports["default"] = new Conocimiento((0, database_service_1.connection)());
+exports["default"] = new Trueques((0, database_service_1.connection)());
