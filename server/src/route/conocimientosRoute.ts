@@ -8,7 +8,7 @@ conocimientosRoute.get("/knowledge", conocimientosController.getConocimientos);
 //obtener todos los conocimientos de un usuario
 conocimientosRoute.get("/knowledge/:category_id", conocimientosController.getConocimientosByCategoryId);
 //obtener el detalle de un conocimiento en concreto
-conocimientosRoute.get("/knowledge/:id", conocimientosController.getUnConocimiento);
+conocimientosRoute.get("/knowledge/id/:id", conocimientosController.getUnConocimiento);
 //añadir un conocimiento
 conocimientosRoute.post("/knowledge/upload", conocimientosController.addConocimiento);
 //editar un conocimiento

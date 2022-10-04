@@ -15,7 +15,7 @@ class Conocimiento {
     }
     //obtener un conocimiento
     async getUnConocimiento(id_conocimientos_usuario: iConocimiento) {
-        const queryStr = "SELECT * FROM conocimientos_usuario WHERE id_conocimientos_iusuario=$1";
+        const queryStr = "SELECT * FROM conocimientos_usuario WHERE id_conocimientos_usuario=$1";
         const resultado = await this.client.query(queryStr, [id_conocimientos_usuario]);
         return resultado.rows[0];
     
