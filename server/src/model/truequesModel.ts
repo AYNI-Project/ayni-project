@@ -23,7 +23,11 @@ class Trueques {
     async getPendingTrueques(usuario:number) {
         try {
             const queryStr =
-                'SELECT * from "trueques" WHERE conocimiento1_usuario_id IN (SELECT id_conocimientos_usuario from "conocimientos_usuario" where usuario_id = $1)';
+            `SELECT t.id_trueque, c1.titulo pedido, c2.id_conocimientos_usuario ofrecido_id, c2.titulo ofrecido, c2.usuario_id, u2.nombre from "trueques" t 
+            JOIN conocimientos_usuario c1 ON t.conocimiento1_usuario_id = c1.id_conocimientos_usuario 
+            JOIN conocimientos_usuario c2 ON t.conocimiento2_usuario_id = c2.id_conocimientos_usuario 
+            JOIN usuarios u2 ON c2.usuario_id = u2.id_usuario 
+            WHERE c1.usuario_id = $1 AND t.estado = 'pendiente'`
 
             const resultado = await this.client.query(queryStr,[usuario]);
             return resultado.rows;
