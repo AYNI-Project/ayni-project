@@ -11,7 +11,7 @@ export interface iUsuario {
     ciudad: string;
     sobre_mi?: string;
     email: string;
-    password: string;
+    password?: string;
     telefono?: number;
     opiniones: string;
 }

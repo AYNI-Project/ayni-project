@@ -23,6 +23,7 @@ export default function ForgotPassword() {
     try {
       await resetPassword(user.email);
       setError("Te hemos enviado un correo con un enlace para reestablecer tu contraseña.");
+      
     } catch (error) {
       console.log(error.code);
       if (error.code === "auth/user-not-found") {

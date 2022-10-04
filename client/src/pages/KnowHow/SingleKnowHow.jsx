@@ -37,7 +37,7 @@ export default function SingleKnowHow({ matches }) {
   //PAGINATION
   //let [pageNumber, setPageNumber] = useState(1)
   let [getKnowledge, setGetknowledge] = useState([]);
-  let [KnowledgeCategory, setKnowledgeCategory] = useState([]);
+  let [knowledgeCategory, setKnowledgeCategory] = useState([]);
   const [liked, setLiked] = useState(false);
   let [favorites, setFavorites] = useState([]);
 
@@ -66,7 +66,7 @@ export default function SingleKnowHow({ matches }) {
       setKnowledgeCategory(
         getKnowledge.filter((knows) => knows.categoria_id === category)
       );
-    console.log("mostrando lista", KnowledgeCategory);
+    console.log("mostrando lista", knowledgeCategory);
   }
 
   useEffect(() => {
@@ -184,7 +184,7 @@ export default function SingleKnowHow({ matches }) {
       </Box>
       <Exchange>
         <Grid container spacing={2}>
-          {KnowledgeCategory.map((knows) => {
+          {knowledgeCategory.map((knows) => {
             if (getKnowledge) {
               return (
                 <Grid

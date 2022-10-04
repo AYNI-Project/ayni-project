@@ -15,7 +15,7 @@ export default function ProtectedRouteAdmin({ children }) {
       </Box>)
 
   if (!user)
-    return <Navigate to="/login"></Navigate>;
+    return <Navigate to="/users/login"></Navigate>;
 
   return <>{children}</>;
 }

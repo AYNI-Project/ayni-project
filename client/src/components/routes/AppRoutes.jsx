@@ -25,7 +25,7 @@ export default function AppRoutes() {
             <Route path="/knowledge" element={<ProtectedRoute><KnowHow /></ProtectedRoute>} />
             <Route path="/knowledge/:id_categoria" element={<ProtectedRoute><KnowHow /></ProtectedRoute>} />
             <Route path="/knowledge/detail" element={<ProtectedRoute><DetailProduct /></ProtectedRoute>} />
-            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            <Route path="/profile/edit/:id" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
             <Route path="/detail" element={<ProtectedRoute><DetailProduct /></ProtectedRoute>} />
             <Route path="/knowledge/upload" element={<ProtectedRoute><UploadProduct /></ProtectedRoute>} />
             <Route path="/about-us" element={<About />} />

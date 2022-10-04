@@ -18,10 +18,10 @@ class Usuarios {
         }
     }
 
-    async getUnUsuario(usuarios: iUsuariologin) {
+    async getUnUsuario(id:number) {
         try {
-            const queryStr = "SELECT * FROM usuarios WHERE email = $1";
-            const values = [usuarios.email];
+            const queryStr = "SELECT * FROM usuarios WHERE id_usuario = $1";
+            const values = [id];
             const resultado = await this.client.query(queryStr, values);
             return resultado.rows[0];
         } catch (error) {
@@ -60,7 +60,9 @@ class Usuarios {
         }
     }
     async editUsuario(usuarios: iUsuario, id_usuario: any) {
+    
         try {
+            console.log(usuarios,id_usuario)
             const queryStr =
                 "UPDATE usuarios SET (foto, nombre, apellidos, ciudad, sobre_mi, email, password, telefono, opiniones) =($1,$2,$3,$4,$5,$6,$7,$8,$9) WHERE id_usuario=$10 returning *";
             const resultado = await this.client.query(queryStr, [
@@ -70,7 +72,7 @@ class Usuarios {
                 usuarios.ciudad,
                 usuarios.sobre_mi,
                 usuarios.email,
-                usuarios.password,
+                usuarios?.password || '',
                 usuarios.telefono,
                 usuarios.opiniones,
                 id_usuario,

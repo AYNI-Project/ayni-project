@@ -3,58 +3,45 @@ import { Typography, Button, Box } from "@mui/material";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import IconButton from "@mui/material/IconButton";
 import Appbar from "../components/appbar";
-import { InputForm, LeftContent, RightContent, Subtitle, View } from "../styles/auth";
+import {
+  InputForm,
+  LeftContent,
+  RightContent,
+  Subtitle,
+  View,
+} from "../styles/auth";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Profile() {
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [city, setCity] = useState("");
+  const [celNumber, setCelNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [aboutMe, setAboutMe] = useState("");
+  const [picture, setPicture] = useState("");
+  const [user, setUser] = useState([]);
 
-  const [name, setName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [city, setCity] = useState('');
-  const [email, setEmail] = useState('');
-  const [password,setPassword] = useState('');
-  const [confirmPassword,setConfirmPassword] = useState('');
-  const [aboutMe, setAboutMe] = useState('');
-  const [picture, setPicture] = useState('');
-  
-  const handleInputChange = (e) => {
-    const {id , value} = e.target;
-    if(id === "name"){
-        setName(value);
-    }
-    if(id === "lastName"){
-        setLastName(value);
-    }
-    if(id === "city"){
-      setCity(value);
-    }
-     if(id === "email"){
-        setEmail(value);
-    }
-    if(id === "password"){
-        setPassword(value);
-    }
-    if(id === "confirmPassword"){
-        setConfirmPassword(value);
-    }
-    if(id === "aboutMe"){
-      setAboutMe(value);
-    }
-    if(id === "picture"){
-      setPicture(value);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .put("https://ayni-project.herokuapp.com/user/edit/:id", { user })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
 
-}
-
-const handleSubmit  = () => {
-    console.log(name,lastName,city,email,password,confirmPassword,aboutMe,picture);
-}
   return (
     <>
       <Appbar />
       <View>
         <LeftContent>
-
           <Subtitle>EDITAR PERFIL</Subtitle>
           <InputForm
             type={"text"}
@@ -62,7 +49,7 @@ const handleSubmit  = () => {
             label="Nombre"
             variant="standard"
             value={name}
-            onChange = {(e) => handleInputChange(e)}
+            onChange={(e) => setUser({ ...user, name: e.target.value })}
           />
           <InputForm
             type={"text"}
@@ -70,7 +57,7 @@ const handleSubmit  = () => {
             label="Apellidos"
             variant="standard"
             value={lastName}
-            onChange = {(e) => handleInputChange(e)}
+            onChange={(e) => setUser({ ...user, lastName: e.target.value })}
           />
           <InputForm
             type={"text"}
@@ -78,7 +65,15 @@ const handleSubmit  = () => {
             label="Ciudad"
             variant="standard"
             value={city}
-            onChange = {(e) => handleInputChange(e)}
+            onChange={(e) => setUser({ ...user, city: e.target.value })}
+          />
+          <InputForm
+            type={"text"}
+            id="celNumber "
+            label="Teléfono Móvil"
+            variant="standard"
+            value={celNumber}
+            onChange={(e) => setUser({ ...user, celNumber: e.target.value })}
           />
           <InputForm
             type={"email"}
@@ -86,7 +81,7 @@ const handleSubmit  = () => {
             label="Email"
             variant="standard"
             value={email}
-            onChange = {(e) => handleInputChange(e)}
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
           />
           <InputForm
             type="password"
@@ -94,15 +89,18 @@ const handleSubmit  = () => {
             label="Contraseña"
             variant="standard"
             value={password}
-            onChange = {(e) => handleInputChange(e)}/>
-          
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
+          />
+
           <InputForm
             type="password"
             id="confirmPassword"
             label="Confirmar Contraseña"
             variant="standard"
             value={confirmPassword}
-            onChange = {(e) => handleInputChange(e)}
+            onChange={(e) =>
+              setUser({ ...user, confirmPassword: e.target.value })
+            }
           />
         </LeftContent>
         <RightContent>
@@ -113,23 +111,32 @@ const handleSubmit  = () => {
             rows={3}
             variant="standard"
             value={aboutMe}
-            onChange = {(e) => handleInputChange(e)}
+            onChange={(e) => setUser({ ...user, aboutMe: e.target.value })}
           />
-           <IconButton
+          <IconButton
             color="inherit"
             aria-label="picture"
             component="label"
-            variant= 'text'
-            style={{padding: "2rem"}}
+            variant="text"
+            style={{ padding: "2rem" }}
             value={picture}
-            onChange = {(e) => handleInputChange(e)}
+            onChange={(e) => setUser({ ...user, picture: e.target.value })}
           >
-            <Typography style={{ color: "#696969",paddingRight: "2rem" }}>Elige una foto de perfil</Typography>
+            <Typography style={{ color: "#696969", paddingRight: "2rem" }}>
+              Elige una foto de perfil
+            </Typography>
             <input hidden accept="image/*" type="file" />
             <PhotoCamera />
-          </IconButton>         
+          </IconButton>
           <Box style={{ padding: "2rem" }}>
-            <Button className="btn" type="submit" variant="outlined" color='inherit' style={{backgroundColor:"#FFA37F"}} onClick={()=>handleSubmit()}>
+            <Button
+              className="btn"
+              type="submit"
+              variant="outlined"
+              color="inherit"
+              style={{ backgroundColor: "#FFA37F" }}
+              onClick={handleSubmit}
+            >
               Guardar perfil
             </Button>
           </Box>
