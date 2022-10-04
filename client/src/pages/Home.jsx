@@ -7,7 +7,7 @@ import { Container, Typography, Box } from "@mui/material";
 import Footer from '../components/footer/Footer';
 import { UIProvider } from '../context/indexUi';
 import SearchBar from '../components/searchBar/SearchBar';
-import AppMenu from '../components/drawer/AppMenu';
+import AppMenu from '../components/drawer/Drawer';
 // import axios from 'axios';
 
 export default function Home() {
@@ -19,6 +19,7 @@ export default function Home() {
   return (
 
     <Container maxWidth="xl" sx={{ background: '#fff' }}>
+      
       <UIProvider>
         <Appbar />
         <Banner />

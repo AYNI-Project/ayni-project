@@ -18,6 +18,12 @@ class Conocimiento {
         const queryStr = "SELECT * FROM conocimientos_usuario WHERE id_conocimientos_iusuario=$1";
         const resultado = await this.client.query(queryStr, [id_conocimientos_usuario]);
         return resultado.rows[0];
+    
+    } 
+    async getConocimientosByCategoryId(category_id: any) {
+        const queryStr = "SELECT * FROM conocimientos_usuario WHERE category_id=$1";
+        const resultado = await this.client.query(queryStr, [category_id]);
+        return resultado.rows[0];
     }
     // añadir conocimiento nuevo
     async addConocimiento(id_conocimientos_usuario: iConocimiento) {

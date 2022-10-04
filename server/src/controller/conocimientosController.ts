@@ -13,6 +13,11 @@ const conocimientosController = {
         const conocimientos: any = await conocimientosModel.getUnConocimiento(param);
         res.json(conocimientos);
     },
+    getConocimientosByCategoryId: async (req: Request, res: Response) => {
+        const param: any = req.params["cateogory_id"];
+        const conocimientos: any = await conocimientosModel.getConocimientosByCategoryId(param);
+        res.json(conocimientos);
+    },
     addConocimiento: async (req: Request, res: Response) => {
         try {
             const {
