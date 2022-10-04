@@ -22,11 +22,7 @@
     "react-mui-fileuploader": "^0.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
     "use-react-router-breadcrumbs": "^4.0.0",
-=======
-    "tools": "^0.0.0",
->>>>>>> f0b9730980d031d6ca26bbe2928e73ca47e8810a
     "web-vitals": "^2.1.4"
   },
   "scripts": {
