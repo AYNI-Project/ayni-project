@@ -1,4 +1,4 @@
-import { Stack, ListItemButton, ListItemIcon, Button } from "@mui/material";
+import { Stack, ListItemButton, ListItemIcon, Button, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { AppbarContainer, MyList, LogoImage } from "../../styles/appbar";
 import Actions from "./Actions";
@@ -6,7 +6,6 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useNavigate } from "react-router-dom";
 import { useUIContext } from "../../context/indexUi";
 import { Link } from "react-router-dom";
-import SearchBar from "../searchBar/SearchBar";
 
 
 export default function AppbarDesktop({ matches }) {
@@ -23,7 +22,7 @@ export default function AppbarDesktop({ matches }) {
   //searchBar style appears
 
   return (
-    <AppbarContainer>
+    <AppbarContainer position="static">
       <Link to="/">
         <LogoImage src="./images/banner/2.png" alt="logo-Ayni" />
       </Link>
@@ -41,13 +40,14 @@ export default function AppbarDesktop({ matches }) {
         >
           Agregar trueque
         </Button>
-        <ListItemButton onClick={() => setShowSearchBox(true)}>
+       
             
-          <ListItemIcon  >
+        <IconButton size="large" aria-label="search" color="inherit" onClick={() => setShowSearchBox(true)}>
             <SearchIcon />
+          </IconButton>
+           
         
-          </ListItemIcon>
-        </ListItemButton>
+      
       </MyList>
       {/* <Stack direction="row" spacing={2} /> */}
       <Actions matches={matches} />

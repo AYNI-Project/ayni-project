@@ -106,7 +106,7 @@ const usuariosController = {
             const resultado: any = await usuariosModel.deleteUsuario(parseInt(id));
 
             res.status(200).json({
-                message: `Tu perfil ${resultado.id_usuario} ha sido borrado con éxito.`,
+                message: `Tu perfil ${resultado.id_usuario} ha sido eliminado con éxito.`,
             });
         } catch (err: any) {
             res.status(400).json({

@@ -7,7 +7,7 @@ class Usuarios {
     constructor(client: any) {
         this.client = client;
     }
-
+    // obtener todos los usuarios
     async getUsuarios() {
         try {
             const queryStr = "SELECT * FROM usuarios";
@@ -17,8 +17,8 @@ class Usuarios {
             console.log(error);
         }
     }
-
-    async getUnUsuario(id:number) {
+    //obtener un usuario con su id
+    async getUnUsuario(id: number) {
         try {
             const queryStr = "SELECT * FROM usuarios WHERE id_usuario = $1";
             const values = [id];
@@ -28,7 +28,7 @@ class Usuarios {
             console.log(error);
         }
     }
-
+    // añadir un nuevo usuario
     async addUsuario(usuarios: iUsuario) {
         try {
             const queryStr =
@@ -45,7 +45,7 @@ class Usuarios {
             console.log(error);
         }
     }
-
+    // iniciar sesión
     async loginUsuario(usuarios: iUsuariologin) {
         try {
             const queryStr = "SELECT * FROM usuarios WHERE email = $1";
@@ -59,10 +59,9 @@ class Usuarios {
             console.log(error);
         }
     }
+    //edit perfil de usuario
     async editUsuario(usuarios: iUsuario, id_usuario: any) {
-    
         try {
-            console.log(usuarios,id_usuario)
             const queryStr =
                 "UPDATE usuarios SET (foto, nombre, apellidos, ciudad, sobre_mi, email, password, telefono, opiniones) =($1,$2,$3,$4,$5,$6,$7,$8,$9) WHERE id_usuario=$10 returning *";
             const resultado = await this.client.query(queryStr, [

@@ -1,47 +1,49 @@
 // import express, { Request, Response } from "express";
-// import mailer from "../app";
-
 // const nodemailer = require('nodemailer');
-// const app = express();
-// const mailer = express.Router();
+// const router = express.Router();
 
-// const transporter = nodemailer.createTransport({
-//     service: "gmail",
-//     auth: {
-//         type: "OAuth2",
-//         user: process.env.EMAIL,
-//         pass: process.env.WORD,
-//         clientId: process.env.OAUTH_CLIENTID,
-//         clientSecret: process.env.OAUTH_CLIENT_SECRET,
-//         refreshToken: process.env.OAUTH_REFRESH_TOKEN,
-//     },
-// });
+// export const mailer = () => {
+   
+//     const transporter = nodemailer.createTransport({
+//         service: "gmail",
+//         auth: {
+//             type: "OAuth2",
+//             user: process.env.EMAIL,
+//             pass: process.env.WORD,
+//             clientId: process.env.OAUTH_CLIENTID,
+//             clientSecret: process.env.OAUTH_CLIENT_SECRET,
+//             refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+//         },
+//     });
 
-// transporter.verify((error: any, success: any) => {
-//     if (error) {
-//         console.log(error);
-//     } else {
-//         console.log(`=== Server is ready to take messages: ${success} ===`);
-//     }
-// });
-
-// mailer.post("/contact", (req, res) => {
-//     const name = req.body.name;
-//     const email = req.body.email;
-//     const message = req.body.message;
-//     const mail = {
-//         from: name,
-//         to: process.env.EMAIL,
-//         subject: "Formulario de Contacto",
-//         html: `<p>Nombre: ${name}</p>
-//              <p>Email: ${email}</p>
-//              <p>Mensaje: ${message}</p>`,
-//     };
-//     transporter.sendMail(mail, (error: any, data: any) => {
+//     transporter.verify((error:any, success:any) => {
 //         if (error) {
-//             res.json({ status: "ERROR" + error });
+//             console.log(error);
 //         } else {
-//             res.json({ status: "¡Correo enviado! Recibirás nuestra respuesta muy pronto." });
+//             console.log(`=== Server is ready to receive emails: ${success} ===`);
 //         }
 //     });
-// });
+
+//     router.post("/contact", (req:Request, res:Response) => {
+//         const name = req.body.name;
+//         const email = req.body.email;
+//         const message = req.body.message;
+//         const mail = {
+//             from: name,
+//             to: process.env.EMAIL,
+//             subject: "Formulario de Contacto",
+//             html: `<p>Nombre: ${name}</p>
+//                 <p>Email: ${email}</p>
+//                 <p>Mensaje: ${message}</p>`,
+//         };
+//         transporter.sendMail(mail, (error:any, data:any) => {
+//             if (error) {
+//                 res.json({ status: "ERROR" + error });
+//             } else {
+//                 res.json({ status: "¡Correo enviado! Recibirás nuestra respuesta muy pronto." });
+//             }
+//         });
+//     });
+// };
+
+// export default mailer;

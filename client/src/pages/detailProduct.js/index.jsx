@@ -5,9 +5,6 @@ import React from 'react'
 
 export default function Dett() {
   return (
-    <Box>
-        
-
-    </Box>
+<></>
   )
 }
