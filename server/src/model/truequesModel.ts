@@ -20,13 +20,13 @@ class Trueques {
     }
 
     // cuando usuario A inicia sesión se le muestra el total de peticiones de trueques pendientes a aceptar o rechazar
-    async getPendingTrueques(trueque: iTrueque) {
+    async getPendingTrueques(usuario:number) {
         try {
             const queryStr =
-                'SELECT * from "trueques" WHERE conocimiento1_usuario_id IN (SELECT id_conocimientos_usuario from "conocimientos_usuario" where usuario_id = 1)';
+                'SELECT * from "trueques" WHERE conocimiento1_usuario_id IN (SELECT id_conocimientos_usuario from "conocimientos_usuario" where usuario_id = $1)';
 
-            const resultado = await this.client.query(queryStr);
-            return resultado.rows[0];
+            const resultado = await this.client.query(queryStr,[usuario]);
+            return resultado.rows;
         } catch (error) {
             console.log(error);
         }

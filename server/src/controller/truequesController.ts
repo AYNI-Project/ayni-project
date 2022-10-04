@@ -11,7 +11,7 @@ const truequeController = {
 
     getPendingTrueques: async (req: Request, res: Response) => {
         console.log(req.params)
-        const param: any = req.params["pendiente"];
+        const param: any = req.params["id_usuario"];
         const trueques: any = await truequeModel.getPendingTrueques(param);
         res.json(trueques);
     },
