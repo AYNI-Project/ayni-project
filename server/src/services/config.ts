@@ -7,4 +7,3 @@ export const config = (): any => {
   return uri;
 };
 export const secret = process.env.SECRET || "";
-

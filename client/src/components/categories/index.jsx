@@ -1,14 +1,11 @@
-import { Container, Grid, useMediaQuery } from "@mui/material";
-import { categories } from "../../data";
-import SingleCategory from "./SingleCategory";
-import { useTheme } from "@mui/material/styles";
-import SingleCategoryDesktop from "./SingleCategoryDesktop";
+// import { Container, Grid, useMediaQuery } from "@mui/material";
+// import { categorias } from "../../data/categorias";
+// import SingleCategory from "./SingleCategory";
+// import { useTheme } from "@mui/material/styles";
+// import SingleCategoryDesktop from "./SingleCategoryDesktop";
 
 export default function Categories() {
-  const theme = useTheme();
-
-
-  
+  const theme = useTheme(); 
 
   return (
     <Container>

@@ -84,6 +84,7 @@ var usuariosController = {
                     return [4 /*yield*/, usuariosModel_1["default"].getUnUsuario(param)];
                 case 1:
                     usuarios = _a.sent();
+                    console.log(usuarios);
                     res.json(usuarios);
                     return [2 /*return*/];
             }
@@ -158,7 +159,7 @@ var usuariosController = {
                     _a.trys.push([0, 2, , 3]);
                     id = req.params.id;
                     usuario = req.body;
-                    return [4 /*yield*/, usuariosModel_1["default"].editUsuario(id, usuario)];
+                    return [4 /*yield*/, usuariosModel_1["default"].editUsuario(usuario, id)];
                 case 1:
                     resultado = _a.sent();
                     res
@@ -187,7 +188,7 @@ var usuariosController = {
                 case 1:
                     resultado = _a.sent();
                     res.status(200).json({
-                        message: "Tu perfil ".concat(resultado.id_usuario, " ha sido borrado con \u00E9xito.")
+                        message: "Tu perfil ".concat(resultado.id_usuario, " ha sido eliminado con \u00E9xito.")
                     });
                     return [3 /*break*/, 3];
                 case 2:

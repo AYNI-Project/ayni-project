@@ -9,6 +9,9 @@ export default function Register() {
   const [user, setUser] = useState({
     email: "",
     password: "",
+    name:"",
+    surname:"",
+    role:"",
   });
 
   const { signup } = useAuth();
@@ -22,7 +25,7 @@ export default function Register() {
     e.preventDefault();
     setError("");
     try {
-      await signup(user.email, user.password);
+      await signup(user.email, user.password, user.name, user.surname, user.role);
       navigate('/');
     }
     catch (error) {

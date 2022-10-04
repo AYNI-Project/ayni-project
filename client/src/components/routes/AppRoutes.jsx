@@ -5,10 +5,11 @@ import Login from "../../pages/auth/Login";
 import Register from "../../pages/auth/Register";
 import ForgotPassword from "../../pages/auth/ForgotPassword";
 import Home from "../../pages/Home";
+import EditProfile from "../../pages/EditProfile";
 import Profile from "../../pages/Profile";
 import Favorites from "../../pages/Favorites";
 import KnowHow from "../../pages/KnowHow/Index";
-import DetailProduct from "../../pages/detailProduct.js/DetailCard";
+import DetailProduct from "../../pages/detailProduct/DetailCard";
 import UploadProduct from "../../pages/UploadProduct";
 import About from "../../pages/footer/About";
 import Contact from "../../pages/footer/Contact";
@@ -24,10 +25,10 @@ export default function AppRoutes() {
             <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
             <Route path="/knowledge" element={<ProtectedRoute><KnowHow /></ProtectedRoute>} />
             <Route path="/knowledge/:id_categoria" element={<ProtectedRoute><KnowHow /></ProtectedRoute>} />
-            <Route path="/knowledge/detail" element={<ProtectedRoute><DetailProduct /></ProtectedRoute>} />
-            <Route path="/profile/edit/:id" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-            <Route path="/detail" element={<ProtectedRoute><DetailProduct /></ProtectedRoute>} />
+            <Route path="/knowledge/detail/:id" element={<ProtectedRoute><DetailProduct /></ProtectedRoute>} />
             <Route path="/knowledge/upload" element={<ProtectedRoute><UploadProduct /></ProtectedRoute>} />
+            <Route path="/profile/edit/:id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
             <Route path="/about-us" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<Faq />} />

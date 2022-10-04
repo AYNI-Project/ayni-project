@@ -41,6 +41,7 @@ var Conocimiento = /** @class */ (function () {
     function Conocimiento(client) {
         this.client = client;
     }
+    //obtener toda lista de conocimientos
     Conocimiento.prototype.getConocimientos = function () {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado;
@@ -56,6 +57,7 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
+    //obtener un conocimiento
     Conocimiento.prototype.getUnConocimiento = function (id_conocimientos_usuario) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado;
@@ -71,7 +73,23 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
-    // añadir experiencia
+    //obtener todos los conocimientos de un usuario
+    Conocimiento.prototype.getConocimientosByCategoryId = function (category_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryStr, resultado;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryStr = "SELECT * FROM conocimientos_usuario WHERE categoria_id=$1";
+                        return [4 /*yield*/, this.client.query(queryStr, [category_id])];
+                    case 1:
+                        resultado = _a.sent();
+                        return [2 /*return*/, resultado.rows[0]];
+                }
+            });
+        });
+    };
+    // añadir conocimiento nuevo
     Conocimiento.prototype.addConocimiento = function (id_conocimientos_usuario) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado;
@@ -92,7 +110,7 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
-    //editar Conocimiento
+    //editar un conocimiento
     Conocimiento.prototype.editConocimiento = function (id_conocimientos_usuario, body) {
         return __awaiter(this, void 0, void 0, function () {
             var titulo, descripcion, imagen, estado, queryStr, resultado;
@@ -115,7 +133,7 @@ var Conocimiento = /** @class */ (function () {
             });
         });
     };
-    //eliminar conocimiento_usuario
+    //eliminar conocimiento
     Conocimiento.prototype.deleteConocimiento = function (id_conocimientos_usuario) {
         return __awaiter(this, void 0, void 0, function () {
             var queryStr, resultado;

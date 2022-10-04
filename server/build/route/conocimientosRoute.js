@@ -8,6 +8,8 @@ var conocimientosController_1 = __importDefault(require("../controller/conocimie
 var conocimientosRoute = (0, express_1.Router)();
 //obtener todos los conocimientos
 conocimientosRoute.get("/knowledge", conocimientosController_1["default"].getConocimientos);
+//obtener todos los conocimientos de un usuario
+conocimientosRoute.get("/knowledge/:category_id", conocimientosController_1["default"].getConocimientosByCategoryId);
 //obtener el detalle de un conocimiento en concreto
 conocimientosRoute.get("/knowledge/:id", conocimientosController_1["default"].getUnConocimiento);
 //añadir un conocimiento

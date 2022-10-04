@@ -5,23 +5,26 @@ import conocimientosRouter from "./route/conocimientosRoute";
 import usuariosRouter from "./route/usuariosRoute";
 import truequesRouter from "./route/truequesRoute";
 import categoriasRoute from "./route/categoriasRoute";
-import nodemailer from 'nodemailer';
+import favRoute from "./route/favoritosRoute";
 
 dotenv.config();
-const app = express();
-const router = (express.Router());
 
-app.use(cors());
+const app = express();
+const nodemailer = require('nodemailer');
+const mailer = express.Router();
 app.use(express.json());
+app.use(cors());
 app.use(conocimientosRouter);
 app.use(usuariosRouter);
 app.use(truequesRouter);
 app.use(categoriasRoute);
-app.use("/", router);
+app.use(favRoute);
+app.use("/", mailer);
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
+        type: "OAuth2",
         user: process.env.EMAIL,
         pass: process.env.WORD,
         clientId: process.env.OAUTH_CLIENTID,
@@ -30,15 +33,15 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-transporter.verify((error: any, success: any) => {
+transporter.verify((error:any, success:any) => {
     if (error) {
         console.log(error);
     } else {
-        console.log(`=== Server is ready to take messages: ${success} ===`);
+        console.log(`=== Server is ready to receive emails: ${success} ===`);
     }
 });
 
-router.post("/contact", (req: Request, res: Response) => {
+mailer.post("/contact", (req:Request, res:Response) => {
     const name = req.body.name;
     const email = req.body.email;
     const message = req.body.message;
@@ -50,7 +53,7 @@ router.post("/contact", (req: Request, res: Response) => {
              <p>Email: ${email}</p>
              <p>Mensaje: ${message}</p>`,
     };
-    transporter.sendMail(mail, (error: any, data: any) => {
+    transporter.sendMail(mail, (error:any, data:any) => {
         if (error) {
             res.json({ status: "ERROR" + error });
         } else {

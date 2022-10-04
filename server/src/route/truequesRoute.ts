@@ -3,19 +3,13 @@ import truequesController from "../controller/truequesController";
 
 const truequesRoute = Router();
 
+//obtener lista de trueques
 truequesRoute.get("/trades/", truequesController.getTrueques);
-
-// enviar interes de un conocimiento
-// truequesRoute.post("/users/", truequeController.getUsuarios);
-
-// truequesRoute.get("/users/:id", truequeController.getUnUsuario);
-
-// truequesRoute.post("/users/register", truequeController.addUsuario);
-
-// truequesRoute.post("/users/login", truequeController.loginUsuario);
-
-// truequesRoute.post("users/edit/:id", truequeController.editUsuario);
-
-// truequesRoute.delete("/users/:id", truequeController.deleteUsuario);
+// cuando usuario A inicia sesión se le muestra el total de peticiones de trueques pendientes a aceptar o rechazar
+truequesRoute.get("/trades/pending/:id_usuario", truequesController.getPendingTrueques);
+// crear el trueque
+truequesRoute.post("/trades/:id_trueque", truequesController.createTrueque);
+// //cambiar estado de pendiente a aceptado o rechazado
+truequesRoute.put("/trades/:id_trueque", truequesController.updateTrueque);
 
 export default truequesRoute;

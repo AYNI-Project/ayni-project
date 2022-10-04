@@ -89,6 +89,20 @@ var conocimientosController = {
             }
         });
     }); },
+    getConocimientosByCategoryId: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        var param, conocimientos;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    param = req.params["cateogory_id"];
+                    return [4 /*yield*/, conocimientosModel_1["default"].getConocimientosByCategoryId(param)];
+                case 1:
+                    conocimientos = _a.sent();
+                    res.json(conocimientos);
+                    return [2 /*return*/];
+            }
+        });
+    }); },
     addConocimiento: function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
         var _a, titulo, descripcion, imagen, estado, conocimientos, resultado, err_1;
         return __generator(this, function (_b) {
