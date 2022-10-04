@@ -19,7 +19,8 @@ class Conocimiento {
         const resultado = await this.client.query(queryStr, [id_conocimientos_usuario]);
         return resultado.rows[0];
     
-    } 
+    }
+    //obtener todos los conocimientos de un usuario
     async getConocimientosByCategoryId(category_id: any) {
         const queryStr = "SELECT * FROM conocimientos_usuario WHERE category_id=$1";
         const resultado = await this.client.query(queryStr, [category_id]);
