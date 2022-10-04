@@ -45,11 +45,11 @@ export default function SingleKnowHow({ matches }) {
 
   useEffect(() => {
     axios
-      .get("/db/2dataList.json")
+      .get("https://ayni-project.herokuapp.com/knowledge")
       .then((res) => {
-        setGetknowledge(res.data.results);
-        setKnowledgeCategory(res.data.results);
-        console.log(res.data.results);
+        setGetknowledge(res.data);
+        setKnowledgeCategory(res.data);
+        console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -64,7 +64,7 @@ export default function SingleKnowHow({ matches }) {
     setKnowledgeCategory(getKnowledge);
     if (category !== "all")
       setKnowledgeCategory(
-        getKnowledge.filter((knows) => knows.categoria === category)
+        getKnowledge.filter((knows) => knows.categoria_id === category)
       );
     console.log("mostrando lista", KnowledgeCategory);
   }
@@ -95,7 +95,15 @@ export default function SingleKnowHow({ matches }) {
           sx={{ borderRadius: 2, boxShadow: 2, height: "390px", width: "20%" }}
         >
           <nav aria-label="main category page">
-            <List>
+            <List>            
+            <ListItem disablePadding>
+                <ListItemButton onClick={() => searchByCategory("all")}>
+                  <ListItemIcon>
+                    <KeyboardDoubleArrowRightIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Todas las categorías" />
+                </ListItemButton>
+              </ListItem>
               <ListItem disablePadding>
                 <ListItemButton onClick={() => searchByCategory("all")}>
                   <ListItemIcon>
@@ -106,7 +114,7 @@ export default function SingleKnowHow({ matches }) {
               </ListItem>
               <ListItem disablePadding>
                 <ListItemButton
-                  onClick={() => searchByCategory("programación")}
+                  onClick={() => searchByCategory(1)}
                 >
                   <ListItemIcon>
                     <KeyboardDoubleArrowRightIcon />
@@ -115,7 +123,7 @@ export default function SingleKnowHow({ matches }) {
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
-                <ListItemButton onClick={() => searchByCategory("tecnologia")}>
+                <ListItemButton onClick={() => searchByCategory(2)}>
                   <ListItemIcon>
                     <KeyboardDoubleArrowRightIcon />
                   </ListItemIcon>
@@ -123,7 +131,7 @@ export default function SingleKnowHow({ matches }) {
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
-                <ListItemButton onClick={() => searchByCategory("musica")}>
+                <ListItemButton onClick={() => searchByCategory(3)}>
                   <ListItemIcon>
                     <KeyboardDoubleArrowRightIcon />
                   </ListItemIcon>
@@ -139,7 +147,7 @@ export default function SingleKnowHow({ matches }) {
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
-                <ListItemButton onClick={() => searchByCategory("idiomas")}>
+                <ListItemButton onClick={() => searchByCategory(4)}>
                   <ListItemIcon>
                     <KeyboardDoubleArrowRightIcon />
                   </ListItemIcon>
@@ -147,7 +155,7 @@ export default function SingleKnowHow({ matches }) {
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
-                <ListItemButton onClick={() => searchByCategory("cocina")}>
+                <ListItemButton onClick={() => searchByCategory(5)}>
                   <ListItemIcon>
                     <KeyboardDoubleArrowRightIcon />
                   </ListItemIcon>
@@ -155,7 +163,7 @@ export default function SingleKnowHow({ matches }) {
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
-                <ListItemButton onClick={() => searchByCategory("arte")}>
+                <ListItemButton onClick={() => searchByCategory(6)}>
                   <ListItemIcon>
                     <KeyboardDoubleArrowRightIcon />
                   </ListItemIcon>
@@ -163,7 +171,7 @@ export default function SingleKnowHow({ matches }) {
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
-                <ListItemButton onClick={() => searchByCategory("mas")}>
+                <ListItemButton onClick={() => searchByCategory(7)}>
                   <ListItemIcon>
                     <KeyboardDoubleArrowRightIcon />
                   </ListItemIcon>
@@ -190,7 +198,7 @@ export default function SingleKnowHow({ matches }) {
                     <Card sx={{ maxWidth: 345, mb: 5, height: 370 }}>
                       <CardActionArea>
                         <CardMedia>
-                          <ExchangeImage src={knows.foto} />
+                          <ExchangeImage src={knows.imagen} />
                         </CardMedia>
                         <CardContent>
                           <ExchangeMetaWrapper>

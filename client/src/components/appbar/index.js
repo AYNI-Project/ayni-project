@@ -4,6 +4,7 @@ import AppbarMobile from "./AppbarMobile";
 import AppbarDesktop from "./AppbarDesktop";
 import "@fontsource/poppins";
 import SearchBar from "../searchBar/SearchBar";
+import { UIProvider } from '../../context/indexUi';
 
 
 
@@ -13,13 +14,14 @@ export default function Appbar() {
 
   return (
     <>
-      
+         <UIProvider>
       {matches ? (
-        <AppbarMobile matches={matches} />
+        <AppbarMobile position="static" matches={matches} />
       )  : (
-        <AppbarDesktop matches={matches} />
+        <AppbarDesktop position="static" matches={matches} />
       )}
        <SearchBar />
+       </UIProvider>
     </>
   );
 }

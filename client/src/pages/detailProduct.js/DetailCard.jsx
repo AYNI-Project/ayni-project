@@ -1,4 +1,4 @@
-import IconBreadcrumbs from "./BreadCrumbs";
+import BreadcrumbsDetail from "./BreadcrumbsDetail";
 import {
   Box,
   Avatar,
@@ -7,6 +7,15 @@ import {
   Rating,
   Button,
   Chip,
+  Modal,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  ListItemText,
+  List,
+  ListItem,
 } from "@mui/material";
 import React from "react";
 import StarIcon from "@mui/icons-material/Star";
@@ -20,7 +29,7 @@ import {
 } from "../../styles/KnowHow";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -28,7 +37,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import { Colors } from "../../styles/theme";
-
+import DialogDetail from "./DialogDetail";
 const labels = {
   0.5: "Useless",
   1: "Useless+",
@@ -51,7 +60,7 @@ const ProductDetailInfoWrapper = styled(Box)(() => ({
   display: "flex",
   flexDirection: "column",
   paddingLeft: "30px",
- 
+
   width: "50%",
   lineHeight: 1.5,
 }));
@@ -65,7 +74,6 @@ const DetailImage = styled("img")(({ src, theme }) => ({
   borderRadius: "25px",
   justifyContent: "center",
   alignItems: "center",
- 
 
   [theme.breakpoints.down("md")]: {
     width: "300px",
@@ -76,23 +84,41 @@ const DetailImage = styled("img")(({ src, theme }) => ({
   },
 }));
 
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 export default function DetailCard(results) {
   const value = 3.5;
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Box>
       <Appbar />
-      <IconBreadcrumbs />
+    <BreadcrumbsDetail />
       <ProductDetailWrapper
         bgcolor="lightblue"
         display={"flex"}
-        flexDirection={matches ? "column" : "row"}>
-        <Exchange
-          bgcolor="red" sx={{ width: "20%", marginLeft:"30%"}}
-          >
-          <DetailImage src="https://cdn.pixabay.com/photo/2015/02/09/14/31/blonde-629726_960_720.jpg" sx={{width:"20px"}}/>
+        flexDirection={matches ? "column" : "row"}
+      >
+        <Exchange bgcolor="red" sx={{ width: "20%", marginLeft: "30%" }}>
+          <DetailImage
+            src="https://cdn.pixabay.com/photo/2015/02/09/14/31/blonde-629726_960_720.jpg"
+            sx={{ width: "20px" }}
+          />
         </Exchange>
         {/*  information wrapper  */}
 
@@ -105,7 +131,7 @@ export default function DetailCard(results) {
             />
             <Stack>
               <Typography sx={{ fontFamily: "Poppins" }} variant="h4">
-                {results.titulo} 
+                {results.titulo}
               </Typography>
 
               <Rating
@@ -129,24 +155,21 @@ export default function DetailCard(results) {
             color="secondary"
             variant="h4"
           >
-            {results.titulo} 
+            {results.titulo}
           </Typography>
 
-          <Typography variant="body">
-            {results.descripcion}
-          </Typography>
+          <Typography variant="body">{results.descripcion}</Typography>
           <Box
             sx={{ mt: 4 }}
             display="flex"
             alignItems="center"
             justifyContent="space-between"
           >
-            <Button
-              variant="contained"
-              sx={{ fontFamily: "Poppins", color: "white" }}
-            >
-              Quiero Trueque
-            </Button>
+            <>
+            
+            <DialogDetail />
+            
+            </>
           </Box>
           <Stack
             direction="row"
@@ -158,7 +181,7 @@ export default function DetailCard(results) {
             <Chip label="primary" color="secondary" variant="outlined" />
             <Chip label="success" color="secondary" variant="outlined" />
           </Stack>
-
+          
           <Box
             display="flex"
             alignItems="center"
