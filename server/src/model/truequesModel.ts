@@ -2,6 +2,7 @@ import { connection } from "../services/database.service";
 import { Pool } from "pg";
 import iTrueque from "./interfaces/iTrueque";
 import { validateLocaleAndSetLanguage } from "typescript";
+import { iUsuario } from "./interfaces/iUsuario";
 
 class Trueques {
     client: Pool;

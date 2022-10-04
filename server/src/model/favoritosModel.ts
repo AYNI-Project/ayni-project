@@ -8,22 +8,22 @@ class Favorito {
         this.client = client;
     }
     //obtener todos mis favoritos
-    async getMyFavoritos() {
-        const queryStr = "SELECT * FROM favoritos WHERE id = $1";
-        const resultado = await this.client.query(queryStr);
+    async getMyFavoritos(usuario:number){
+        const queryStr = "SELECT * FROM favoritos WHERE usuario_id = $1";
+        const resultado = await this.client.query(queryStr,[usuario]);
         return resultado.rows;
     }
     //obtener un favorito en concreto
-    async getUnFavorito(id_favorito: iFavorito) {
-        const queryStr = "SELECT * FROM favoritos WHERE id_favorito=$1";
+    async getUnFavorito(id_favorito: number) {
+        const queryStr = "SELECT * FROM favoritos WHERE id_favoritos=$1";
         const resultado = await this.client.query(queryStr, [id_favorito]);
         return resultado.rows[0];
     }
     // añadir favorito
-    async addFavorito(id_favorito: iFavorito) {
+    async addFavorito(favorito: iFavorito) {
         const queryStr =
-            "INSERT INTO favoritos FROM (SELECT usuario_id from usuarios) returning * favoritos";
-        const resultado: any = await this.client.query(queryStr, [id_favorito]);
+        "INSERT INTO favoritos(conocimiento_usuario_id, usuario_id) VALUES ($1, $2) returning *";
+        const resultado: any = await this.client.query(queryStr, [favorito.conocimientos_usuario_id, favorito.usuario_id]);
         return resultado.rows[0];
     }
     //eliminar favorito

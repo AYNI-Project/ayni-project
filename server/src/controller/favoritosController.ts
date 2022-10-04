@@ -4,7 +4,8 @@ import iFavoritos from "../model/interfaces/iFavorito";
 
 const favoritosController = {
     getMyFavoritos: async (req: Request, res: Response) => {
-        const categorias: any = await favoritosModel.getMyFavoritos();
+        const param: any = req.params["usuario"];
+        const categorias: any = await favoritosModel.getMyFavoritos(param);
         res.json(categorias);
     },
 
