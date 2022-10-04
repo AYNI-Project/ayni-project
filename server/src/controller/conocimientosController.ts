@@ -13,7 +13,6 @@ const conocimientosController = {
         const conocimientos: any = await conocimientosModel.getUnConocimiento(param);
         res.json(conocimientos);
     },
-
     addConocimiento: async (req: Request, res: Response) => {
         try {
             const {
@@ -48,7 +47,6 @@ const conocimientosController = {
             });
         }
     },
-
     editConocimiento: async (req: Request, res: Response) => {
         try {
             const id: any = req.params.id;

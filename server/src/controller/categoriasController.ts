@@ -21,7 +21,6 @@ const categoriasController = {
                 imagen,
                 ...categorias
             }: iCategoria = req.body;
-
             if (
                 !nombre
             )

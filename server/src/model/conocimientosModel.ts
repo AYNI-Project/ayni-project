@@ -7,17 +7,19 @@ class Conocimiento {
     constructor(client: any) {
         this.client = client;
     }
+    //obtener toda lista de conocimientos
     async getConocimientos() {
         const queryStr = "SELECT * FROM conocimientos_usuario";
         const resultado = await this.client.query(queryStr);
         return resultado.rows;
     }
-    async getUnConocimiento(id_conocimientos_usuario: any) {
+    //obtener un conocimiento
+    async getUnConocimiento(id_conocimientos_usuario: iConocimiento) {
         const queryStr = "SELECT * FROM conocimientos_usuario WHERE id_conocimientos_iusuario=$1";
         const resultado = await this.client.query(queryStr, [id_conocimientos_usuario]);
         return resultado.rows[0];
     }
-    // añadir experiencia
+    // añadir conocimiento nuevo
     async addConocimiento(id_conocimientos_usuario: iConocimiento) {
         const queryStr =
             "INSERT INTO conocimientos_usuario (titulo, descripcion, imagen, estado) VALUES ($1, $2, $3, $4) returning *";
@@ -31,7 +33,7 @@ class Conocimiento {
 
         return resultado.rows[0];
     }
-    //editar Conocimiento
+    //editar un conocimiento
     async editConocimiento(id_conocimientos_usuario: any, body: iConocimiento) {
         const {
             titulo,
@@ -54,7 +56,7 @@ class Conocimiento {
         return resultado.rows[0];
     }
 
-    //eliminar conocimiento_usuario
+    //eliminar conocimiento
     async deleteConocimiento(id_conocimientos_usuario: any) {
         const queryStr =
             "DELETE FROM conocimientos_usuario WHERE id_conocimientos_usuario = $1 returning *";

@@ -5,13 +5,14 @@ export interface iUsuariologin {
 
 export interface iUsuario {
     id_usuario?: number;
-    foto: string;
+    foto?: string;
     nombre: string;
     apellidos: string;
-    ciudad: string;
+    ciudad?: string;
     sobre_mi?: string;
     email: string;
-    password?: string;
-    telefono?: number;
-    opiniones: string;
+    password: string;
+    telefono: number;
+    rol: string;
+    opiniones?: string;
 }

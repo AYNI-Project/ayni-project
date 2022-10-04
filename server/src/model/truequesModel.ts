@@ -1,12 +1,14 @@
 import { connection } from "../services/database.service";
 import { Pool } from "pg";
+import iTrueque from "./interfaces/iTrueque";
+import { validateLocaleAndSetLanguage } from "typescript";
 
 class Trueques {
     client: Pool;
     constructor(client: any) {
         this.client = client;
     }
-
+    // obtener todos los trueques de la base de datos
     async getTrueques() {
         try {
             const queryStr = "SELECT * FROM trueques";
@@ -16,27 +18,62 @@ class Trueques {
             console.log(error);
         }
     }
+    // cuando usuario A envia petición de trueque al usuario B
+    async sendInterest(trueque: iTrueque) {
+        try {
+            const queryStr =
+                'INSERT INTO "trueques" (conocimiento1_usuario_id, conocimiento2_usuario_id, estado) VALUES($1,$2,$3) RETURNING *';
+            const values = [
+                trueque.conocimiento1_usuario_id,
+                trueque.conocimiento2_usuario_id,
+                "pendiente"
+            ];
+            const resultado = await this.client.query(queryStr, values);
+            return resultado.rows[0];
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    // cuando usuario A inicia sesión se le muestra el total de peticiones de trueques pendientes a aceptar o rechazar
+    async getPendingTrueques(trueque: iTrueque) {
+        try {
+            const queryStr =
+                'SELECT * from "trueques" WHERE conocimiento1_usuario_id IN (SELECT id_conocimientos_usuario from "conocimientos_usuario" where usuario_id = 1)';
 
-    // async getUnUsuario(usuarios: iUsuariologin) {
+            const resultado = await this.client.query(queryStr);
+            console.log(resultado)
+            return resultado.rows[0];
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    // //crear el trueque
+    // async createTrueque(trueque: iTrueque) {
     //     try {
-    //         const queryStr = "SELECT * FROM usuarios WHERE email = $1";
-    //         const values = [usuarios.email];
-    //         const resultado = await this.client.query(queryStr, values);
+    //         const queryStr =
+    //             "INSERT INTO trueques (conocimiento1_usuario_id, conocimiento2_usuario_id,estado) VALUES ($1, $2, $3) returning *";
+
+    //         const values = [
+    //             trueque.conocimiento1_usuario_id,
+    //             trueque.conocimiento2_usuario_id,
+    //             trueque.estado || null,
+    //         ];
+
+    //         const resultado: any = await this.client.query(queryStr, values);
     //         return resultado.rows[0];
     //     } catch (error) {
     //         console.log(error);
     //     }
     // }
-
-    // async addUsuario(usuarios: iUsuario) {
+    // //cambiar estado de pendiente a aceptado o rechazado
+    // async updateTrueque(trueque: iTrueque) {
     //     try {
     //         const queryStr =
-    //             'INSERT INTO "usuarios"(email, password, nombre, apellidos) VALUES($1,$2, $3, $4) RETURNING *';
+    //             'UPDATE trueques SET estado = $1 WHERE id_trueque =1 returning *';
     //         const values = [
-    //             usuarios.email,
-    //             usuarios.password,
-    //             usuarios.nombre,
-    //             usuarios.apellidos || null,
+    //             trueque.conocimiento1_usuario_id,
+    //             trueque.conocimiento2_usuario_id,
+    //             "aceptado" || "rechazado"
     //         ];
     //         const resultado = await this.client.query(queryStr, values);
     //         return resultado.rows[0];
@@ -44,50 +81,6 @@ class Trueques {
     //         console.log(error);
     //     }
     // }
-
-    // async loginUsuario(usuarios: iUsuariologin) {
-    //     try {
-    //         const queryStr = "SELECT * FROM usuarios WHERE email = $1";
-    //         const resultado = await this.client.query(queryStr, [
-    //             usuarios.email,
-    //             usuarios.password,
-    //         ]);
-    //         console.log(resultado.rows);
-    //         return resultado.rows[0];
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-    // async editUsuario(usuarios: iUsuario, id_usuario: any) {
-    //     try {
-    //         const queryStr =
-    //             "UPDATE usuarios SET (foto, nombre, apellidos, ciudad, sobre_mi, email, password, telefono, opiniones) =($1,$2,$3,$4,$5,$6,$7,$8,$9) WHERE id_usuario=$10 returning *";
-    //         const resultado = await this.client.query(queryStr, [
-    //             usuarios.foto,
-    //             usuarios.nombre,
-    //             usuarios.apellidos,
-    //             usuarios.ciudad,
-    //             usuarios.sobre_mi,
-    //             usuarios.email,
-    //             usuarios.password,
-    //             usuarios.telefono,
-    //             usuarios.opiniones,
-    //             id_usuario,
-    //         ]);
-    //         console.log(resultado.rows);
-    //         return resultado.rows[0];
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-    // //eliminar usuario
-    // async deleteUsuario(id_usuario: number) {
-    //     const queryStr =
-    //         "DELETE FROM usuarios WHERE id_usuario = $1 returning *";
-
-    //     const resultado: any = await this.client.query(queryStr, [id_usuario]);
-
-    //     return resultado.rows[0];
-    // }
 }
+
 export default new Trueques(connection());
