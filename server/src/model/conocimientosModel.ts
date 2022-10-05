@@ -29,13 +29,15 @@ class Conocimiento {
     // añadir conocimiento nuevo
     async addConocimiento(id_conocimientos_usuario: iConocimiento) {
         const queryStr =
-            "INSERT INTO conocimientos_usuario (titulo, descripcion, imagen, estado) VALUES ($1, $2, $3, $4) returning *";
+            "INSERT INTO conocimientos_usuario ( titulo, descripcion, imagen, estado, categoria_id,usuario_id) VALUES ($1, $2, $3, $4, $5, $6) returning *";
 
         const resultado: any = await this.client.query(queryStr, [
+            id_conocimientos_usuario.usuario_id,
             id_conocimientos_usuario.titulo,
             id_conocimientos_usuario.descripcion,
             id_conocimientos_usuario.imagen,
             id_conocimientos_usuario.estado,
+            id_conocimientos_usuario.categoria_id,
         ] as string[]);
 
         return resultado.rows[0];

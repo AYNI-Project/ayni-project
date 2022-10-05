@@ -3,10 +3,12 @@ import { LeftContent, RightContent, Subtitle, View } from '../../styles/auth';
 import { FaQtitle, FaQBox, FaQparraf } from '../../styles/footer';
 import Footer from "../../components/footer/Footer";
 import { Box } from '@mui/system';
+import Appbar from "../../components/appbar/index";
 
 export default function Faq() {
   return (
     <>
+    <Appbar />
       <View sx={{ display: "flex", flexDirection: "column", marginBottom: "10px" }}>
         <Subtitle sx={{ marginTop: "50px" }}>
           Preguntas frecuentes

@@ -1,17 +1,21 @@
 import { LeftContent, LoginImage, LogoAyni, RightContent, View, Text, Subtitle, SmallBox, MIcon } from '../../styles/auth';
 import Footer from "../../components/footer/Footer";
 import { Link } from "react-router-dom";
+import biglogoAyni from "../../assets/banner/biglogoAyni.png"
+import Appbar from "../../components/appbar/index";
+
 
 export default function About() {
   return (
     <>
+    <Appbar />
       <View>
         <LeftContent>
           <Subtitle>Misión, Visión y Valores</Subtitle>
-          <LoginImage src="./images/banner/boho.jpg" />
+          
         </LeftContent>
         <RightContent sx={{ justifyContent: "center", textAlign: "center" }}>
-          <Link to="/"><LogoAyni src="./images/banner/2.png" alt="logo-Ayni" /></Link>
+          <Link to="/"><LogoAyni src={biglogoAyni}alt="logo-Ayni" /></Link>
           <Text>
             <br /> <br />
             AYNI, proviene del quechua y significa <i>"reciprocidad"</i> o <i>"mutualismo"</i>.

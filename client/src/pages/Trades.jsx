@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Button, Card, CardActions, CardContent, Typography } from '@mui/material';
 import { View, Subtitle } from "../styles/auth/index";
+import Appbar from "../components/appbar";
 
 export default function Trades() {
 
@@ -27,6 +28,7 @@ export default function Trades() {
 
     return (
         <View>
+            <Appbar />
             <Box>
                 <Subtitle>
                     ¡Tienes solicitudes pendientes!

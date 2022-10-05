@@ -29,7 +29,7 @@ export default function Profile() {
 
     return (
         <>
-            <Appbar />
+          <Appbar />
             <View>
                 <LeftContent>
                     {getUser.map((user, index) => (

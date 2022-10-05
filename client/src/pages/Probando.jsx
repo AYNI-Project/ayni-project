@@ -22,7 +22,7 @@ import { useState } from 'react'
 import axios from "axios";
 import { useHistory } from 'react-router-dom';
 
-function UploadProduct() {
+function Probando() {
 
 
     // const [title, setTitle] = useState('');
@@ -94,7 +94,7 @@ function UploadProduct() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-           
+                <AddPhotoAlternateOutlinedIcon sx={{ fontSize: "large"}} />
                   <TextField
                     label="Descripción"
                     multiline
@@ -160,5 +160,4 @@ function UploadProduct() {
   );
 }
 
-export default UploadProduct;
-
+export default Probando;

@@ -14,6 +14,7 @@ import UploadProduct from "../../pages/UploadProduct";
 import About from "../../pages/footer/About";
 import Contact from "../../pages/footer/Contact";
 import Faq from "../../pages/footer/Faq";
+import Probando from "../../pages/Probando";
 
 export default function AppRoutes() {
     return (
@@ -24,6 +25,7 @@ export default function AppRoutes() {
             <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
             <Route path="/knowledge" element={<ProtectedRoute><KnowHow /></ProtectedRoute>} />
+            <Route path="/probando" element={<ProtectedRoute><Probando/></ProtectedRoute>} />
             <Route path="/knowledge/:id_categoria" element={<ProtectedRoute><KnowHow /></ProtectedRoute>} />
             <Route path="/knowledge/detail/:id" element={<ProtectedRoute><DetailProduct /></ProtectedRoute>} />
             <Route path="/knowledge/upload" element={<ProtectedRoute><UploadProduct /></ProtectedRoute>} />

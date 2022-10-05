@@ -44,12 +44,12 @@ export const RightContent = styled(Box)(({ theme }) => ({
 
 export const LogoAyni = styled("img")(({ src, theme }) => ({
   src: `url(${src})`,
-  width: "20em",
+  width: "30em",
   [theme.breakpoints.down("md")]: {
-    width: "15em",
+    width: "30em",
   },
   [theme.breakpoints.down("sm")]: {
-    width: "5em",
+    width: "18em",
   },
 }));
 

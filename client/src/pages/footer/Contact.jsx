@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { LeftContent, RightContent, Subtitle, View, Text, LoginImage, XForm, FormDiv, InputForm, } from '../../styles/auth';
 import Footer from "../../components/footer/Footer";
-
+import FAQ from "../../assets/banner/FAQ.png"
 export default function Contact() {
 
     const [status, setStatus] = useState("Enviar");
@@ -36,15 +36,17 @@ export default function Contact() {
         <>
         <View>
             <LeftContent>
-                <Subtitle>¡Aquí estamos!</Subtitle>
+            <LoginImage sx={{maxHeight:"600px"}} src={FAQ} alt="red of people" />
+            <Subtitle>¡Aquí estamos!</Subtitle>
+               
                 <Box sx={{ m: 2 }}>
                     <strong>Barcelona</strong><br></br>Avinguda Bogatell, 82 <br></br>08005 Barcelona<br></br>
                     <a href='info@factoriaf5.org'>info@factoriaf5.org</a>
                 </Box>
-                <LoginImage src="./images/banner/post-sign.png" alt="poste direcciones" />
+                
             </LeftContent>
             <RightContent sx={{ justifyContent: "center", textAlign: "center" }}>
-                <Text sx={{ paddingBottom: "5px" }}>
+                <Text sx={{ paddingBottom: "5px", fontWeight:800 }}>
                     Si necesitas más información, rellena el siguiente formulario de contacto y te responderemos lo antes posible.
                 </Text>
                 <XForm component="form" onSubmit={handleSubmit} sx={{ width: "450px", justifyContent: "center" }}>

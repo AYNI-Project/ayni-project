@@ -17,9 +17,9 @@ export default function Appbar() {
     <>
          <UIProvider>
       {matches ? (
-        <AppbarMobile position="sticky" matches={matches} />
+        <AppbarMobile  sx={{ position: "relative" }}matches={matches} />
       )  : (
-        <AppbarDesktop position="sticky" matches={matches} />
+        <AppbarDesktop  sx={{ position: "relative" }} matches={matches} />
       )}
        <SearchBar />
        <AppMenu />       

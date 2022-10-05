@@ -9,6 +9,7 @@ import SearchBar from '../components/searchBar/SearchBar';
 import AppMenu from '../components/drawer/Drawer';
 import "@fontsource/poppins";
 import Categories from '../components/categories';
+import Trades from "../pages/Trades";
 
 export default function Home() {
 
@@ -26,6 +27,7 @@ export default function Home() {
         <Categories />
         <Footer />
         <AppMenu />
+   
       </UIProvider>
     </Container>
   );

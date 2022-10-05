@@ -33,7 +33,7 @@ export default function Banner() {
         Significa 'Reciprocidad'. <br></br> Compartamos conocimientos entre
           compañeros.<br></br>“Hoy por ti, mañana por mi.”
         </BannerDescription>
-        <Link to="/knowledge" sx={{textDecoration:"none"}}>
+        <Link to="/knowledge/upload" sx={{textDecoration:"none"}}>
         <BannerButton color="primary" >Busca trueques</BannerButton>
         </Link>
 

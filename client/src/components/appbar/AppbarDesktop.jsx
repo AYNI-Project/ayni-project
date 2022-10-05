@@ -25,7 +25,7 @@ export default function AppbarDesktop({ matches }) {
   const navigate = useNavigate();
 
   const navigateToUploadProduct = () => {
-    navigate("/uploadProduct");
+    navigate("/knowledge/upload");
   };
   //searchBar style appears
 

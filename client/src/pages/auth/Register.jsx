@@ -39,9 +39,9 @@ export default function Register() {
   return (
     <View>
       <LeftContent>
-        <Link to="/"><LogoAyni src="./images/banner/2.png" alt="logo-Ayni" /></Link>
+        <Link to="/"><LogoAyni src= "../../assets/banner/biglogoAyni.png" alt="logo-Ayni" /></Link>
         <Text>Registra y rellena los datos del nuevo usuario.</Text>
-        <LoginImage src="./images/banner/post-sign.png" alt="poste direcciones" />
+        
       </LeftContent>
       <RightContent>
         <Subtitle>Registro de usuarios</Subtitle>

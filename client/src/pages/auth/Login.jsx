@@ -3,7 +3,10 @@ import { useAuth } from "../../context/useAuth";
 import { useNavigate, Link } from "react-router-dom";
 import Alert from "../../components/reusables/Alert";
 import { Box } from '@mui/material';
-import { View, LogoAyni, LeftContent, RightContent, LoginImage, Text, XForm, InputForm, FormDiv, Subtitle, SmallText } from "../../styles/auth";
+import { View, LogoAyni, LeftContent, RightContent, LoginImage, Text, XForm, InputForm, FormDiv, Subtitle, SmallText, SmallBox } from "../../styles/auth";
+import loginBannerAyni from "../../assets/banner/loginBannerAyni.png"
+
+
 
 export default function Login() {
 
@@ -49,9 +52,9 @@ export default function Login() {
   return (
     <View>
       <LeftContent>
-        <LogoAyni src="../images/banner/2.png" alt="logo-Ayni" />
+        <LogoAyni src={loginBannerAyni} alt="logo-Ayni" />
         <Text>Entra y comienza a intercambiar con nuestra comunidad.</Text>
-        <LoginImage src="../images/banner/post-sign.png" alt="poste direcciones" />
+ 
       </LeftContent>
       <RightContent>
         <Subtitle>Inicia Sesión</Subtitle>
@@ -79,9 +82,11 @@ export default function Login() {
             Inicia Sesión
           </button>
         </XForm>
+    
         <SmallText>
           No tienes cuenta todavía? <Link to="/contact">Contacta con Factoria F5</Link>
         </SmallText>
+        
       </RightContent>
     </View>
   );
