@@ -1,2 +1,8 @@
-node_modules
+/node_modules
+.gitignore
 .env
+/*.env
+babel.config.js
+package-lock.json
+package.json
+tsconfig.json
