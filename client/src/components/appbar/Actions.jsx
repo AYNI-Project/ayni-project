@@ -34,10 +34,13 @@ export default function Actions({ matches }) {
     } catch (error) {}
   };
   const navigateToProfile = () => {
-    navigate("/profile/");
+    navigate("/profile/edit/:id");
   };
   const navigateToFavorite = () => {
     navigate("/favorites");
+  };
+  const navigateToTrades = () => {
+    navigate("/pending-trades");
   };
 
   return (
@@ -55,7 +58,7 @@ export default function Actions({ matches }) {
               color: matches && Colors.secondary,
             }}
           >
-            <EmailIcon color='secondary'/>
+            <EmailIcon color='secondary'onClick={navigateToTrades}/>
           </ListItemIcon>
         </ListItemButton>
         <ListItemButton

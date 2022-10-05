@@ -19,31 +19,24 @@ export default function Banner() {
 
   return (
 
-    <BannerContainer
-      >
-      
+    <BannerContainer>
       <BannerContent >
-        <Typography variant="h6" sx={{fontFamily:"Krona One"}} >Ayni </Typography>
+        <Typography variant="h6" sx={{fontFamily:"Krona One"}}>Ayni</Typography>
         <BannerTitle variant="h2" sx={{fontFamily:"Poppins", fontWeight:600}}>
-        Haciendo 
-        Comunidad
+        Haciendo Comunidad
         </BannerTitle>
 
         <BannerDescription variant="subtitle"  >
         Significa 'Reciprocidad'. <br></br> Compartamos conocimientos entre
           compañeros.<br></br>“Hoy por ti, mañana por mi.”
         </BannerDescription>
-        <Link to="/knowledge/upload" sx={{textDecoration:"none"}}>
+        <Link to="/knowledge/" sx={{textDecoration:"none"}}>
         <BannerButton color="primary" >Busca trueques</BannerButton>
         </Link>
-
-       
       </BannerContent>
-
       <BannerImage
         src="./images/banner/landingAyni.png"
-        alt="people talking"
-      />
+        alt="people talking"/>
     </BannerContainer>
   );
 }

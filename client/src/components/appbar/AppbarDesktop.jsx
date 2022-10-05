@@ -1,10 +1,4 @@
-import {
-  Stack,
-  ListItemButton,
-  ListItemIcon,
-  Button,
-  IconButton,
-} from "@mui/material";
+import {IconButton} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import {
   AppbarContainer,
@@ -17,18 +11,16 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useNavigate } from "react-router-dom";
 import { useUIContext } from "../../context/indexUi";
 import { Link } from "react-router-dom";
-import { styled } from "@mui/material/styles";
 import "@fontsource/poppins";
 
 export default function AppbarDesktop({ matches }) {
+
   const { setShowSearchBox } = useUIContext();
   const navigate = useNavigate();
 
   const navigateToUploadProduct = () => {
     navigate("/knowledge/upload");
   };
-  //searchBar style appears
-
 
   return (
     <AppbarContainer  >
@@ -41,7 +33,6 @@ export default function AppbarDesktop({ matches }) {
           flexDirection: "row",
           justifyContent: "flex-end",
           gap: "5em"
-          
         }}
       >
         <IconButton
@@ -56,13 +47,10 @@ export default function AppbarDesktop({ matches }) {
           variant="contained"
           startIcon={<AddCircleOutlineIcon sx={{ paddingRight: "0.5em" }} />}
           onClick={navigateToUploadProduct}
-        >
-          Agregar trueque
+          className={"bootbtn"}
+        >Agregar trueque
         </BootstrapButton>
-
-        
       </MyList>
-      {/* <Stack direction="row" spacing={2} /> */}
       <Actions matches={matches} />
     </AppbarContainer>
   );

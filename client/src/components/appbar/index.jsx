@@ -7,8 +7,6 @@ import SearchBar from "../searchBar/SearchBar";
 import { UIProvider } from '../../context/indexUi';
 import AppMenu from "../drawer/Drawer";
 
-
-
 export default function Appbar() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
