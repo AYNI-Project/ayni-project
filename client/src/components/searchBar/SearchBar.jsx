@@ -74,10 +74,10 @@ export default function SearchBar() {
 
   useEffect(() => {
     axios
-      .get("/db/2dataList.json")
+      .get("http://localhost:3001/knowledge")
       .then((res) => {
-        setSearch(res.data.results);
-        console.log(res.data.results);
+        setSearch(res.data);
+        console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, []);

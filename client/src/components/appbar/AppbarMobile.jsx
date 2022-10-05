@@ -12,7 +12,7 @@ export default function AppbarMobile({ matches }) {
     const { setDrawerOpen, setShowSearchBox } = useUIContext();
 
     return (
-        <AppbarContainer position="sticky" >
+        <AppbarContainer>
             <IconButton onClick={() => setDrawerOpen(true)}>
                 <MenuIcon />
             </IconButton>

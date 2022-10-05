@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { knowledge } from "../../data/conocimientos";
 import {useNavigate} from "react-router-dom";
@@ -15,7 +16,10 @@ import {
   ListItemText,
   ListItemIcon,
   Stack,
+  Button
 } from "@mui/material";
+
+import { styled } from "@mui/material/styles";
 import {
   Exchange,
   ExchangeImage,
@@ -32,9 +36,29 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "@fontsource/poppins";
 import { Colors } from "../../styles/theme";
-import { LeftContent, RightContent, View } from "../../styles/auth";
+import { Btn} from "../../styles/auth";
+
+const useStyles = styled((theme) => ({
+  container:{ 
+    height: "100vh",
+    color: "white",
+    paddingTop: theme.spacing(10),
+    backgroundColor: theme.palette.primary.main,
+    position: "sticky",
+    top: 0,
+    [theme.breakpoints.up("sm")]: {
+      backgroundColor: "white",
+      color: "#555",
+      border: "1px solid #ece7e7",
+    },
+
+  },
+}));
+
 
 export default function SingleKnowHow({ matches }) {
+  const classes = useStyles();
+  
   //PAGINATION
   //let [pageNumber, setPageNumber] = useState(1)
   const [getKnowledge, setGetKnowledge] = useState([]);
@@ -43,7 +67,9 @@ export default function SingleKnowHow({ matches }) {
   let [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
   //uspeParams para recuperar el id de la categoria
+  
   let { id_categoria } = useParams();
+  
   // const URL =`url`
 
   useEffect(() => {
@@ -58,28 +84,10 @@ export default function SingleKnowHow({ matches }) {
      
     };
     fetchData();
-    /*  axios
-      .get(`http://localhost:3001/knowledge/` )
-      .then((res) => {
-        debugger;
-        //setTimeout(() =>
-       // setGetKnowledge(getKnowledge => getKnowledge.concat(...res.data)),1000)
-       // setKnowledgeCategory(knowledgeCategory => knowledgeCategory.concat(...res.data));
-        console.log(knowledgeCategory)
-        searchByCategory(id_categoria)
-        console.log(knowledgeCategory)
-        // setKnowledgeCategory(res.data);
-        // console.log(res.data);
-      })
-      .catch((err) => console.log(err));*/
+
   }, []);
 
-  // const searchByStepName = (e:string) => {
-  //   setClientsDataSearch(clientsData);
-  //   if(clientsData !== undefined){
-  //           setClientsDataSearch(clientsData.filter((i) => i.workflows[0].steps.find(n => n.stepName === e)));
-  //   }
-  // };
+
   function searchByCategory(category) {
     setKnowledgeCategory(getKnowledge);
     if (category !== "all"){
@@ -111,19 +119,18 @@ export default function SingleKnowHow({ matches }) {
     setFavorites(newFavorites);
   }
   return (
+    <Grid container >
   
-    //<Box  p={2} bgcolor="pink"  >
-    <View>
- 
-        <LeftContent>
+          <Grid item sm={2} md={6}>
+
           <nav aria-label="main category page">
-            <List >
+            <List  >
               <ListItem disablePadding>
                 <ListItemButton onClick={() => searchByCategory("all")}>
                   <ListItemIcon>
                     <KeyboardDoubleArrowRightIcon />
                   </ListItemIcon>
-                  <ListItemText primary="Todas las categorías" />
+                  <ListItemText primary="Todas las categorías" sx={{fontFamily:"Poppins"}}/>
                 </ListItemButton>
               </ListItem>
               
@@ -194,23 +201,24 @@ export default function SingleKnowHow({ matches }) {
             </List>
           </nav>
          
-          </LeftContent>
-
+     
+          </Grid>
     
       
-        <Grid container spacing={2} sx={{maxHeight:"300px"}} bgcolor="red"> 
+        <Grid  container className={classes.container} item
+                xs={2}
+                sm={7}
+                md={3} > 
+        {/* //container spacing={2} sx={{maxHeight:"300px"}} bgcolor="red" */}
          
           {knowledgeCategory.length > 0 ? (
             knowledgeCategory.map((knows) => 
               <Grid
                 key={knows.id_conocimientos_usuario}
-                item
-                xs={6}
-                sm={4}
-                md={3}
+               
               >
-                <Link to="/knowledge/detail">
-                  <Card sx={{ maxWidth: 345, mb: 5, height: 370 }}>
+                <Link to="/knowledge/detail"  >
+                  <Card sx={{ maxWidth: 345, mb: 5, height: 370 }} >
                     <CardActionArea>
                       <CardMedia>
                         <ExchangeImage src={knows.imagen} />
@@ -219,7 +227,7 @@ export default function SingleKnowHow({ matches }) {
                         <ExchangeMetaWrapper>
                           <Typography
                             variant={matches ? "h6" : "h5"}
-                            sx={{ fontFamily: "Poppins", fontWeight: 700 }}
+                            sx={{ fontFamily: "Poppins", fontWeight: 600 }}
                           >
                             {knows.titulo}
                           </Typography>
@@ -228,6 +236,7 @@ export default function SingleKnowHow({ matches }) {
                           </Typography>
                         </ExchangeMetaWrapper>
                       </CardContent>
+                      <Button variant="contained" size="small" color='secondary'  sx={{fontFamily:'Poppins', fontWeight:600, color:"white"}}>Me interesa</Button>
                     </CardActionArea>
                     <ExchangeActionsWrapper>
                       <Stack direction="row">
@@ -258,11 +267,11 @@ export default function SingleKnowHow({ matches }) {
             )
           ) : (
             <>
-              <Typography> "Lo siento, eso que estas buscando seguro aparecerá pronto. :/"</Typography>
+              <Typography sx={{fontFamily:"Poppins", fontWeight:700, marginTop:"15em", marginBotton:"20em"}}> "Lo siento, eso que estas buscando seguro aparecerá pronto. :/"</Typography>
             </>
           )}
         </Grid>
-        
-        </View>
+        </Grid>
+   
   );
 }
