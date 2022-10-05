@@ -1,4 +1,4 @@
-import { LeftContent, LoginImage, LogoAyni, RightContent, View, Text, Subtitle, SmallBox, MIcon } from '../../styles/auth';
+import { LeftContent, LogoAyni, RightContent, View, Text, Subtitle, SmallBox, MIcon } from '../../styles/auth';
 import Footer from "../../components/footer/Footer";
 import { Link } from "react-router-dom";
 import biglogoAyni from "../../assets/banner/biglogoAyni.png"
@@ -12,7 +12,6 @@ export default function About() {
       <View>
         <LeftContent>
           <Subtitle>Misión, Visión y Valores</Subtitle>
-          
         </LeftContent>
         <RightContent sx={{ justifyContent: "center", textAlign: "center" }}>
           <Link to="/"><LogoAyni src={biglogoAyni}alt="logo-Ayni" /></Link>
