@@ -3,14 +3,12 @@ import { Box, Typography, Button } from "@mui/material";
 import "@fontsource/poppins"; 
 import { Colors } from "../../styles/theme";
 
-
 export const BannerContainer = styled(Box) (({theme}) => ({
     display: "flex",
   justifyContent: "center",
   width: "100%",
   height: "100%",
   padding: "0px 0px",
-  //background: Colors.light_gray,
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
     alignItems: "center",
@@ -27,9 +25,6 @@ export const BannerContent = styled(Box)(() => ({
   
 export const BannerImage = styled("img")(({ src, theme }) => ({
     src: `url(${src})`,
-    // backgroundImage: `url(${src})`,
-    // backgroundRepeat: "no-repeat",
-    // backgroundPosition: "center",
     width: "500px",
     [theme.breakpoints.down("md")]: {
       width: "350px",
@@ -49,8 +44,6 @@ export const BannerImage = styled("img")(({ src, theme }) => ({
    
   }));
 
-  
-
   export const BannerDescription = styled(Typography)(({ theme }) => ({
     lineHeight: 1.25,
     letterSpacing: 1.25,
@@ -63,13 +56,10 @@ export const BannerImage = styled("img")(({ src, theme }) => ({
     },
   }));
 
-
   export const BannerButton = styled(Button, {
-    // Configure which props should be forwarded on DOM
     shouldForwardProp: (prop) => prop !== "color",
     name: "MyShopButton",
     slot: "Root",
-    // We are specifying here how the styleOverrides are being applied based on props
     overridesResolver: (props, styles) => [
       styles.root,
       props.color === "primary" && styles.primary,

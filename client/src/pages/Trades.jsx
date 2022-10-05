@@ -29,8 +29,9 @@ export default function Trades() {
         <View>
             <Box>
                 <Subtitle>
-                    ¡Tienes solicitudes pendientes!
+                    Mis trueques
                 </Subtitle>
+                <Typography> ¡Tienes trueques pendientes que aceptar! </Typography>
             </Box>
             {getTrades.map((trade, index) => (
                 <div key={index} className="main-trades">
