@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/ayni-project/static/css/main.70deff7f.css",
+    "main.js": "/ayni-project/static/js/main.8d660319.js",
+    "static/media/poppins-all-400-normal.woff": "/ayni-project/static/media/poppins-all-400-normal.6fbfdac99c274b77fe96.woff",
+    "static/media/FAQ.png": "/ayni-project/static/media/FAQ.0ab6f7345646971c5efa.png",
+    "static/media/loginBannerAyni.png": "/ayni-project/static/media/loginBannerAyni.f4b0f9563ce8a4ee6088.png",
+    "static/media/poppins-devanagari-400-normal.woff2": "/ayni-project/static/media/poppins-devanagari-400-normal.64d5f06ee726edd58ca3.woff2",
+    "static/media/poppins-latin-400-normal.woff2": "/ayni-project/static/media/poppins-latin-400-normal.405055dd680fa1dcdfa2.woff2",
+    "static/media/poppins-latin-ext-400-normal.woff2": "/ayni-project/static/media/poppins-latin-ext-400-normal.4f38b4331448d2313adc.woff2",
+    "index.html": "/ayni-project/index.html",
+    "main.70deff7f.css.map": "/ayni-project/static/css/main.70deff7f.css.map",
+    "main.8d660319.js.map": "/ayni-project/static/js/main.8d660319.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.70deff7f.css",
+    "static/js/main.8d660319.js"
+  ]
+}
