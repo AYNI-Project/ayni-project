@@ -23,7 +23,7 @@ cd \client
 npm install / npm i
 ```
 
-We will visualize the project through "client" y we will run it with:
+We will visualize the project through "client" & we will run it with:
 ```shell
 npm start
 ```
