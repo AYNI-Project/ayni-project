@@ -1,9 +1,10 @@
 # 🤝 AYNI web app
 ### Built with Node.js, React.js, Postgres, Firebase & Material-UI
 
+## 🚧(Webpage in progress)🚧
+
 ## How to quickly try it?
 
-👉 The project is hosted on Firebase: https://ayni-f5.web.app/<br/>
 👉 Database on Heroku: https://ayni-project.herokuapp.com/
 
 💡 If you don't want to go through the sign-up process, here are a few login credentials you can use:
