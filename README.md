@@ -1,19 +1,40 @@
 # 🤝 AYNI web app
 ### Built with Node.js, React.js, Postgres, Firebase & Material-UI
 
+🚧--IN PROGRESS--🚧 <br>
+We invite you to check our code or download the project. 
+
 ## How to quickly try it?
 
-👉 The project is hosted on Firebase: https://ayni-f5.web.app/<br/>
-👉 Database on Heroku: https://ayni-project.herokuapp.com/
+### Installation
 
-💡 If you don't want to go through the sign-up process, here are a few login credentials you can use:
+We recommend you to use Visual Studio Code or any other code editor.
+
+* Node.js installed is needed to proceed: [Click here to download](https://nodejs.org/en/download/)
+
+Clone the repository:
+```shell
+git clone https://github.com/AYNI-Project/ayni-project
+```
+
+Install Node Package Manager and Open the terminal:
+```shell
+cd \client
+npm install / npm i
+```
+
+We will visualize the project through "client" y we will run it with:
+```shell
+npm start
+```
+
+💡 Here is a login credential you can use:
 ```
 * test@test.com // 123456
 ```
-## Snaps
 
-<img src="/public/images/ayni-login.JPG"  width= 500px/>
-<img src="/public/images/ayni-home.JPG"  width= 500px/>
+## Some snapshots of our web app
+
 
 ## The stack
 ### Back
@@ -30,6 +51,7 @@
 * 🗓 Planning the project and user stories on Trello : https://trello.com/b/cpEoZolB/ayni
 * 🗄 Designing the database on : https://drawsql.app/teams/ayny/diagrams/ayny
 * 🎨 Designing simple wireframes on Figma : https://www.figma.com/file/u0iQB27T6krkKmeSfgGJ1r/AYNI
+* 👉 Database on Heroku: https://ayni-project.herokuapp.com/
 
 ## Credits
 
