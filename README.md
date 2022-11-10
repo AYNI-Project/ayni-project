@@ -10,6 +10,10 @@
 ```
 * test@test.com // 123456
 ```
+## Snaps
+
+<img src="/public/images/ayni-login.JPG"  width= 500px/>
+<img src="/public/images/ayni-home.JPG"  width= 500px/>
 
 ## The stack
 ### Back
