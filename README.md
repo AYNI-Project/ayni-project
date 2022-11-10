@@ -34,7 +34,8 @@ npm start
 ```
 
 ## Some snapshots of our web app
-
+<img src="client/public/images/ayni-login.JPG"  width= 500px/>
+<img src="client/public/images/ayni-home.JPG"  width= 500px/>
 
 ## The stack
 ### Back
