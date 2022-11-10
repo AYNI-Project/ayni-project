@@ -1,8 +1,9 @@
-# 🤝 AYNI web app
+# 🤝 AYNI web app  
 ### Built with Node.js, React.js, Postgres, Firebase & Material-UI
 
-🚧--IN PROGRESS--🚧 <br>
-We invite you to check our code or download the project. 
+### 🚧 IN PROGRESS 🚧<br>
+We invite you to check our code or download the project. We are migrating our database from Heroku to another hosting.<br>
+Thank you for your patience!
 
 ## How to quickly try it?
 
